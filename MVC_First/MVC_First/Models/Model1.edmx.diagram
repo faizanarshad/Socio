@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="b7b993b743c34aa8a0fcca01cd8d7008" Name="Diagram1">
+        <EntityTypeShape EntityType="pucitdbModel.Announcement" Width="1.5" PointX="9.75" PointY="1.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="pucitdbModel.assignment" Width="1.5" PointX="3" PointY="15.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="pucitdbModel.assignmentResult" Width="1.5" PointX="11.25" PointY="22.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="pucitdbModel.attendance" Width="1.5" PointX="6" PointY="15.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="pucitdbModel.attendance1" Width="1.5" PointX="3" PointY="11.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="pucitdbModel.comment" Width="1.5" PointX="5.25" PointY="1.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="pucitdbModel.cours" Width="1.5" PointX="3" PointY="20.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="pucitdbModel.DateSheet" Width="1.5" PointX="3.75" PointY="5.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="pucitdbModel.group" Width="1.5" PointX="0.75" PointY="1.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="pucitdbModel.Log" Width="1.5" PointX="5.25" PointY="20" IsExpanded="true" />
+        <EntityTypeShape EntityType="pucitdbModel.LogStudent" Width="1.5" PointX="5.75" PointY="5.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="pucitdbModel.LogTeacher" Width="1.5" PointX="8.25" PointY="18.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="pucitdbModel.post" Width="1.5" PointX="3" PointY="1.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="pucitdbModel.question" Width="1.5" PointX="5.25" PointY="24.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="pucitdbModel.quiz" Width="1.5" PointX="8.25" PointY="13.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="pucitdbModel.quizResult" Width="1.5" PointX="10.5" PointY="17.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="pucitdbModel.semester" Width="1.5" PointX="1.5" PointY="5.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="pucitdbModel.student" Width="1.5" PointX="0.75" PointY="8.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="pucitdbModel.teacher" Width="1.5" PointX="0.75" PointY="15.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="pucitdbModel.teacherClass" Width="1.5" PointX="8.25" PointY="22.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="pucitdbModel.user" Width="1.5" PointX="7.5" PointY="1" IsExpanded="true" />
+        <AssociationConnector Association="pucitdbModel.FK_Announcement_ToTable" ManuallyRouted="false" />
+        <AssociationConnector Association="pucitdbModel.FK_assignment_ToTable" ManuallyRouted="false" />
+        <AssociationConnector Association="pucitdbModel.FK_assignment_ToTable_1" ManuallyRouted="false" />
+        <AssociationConnector Association="pucitdbModel.FK_assignmentResult_ToTable" ManuallyRouted="false" />
+        <AssociationConnector Association="pucitdbModel.FK_assignmentResult_ToTable_1" ManuallyRouted="false" />
+        <AssociationConnector Association="pucitdbModel.FK_assignmentResult_ToTable_2" ManuallyRouted="false" />
+        <AssociationConnector Association="pucitdbModel.FK_attendance_ToTable" ManuallyRouted="false" />
+        <AssociationConnector Association="pucitdbModel.FK_attendance_ToTable_1" ManuallyRouted="false" />
+        <AssociationConnector Association="pucitdbModel.FK_attendance_ToTable_2" ManuallyRouted="false" />
+        <AssociationConnector Association="pucitdbModel.FK_attendance1_ToTable" ManuallyRouted="false" />
+        <AssociationConnector Association="pucitdbModel.FK_attendance1_ToTable_1" ManuallyRouted="false" />
+        <AssociationConnector Association="pucitdbModel.FK_attendance1_ToTable_2" ManuallyRouted="false" />
+        <AssociationConnector Association="pucitdbModel.FK_comments_ToTable" ManuallyRouted="false" />
+        <AssociationConnector Association="pucitdbModel.FK_comments_ToTable_1" ManuallyRouted="false" />
+        <AssociationConnector Association="pucitdbModel.FK_log_ToTable_1" ManuallyRouted="false" />
+        <AssociationConnector Association="pucitdbModel.FK_logTeacher_ToTable_1" ManuallyRouted="false" />
+        <AssociationConnector Association="pucitdbModel.FK_question_ToTable" ManuallyRouted="false" />
+        <AssociationConnector Association="pucitdbModel.FK_quiz_ToTable_1" ManuallyRouted="false" />
+        <AssociationConnector Association="pucitdbModel.FK_quizResult_ToTable_2" ManuallyRouted="false" />
+        <AssociationConnector Association="pucitdbModel.FK_teacherClass_ToTable_1" ManuallyRouted="false" />
+        <AssociationConnector Association="pucitdbModel.FK_groups_ToTable" ManuallyRouted="false" />
+        <AssociationConnector Association="pucitdbModel.FK_posts_ToTable_1" ManuallyRouted="false" />
+        <AssociationConnector Association="pucitdbModel.FK_log_ToTable" ManuallyRouted="false" />
+        <AssociationConnector Association="pucitdbModel.FK_log_ToTable_2" ManuallyRouted="false" />
+        <AssociationConnector Association="pucitdbModel.FK_logTeacher_ToTable_2" ManuallyRouted="false" />
+        <AssociationConnector Association="pucitdbModel.FK_posts_ToTable" ManuallyRouted="false" />
+        <AssociationConnector Association="pucitdbModel.FK_quiz_ToTable" ManuallyRouted="false" />
+        <AssociationConnector Association="pucitdbModel.FK_quizResult_ToTable" ManuallyRouted="false" />
+        <AssociationConnector Association="pucitdbModel.FK_quizResult_ToTable_1" ManuallyRouted="false" />
+        <AssociationConnector Association="pucitdbModel.FK_quizResult_ToTable_3" ManuallyRouted="false" />
+        <AssociationConnector Association="pucitdbModel.FK_student_ToTable" ManuallyRouted="false" />
+        <AssociationConnector Association="pucitdbModel.FK_teacherClass_ToTable" ManuallyRouted="false" />
+        <AssociationConnector Association="pucitdbModel.coursesInSemester" ManuallyRouted="false" />
+        <AssociationConnector Association="pucitdbModel.postLike" ManuallyRouted="false" />
+        <AssociationConnector Association="pucitdbModel.studentToCourses" ManuallyRouted="false" />
+        <AssociationConnector Association="pucitdbModel.teacherToCourses" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

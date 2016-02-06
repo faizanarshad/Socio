@@ -1,0 +1,189 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="pucitdbModel3StoreContainer" CdmEntityContainer="PucitDBEntities">
+    <EntitySetMapping Name="Announcements">
+      <EntityTypeMapping TypeName="pucitdbModel3.Announcement">
+        <MappingFragment StoreEntitySet="Announcement">
+          <ScalarProperty Name="announcement_id" ColumnName="announcement_id" />
+          <ScalarProperty Name="audience" ColumnName="audience" />
+          <ScalarProperty Name="status" ColumnName="status" />
+          <ScalarProperty Name="Sender_u_id" ColumnName="Sender_u_id" />
+          <ScalarProperty Name="dateTime" ColumnName="dateTime" />
+          <ScalarProperty Name="attachment" ColumnName="attachment" />
+          <ScalarProperty Name="destination" ColumnName="destination" />
+          <ScalarProperty Name="title" ColumnName="title" />
+          <ScalarProperty Name="mesg_text" ColumnName="mesg_text" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="assignments">
+      <EntityTypeMapping TypeName="pucitdbModel3.assignment">
+        <MappingFragment StoreEntitySet="assignment">
+          <ScalarProperty Name="aid" ColumnName="aid" />
+          <ScalarProperty Name="tid" ColumnName="tid" />
+          <ScalarProperty Name="cid" ColumnName="cid" />
+          <ScalarProperty Name="totalMarks" ColumnName="totalMarks" />
+          <ScalarProperty Name="questionFilePath" ColumnName="questionFilePath" />
+          <ScalarProperty Name="startDate" ColumnName="startDate" />
+          <ScalarProperty Name="endDate" ColumnName="endDate" />
+          <ScalarProperty Name="solutionFilePath" ColumnName="solutionFilePath" />
+          <ScalarProperty Name="aNumber" ColumnName="aNumber" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="assignmentResults">
+      <EntityTypeMapping TypeName="pucitdbModel3.assignmentResult">
+        <MappingFragment StoreEntitySet="assignmentResult">
+          <ScalarProperty Name="aid" ColumnName="aid" />
+          <ScalarProperty Name="sid" ColumnName="sid" />
+          <ScalarProperty Name="cid" ColumnName="cid" />
+          <ScalarProperty Name="totalMarks" ColumnName="totalMarks" />
+          <ScalarProperty Name="marksObtained" ColumnName="marksObtained" />
+          <ScalarProperty Name="outPutFilePath" ColumnName="outPutFilePath" />
+          <ScalarProperty Name="codeFilePath" ColumnName="codeFilePath" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="attendances">
+      <EntityTypeMapping TypeName="pucitdbModel3.attendance">
+        <MappingFragment StoreEntitySet="attendance">
+          <ScalarProperty Name="studentId" ColumnName="studentId" />
+          <ScalarProperty Name="courseId" ColumnName="courseId" />
+          <ScalarProperty Name="presents" ColumnName="presents" />
+          <ScalarProperty Name="absents" ColumnName="absents" />
+          <ScalarProperty Name="tName" ColumnName="tName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="courses">
+      <EntityTypeMapping TypeName="pucitdbModel3.cours">
+        <MappingFragment StoreEntitySet="courses">
+          <ScalarProperty Name="cid" ColumnName="cid" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="creditHours" ColumnName="creditHours" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="questions">
+      <EntityTypeMapping TypeName="pucitdbModel3.question">
+        <MappingFragment StoreEntitySet="question">
+          <ScalarProperty Name="quid" ColumnName="quid" />
+          <ScalarProperty Name="statement" ColumnName="statement" />
+          <ScalarProperty Name="option_A" ColumnName="option_A" />
+          <ScalarProperty Name="option_B" ColumnName="option_B" />
+          <ScalarProperty Name="Option_C" ColumnName="Option_C" />
+          <ScalarProperty Name="option_D" ColumnName="option_D" />
+          <ScalarProperty Name="correctOption" ColumnName="correctOption" />
+          <ScalarProperty Name="marks" ColumnName="marks" />
+          <ScalarProperty Name="solution" ColumnName="solution" />
+          <ScalarProperty Name="cid" ColumnName="cid" />
+          <ScalarProperty Name="topic" ColumnName="topic" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="quizs">
+      <EntityTypeMapping TypeName="pucitdbModel3.quiz">
+        <MappingFragment StoreEntitySet="quiz">
+          <ScalarProperty Name="qid" ColumnName="qid" />
+          <ScalarProperty Name="cid" ColumnName="cid" />
+          <ScalarProperty Name="tid" ColumnName="tid" />
+          <ScalarProperty Name="totalQuestion" ColumnName="totalQuestion" />
+          <ScalarProperty Name="TotalMarks" ColumnName="TotalMarks" />
+          <ScalarProperty Name="startDate" ColumnName="startDate" />
+          <ScalarProperty Name="endDate" ColumnName="endDate" />
+          <ScalarProperty Name="TotalTime" ColumnName="TotalTime" />
+          <ScalarProperty Name="topic" ColumnName="topic" />
+          <ScalarProperty Name="totalAttempts" ColumnName="totalAttempts" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="quizResults">
+      <EntityTypeMapping TypeName="pucitdbModel3.quizResult">
+        <MappingFragment StoreEntitySet="quizResult">
+          <ScalarProperty Name="qid" ColumnName="qid" />
+          <ScalarProperty Name="sid" ColumnName="sid" />
+          <ScalarProperty Name="cid" ColumnName="cid" />
+          <ScalarProperty Name="tid" ColumnName="tid" />
+          <ScalarProperty Name="totalmarks" ColumnName="totalmarks" />
+          <ScalarProperty Name="obtainMarks" ColumnName="obtainMarks" />
+          <ScalarProperty Name="attempts" ColumnName="attempts" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="semesters">
+      <EntityTypeMapping TypeName="pucitdbModel3.semester">
+        <MappingFragment StoreEntitySet="semester">
+          <ScalarProperty Name="smid" ColumnName="smid" />
+          <ScalarProperty Name="credithours" ColumnName="credithours" />
+          <ScalarProperty Name="gpa" ColumnName="gpa" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="students">
+      <EntityTypeMapping TypeName="pucitdbModel3.student">
+        <MappingFragment StoreEntitySet="student">
+          <ScalarProperty Name="sid" ColumnName="sid" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="password" ColumnName="password" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="degree" ColumnName="degree" />
+          <ScalarProperty Name="session" ColumnName="session" />
+          <ScalarProperty Name="batch" ColumnName="batch" />
+          <ScalarProperty Name="smid" ColumnName="smid" />
+          <ScalarProperty Name="cgpa" ColumnName="cgpa" />
+          <ScalarProperty Name="address" ColumnName="address" />
+          <ScalarProperty Name="section" ColumnName="section" />
+          <ScalarProperty Name="semester" ColumnName="semester" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="teachers">
+      <EntityTypeMapping TypeName="pucitdbModel3.teacher">
+        <MappingFragment StoreEntitySet="teacher">
+          <ScalarProperty Name="tid" ColumnName="tid" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="password" ColumnName="password" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="designation" ColumnName="designation" />
+          <ScalarProperty Name="status" ColumnName="status" />
+          <ScalarProperty Name="qualification" ColumnName="qualification" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="users">
+      <EntityTypeMapping TypeName="pucitdbModel3.user">
+        <MappingFragment StoreEntitySet="user">
+          <ScalarProperty Name="uid" ColumnName="uid" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="type" ColumnName="type" />
+          <ScalarProperty Name="password" ColumnName="password" />
+          <ScalarProperty Name="email" ColumnName="email" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="coursesInSemester" TypeName="pucitdbModel3.coursesInSemester" StoreEntitySet="coursesInSemester">
+      <EndProperty Name="semester">
+        <ScalarProperty Name="smid" ColumnName="smid" />
+      </EndProperty>
+      <EndProperty Name="courses">
+        <ScalarProperty Name="cid" ColumnName="cid" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="studentToCourses" TypeName="pucitdbModel3.studentToCourses" StoreEntitySet="studentToCourses">
+      <EndProperty Name="student">
+        <ScalarProperty Name="sid" ColumnName="sid" />
+      </EndProperty>
+      <EndProperty Name="courses">
+        <ScalarProperty Name="cid" ColumnName="cid" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="teacherToCourses" TypeName="pucitdbModel3.teacherToCourses" StoreEntitySet="teacherToCourses">
+      <EndProperty Name="teacher">
+        <ScalarProperty Name="tid" ColumnName="tid" />
+      </EndProperty>
+      <EndProperty Name="courses">
+        <ScalarProperty Name="cid" ColumnName="cid" />
+      </EndProperty>
+    </AssociationSetMapping>
+  </EntityContainerMapping>
+</Mapping>

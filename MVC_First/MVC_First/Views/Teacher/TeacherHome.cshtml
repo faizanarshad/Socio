@@ -1,0 +1,62 @@
+﻿@model MVC_First.Models.teacher
+@{
+    ViewBag.Title = "TeacherHome";
+    Layout = "~/Views/Shared/_LayoutAfterLogin.cshtml";
+}
+
+
+         <link href="~/Content/kendo/2013.3.1119/kendo.flat.min.css" rel="stylesheet" />
+        <link href="~/Content/kendo/2013.3.1119/kendo.common.min.css" rel="stylesheet" />
+        <script src="~/Scripts/kendo/2013.3.1119/jquery.min.js"></script>
+        <script src="~/Scripts/kendo/2013.3.1119/kendo.web.min.js"></script>
+
+<script>
+  $('document').ready(function () {
+
+
+        $(".k-primary").kendoButton();
+
+  });
+
+</script>
+
+
+<div class="demo-section" style="height:70%; width:55%; margin-left:25%">
+    <h2 class="k-header">Teacher Home:</h2><br>
+        <button class="k-primary" type="submit"  style="width:25%;height:auto" id ="btn1" onclick="location.href='@Url.Action("Announcement", "Teacher")'">Make Announcement</button>
+        <button class="k-primary" type="submit"  style="margin-left:5%;width:25%;height:auto" id ="btn11" onclick="location.href='@Url.Action("ConductQuiz", "Teacher")'">Conduct Quiz</button>
+        <button class="k-primary" type="submit"  style="margin-left:5%;width:25%;height:auto" id ="btn2" onclick="location.href='@Url.Action("courseForEditQuiz", "Teacher")'">Edit Quiz</button>
+<br><br><br>
+        <button class="k-primary" type="submit" style="width:25%;height:auto" id ="btn3" onclick="location.href='@Url.Action("showAssignment", "Teacher")'">View Assignments</button>
+        <button class="k-primary" type="submit" style="margin-left:5%;width:25%" id ="btn4" onclick="location.href='@Url.Action("ViewAssignmentsResult", "Teacher")'">Assignments Results</button>
+        <button class="k-primary" type="submit" style="margin-left:5%;width:25%" id ="btn5" onclick="location.href='@Url.Action("ShowQuizes", "Teacher")'">View Quizes</button>
+<br><br><br>
+        <button class="k-primary" type="submit" style="width:25%" id ="btn6" onclick="location.href='@Url.Action("showQuizResult", "Teacher")'">View Quizes Results</button>
+        <button class="k-primary" type="submit" style="margin-left:5%;width:25%" id="btn7" onclick="location.href='@Url.Action("AddQuestions", "Teacher")'">Add Questions</button>
+        <button class="k-primary" type="submit" style="width:25%;height:auto;margin-left:5%" id ="btn13" onclick="location.href='@Url.Action("DiscussionForum", "Teacher")'">Discussion Forum</button>
+<br><br><br>       
+        <button class="k-primary" type="submit" style="width:25%" id ="btn9" onclick="location.href='@Url.Action("UploadAssignment", "Teacher")'">Upload Assignment</button>
+        <button class="k-primary" type="submit" style="margin-left:5%;width:25%" id ="btn10" onclick="location.href='@Url.Action("ViewCourse", "Teacher")'">View Courses</button>
+        <button class="k-primary" type="submit" style="margin-left:5%;width:25%" id ="btn12" onclick="location.href='@Url.Action("ViewLog","Teacher")'">View Log</button>
+        
+        
+</div>
+
+@if (ViewBag.passwordChanged != null)
+{
+    <script>alert("Password Changed Successfully!");</script>
+    ViewBag.passwordChanged = null;
+}
+@if (ViewBag.attendance != null)
+{
+     <script>alert("Attendance Marked Successfully!");</script>
+     ViewBag.attendance = null;
+
+}
+@if (ViewBag.attendance1 != null)
+{
+    <script>alert("Attendance Marked Successfully!");</script>
+    ViewBag.attendance1 = null;
+
+
+}

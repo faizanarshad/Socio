@@ -1,0 +1,57 @@
+﻿@{
+    ViewBag.Title = "AddQuestions";
+    Layout = "~/Views/Shared/_LayoutAfterLogin.cshtml";
+}
+
+
+   
+<link rel="stylesheet" href="~/Content/bootstrap.min.css">
+<link rel="stylesheet" href="~/Content/bootstrap-responsive.min.css">
+<link type= "text/css" href="~/Content/bootstrap.css" rel="stylesheet" />
+<script class="cssdeck" src="~/Scripts/jquery.min.js"></script>
+<script class="cssdeck" src="~/Scripts/bootstrap.min.js"></script>
+<script type="text/javascript" src="~/Scripts/bootstrap.js"></script>
+<script src="~/Scripts/jquery-1.9.1.js"></script>
+
+<script>
+        $(document).ready(function () {
+            
+                $("#ccid").focusin(function () {
+
+                    $("#ccid option").remove();
+
+                    $.getJSON("/Teacher/GetCourses", function (data) {
+                       
+                        $.each(data, function (i, item) {
+                            $("#ccid").append('<option value=' + item.cid + '>' + item.cid + '</option>');
+                            
+                        });
+
+                    });
+                });
+        });
+        </script>
+
+<div class ="container" style ="background-color:mintcream; height:430px; width:550px">
+
+    <form class="form-signin" role="form" method ="post" action ="/Teacher/SaveQuestion" enctype="multipart/form-data">
+        <br><label for ="name" class ="control-label" style ="font-size:small">Course ID </label><br>
+        <div >
+        <select class ="form-control" id ="ccid" name ="cid" style ="width:350px">
+          <option>-Course ID-</option>  
+        </select>
+            </div>
+        <br><label for ="name" class ="control-label" style ="font-size:small">Topic </label><br>
+        <input type="text" name ="topic" class="form-control" placeholder="Topic" id ="id" style ="width:350px" required> <br> 
+        <br><h2 class="form-signin-heading">UpLoad File:</h2><br><br>
+        <input type="file" name = "text"><br>
+         
+        <br><button class="btn btn-lg btn-primary btn-block" type="submit" style ="width:350px" id ="save">Add</button>
+        
+
+    </form>
+
+    <br><br><div style ="width:200px;position:relative;top:-80px; margin-left:400px; font-size:xx-large;">
+             @Html.ActionLink("Back", "TeacherHome")
+     </div>
+</div>

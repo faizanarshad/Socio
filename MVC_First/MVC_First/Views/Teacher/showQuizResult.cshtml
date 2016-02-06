@@ -1,0 +1,90 @@
+﻿@{
+    ViewBag.Title = "showQuizResult";
+}
+
+
+<script src="~/Scripts/jquery-1.9.1.js"></script>
+
+
+        <link href="~/Content/kendo/2013.3.1119/kendo.flat.min.css" rel="stylesheet" />
+        <link href="~/Content/kendo/2013.3.1119/kendo.common.min.css" rel="stylesheet" />
+        <script src="~/Scripts/kendo/2013.3.1119/jquery.min.js"></script>
+        <script src="~/Scripts/kendo/2013.3.1119/kendo.web.min.js"></script>
+
+
+<script>
+    $(document).ready(function () {
+        $(".k-primary").kendoButton();
+            
+                $("#ccid").focusin(function () {
+
+                    $("#ccid option").remove();
+
+                    $.getJSON("/Teacher/GetCourses", function (data) {
+                       
+                        $.each(data, function (i, item) {
+                            $("#ccid").append('<option value=' + item.cid + '>' + item.name + '</option>');
+                            
+                        });
+
+                    });
+                });
+
+                $("#an").focusin(function () {
+
+                    var id = $("#ccid option:selected").val();
+
+                    $("#an option").remove();
+
+                    $.getJSON("/Teacher/GetQuizNumberNumber?cid="+id , function (data) {
+                        
+                        $.each(data, function (i, item) {
+                            
+                            $("#an").append('<option value=' + data[i] + '>' + data[i] + '</option>');
+
+                        });
+
+                    });
+                });
+        });
+        </script>
+
+<div class ="k-content" style ="background-color:mintcream; height:auto; width:30%;margin-left:25%">
+    <h2 class="k-header">Assignment Results:</h2>
+    <form class="forms" role="form" method ="post" action ="/Teacher/ViewQuizesResult" enctype="multipart/form-data">
+        <br><label for ="name" style ="font-size:small">Course ID </label><br>
+        <div >
+        <select id ="ccid" name ="cid" style ="width:350px">
+          <option>-Course ID-</option>  
+        </select>
+            </div>
+
+         <br><label for ="name" style ="font-size:small">Quiz No </label><br>
+        <div >
+        <select id ="an" name ="quizNum" style ="width:350px">
+          <option>-Quiz No-</option>  
+        </select>
+        </div>                 
+        <br><button class="k-primary" type="submit" style ="width:350px" id ="save">Submit</button>
+        
+
+    </form>
+</div>
+
+<style scoped>
+            .forms {
+                float: left;
+                
+            }
+
+            .forms li {
+                margin-bottom: 5px;
+                list-style: none;
+                
+            }
+
+            .forms li > * {
+                width: 200px;
+            }
+        </style>
+

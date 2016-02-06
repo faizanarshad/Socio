@@ -1,0 +1,49 @@
+﻿@model IEnumerable<MVC_First.Models.question>
+
+@{
+    ViewBag.Title = "Start";
+    Layout = "~/Views/Shared/_LayoutAfterLogin.cshtml";
+}
+<div class ="container" style ="height:430px; width:800px;"> 
+    <div id="u">
+        @{
+                string str = "";
+                int i = 0;
+        <form method="post" action="/Student/GenerateResult">
+            
+
+        @foreach (var item in Model) {
+            str = str + "," + item.quid;
+            i = i + 1;
+              <div style ="font-size:medium;background-color:mintcream;border:solid;border-color:darkgray;border-radius:10px" >
+                  <h2 style ="margin-left:10px;margin-top:20px">Question @i</h2><br><br>          
+                    <div style = "margin-left:10px">@Html.DisplayFor(modelItem => item.statement)</div><br>
+            
+                    <input name="@item.quid" type="radio" value="@item.option_A" style ="font-size:small;margin-left:10px" />
+                    @item.option_A <br><br>
+    
+                    <input name="@item.quid" type="radio" value="@item.option_B" style ="font-size:small;margin-left:10px"/>
+                    @item.option_B <br><br>
+    
+                    <input name="@item.quid" type="radio" value="@item.Option_C" style ="font-size:small;margin-left:10px"/>
+                    @item.Option_C <br><br>
+   
+                    <input name="@item.quid" type="radio" value="@item.option_D" style ="font-size:small;margin-left:10px"/>
+                    @item.option_D <br><br>
+               </div><br><br>
+            
+               
+                
+         }
+         <input type="hidden" name="QID" value="@str" />
+         <input type="hidden" name="QuizID" value="@ViewBag.qid" />
+         <input type="hidden" name="TID" value="@ViewBag.tid" />
+         <input type="hidden" name="CID" value="@ViewBag.cid" />
+            
+        <button class="btn btn-lg btn-success" type="submit" style ="width:150px; margin-top:20px" id ="btn3">Submit Quiz</button>
+        </form>   
+            }
+        </div>
+         
+</div>
+

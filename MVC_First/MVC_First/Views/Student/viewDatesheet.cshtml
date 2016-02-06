@@ -1,0 +1,66 @@
+﻿@model List<MVC_First.Models.Announcement>
+
+@{
+    ViewBag.Title = "All Notifications";
+    Layout = "~/Views/Shared/_LayoutAfterLogin.cshtml";
+}
+
+
+<script src="~/Scripts/jquery-1.9.1.js"></script>
+
+
+        <link href="~/Content/kendo/2013.3.1119/kendo.flat.min.css" rel="stylesheet" />
+        <link href="~/Content/kendo/2013.3.1119/kendo.common.min.css" rel="stylesheet" />
+        <script src="~/Scripts/kendo/2013.3.1119/jquery.min.js"></script>
+        <script src="~/Scripts/kendo/2013.3.1119/kendo.web.min.js"></script>
+
+<div class ="k-content" style ="background-color:mintcream; height:auto; width:50%;margin-left:25%"> 
+    <h2 class ="k-header">Your Sitting Plan:</h2>
+<table class="metrotable">
+    
+
+ @foreach(var x in Model){
+    <tr>
+        <td style ="font-size:small;text-align:center">
+            
+                            
+                        <p>
+                            
+                            <br />Sitting Plan from <h2> @Html.DisplayFor( p=> x.Sender_u_id)</h2>
+                            <br /><b>Date And Time : @x.dateTime  
+                            <br /><b> Sitting Plan is : </b> @x.mesg_text
+                            <br />................................................................................................... @{x.dateTime.ToString();}
+
+ 
+                        </p>
+        </td>
+      
+    </tr>
+}
+
+</table>
+    <br><br><div style ="width:20%;position:relative; margin-left:90%; font-size:x-large;">
+             @Html.ActionLink("Back", "StudentHome")
+     </div>
+
+</div>
+<style scoped>
+                .demo-section {
+                    width: 600px;	
+                }
+                
+                .metrotable {
+                	width: 100%;
+                	border-collapse: collapse;
+                    border:dashed;
+                }
+                
+                .metrotable > thead > tr > th 
+                {
+                	font-size: 1.3em;
+                	padding-top: 0;
+                	padding-bottom: 5px;
+                    text-align:center;
+                }
+                
+            </style>

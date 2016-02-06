@@ -1,0 +1,20 @@
+﻿@{
+    ViewBag.Title = "StudentHome";
+    Layout = "~/Views/Shared/_LayoutAfterLogin.cshtml";
+}
+
+<link rel="stylesheet" href="~/Content/bootstrap.min.css">
+<link rel="stylesheet" href="~/Content/bootstrap-responsive.min.css">
+<link type= "text/css" href="~/Content/bootstrap.css" rel="stylesheet" />
+<script class="cssdeck" src="~/Scripts/jquery.min.js"></script>
+<script class="cssdeck" src="~/Scripts/bootstrap.min.js"></script>
+<script type="text/javascript" src="~/Scripts/bootstrap.js"></script>
+
+<h2> @Session["id"]</h2>
+<div class ="container" style ="background-color:mintcream; height:350px; width:50%">
+
+        <button class="btn btn-lg btn-primary" type="submit" style ="width:200px;" id ="btn1" onclick="location.href='@Url.Action("ViewCourse", "Student")'">View Courses</button>
+        <button class="btn btn-lg btn-primary" type="submit" style ="width:200px; margin-left:100px" id ="btn2" onclick="location.href='@Url.Action("TakeQuiz", "Student")'">Attempt Quiz</button>
+        <button class="btn btn-lg btn-primary" type="submit" style ="width:200px; margin-top:10%" id ="btn3" onclick="location.href='@Url.Action("Assignments", "Student")'">View Assignment</button>
+        <button class="btn btn-lg btn-primary" type="submit" style ="width:200px; margin-left:100px;margin-top:10%" id ="btn4" onclick="location.href='@Url.Action("ViewResult", "Student")'">View Result</button>
+</div>   

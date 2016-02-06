@@ -1,0 +1,6 @@
+BCSF10M0040,Zeeshan Arshad,Student,bcsf10m001@pucit.edu.pk
+BCSF10M0045,Salman,Student,bcsf10m001@pucit.edu.pk
+BCSF10M0025,Abuzar Amin,Student,bcsf10m001@pucit.edu.pk
+BCSF10M001,Mujadid,Student,bcsf10m001@pucit.edu.pk
+Adeel23,Adeel Nisar,Teacher,adeel@pucit.edu.pk
+Fareed2,Fareed Baig,Teacher,fareed@pucit.edu.pk

@@ -1,0 +1,508 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="pucitdbModel3" Alias="Self" p1:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="PucitDBEntities" p1:LazyLoadingEnabled="true">
+    <EntitySet Name="Announcements" EntityType="pucitdbModel3.Announcement" />
+    <EntitySet Name="assignments" EntityType="pucitdbModel3.assignment" />
+    <EntitySet Name="assignmentResults" EntityType="pucitdbModel3.assignmentResult" />
+    <EntitySet Name="attendances" EntityType="pucitdbModel3.attendance" />
+    <EntitySet Name="courses" EntityType="pucitdbModel3.cours" />
+    <EntitySet Name="questions" EntityType="pucitdbModel3.question" />
+    <EntitySet Name="quizs" EntityType="pucitdbModel3.quiz" />
+    <EntitySet Name="quizResults" EntityType="pucitdbModel3.quizResult" />
+    <EntitySet Name="semesters" EntityType="pucitdbModel3.semester" />
+    <EntitySet Name="students" EntityType="pucitdbModel3.student" />
+    <EntitySet Name="teachers" EntityType="pucitdbModel3.teacher" />
+    <EntitySet Name="users" EntityType="pucitdbModel3.user" />
+    <AssociationSet Name="FK_Announcement_ToTable" Association="pucitdbModel3.FK_Announcement_ToTable">
+      <End Role="user" EntitySet="users" />
+      <End Role="Announcement" EntitySet="Announcements" />
+    </AssociationSet>
+    <AssociationSet Name="FK_assignment_ToTable" Association="pucitdbModel3.FK_assignment_ToTable">
+      <End Role="teacher" EntitySet="teachers" />
+      <End Role="assignment" EntitySet="assignments" />
+    </AssociationSet>
+    <AssociationSet Name="FK_assignment_ToTable_1" Association="pucitdbModel3.FK_assignment_ToTable_1">
+      <End Role="courses" EntitySet="courses" />
+      <End Role="assignment" EntitySet="assignments" />
+    </AssociationSet>
+    <AssociationSet Name="FK_assignmentResult_ToTable" Association="pucitdbModel3.FK_assignmentResult_ToTable">
+      <End Role="assignment" EntitySet="assignments" />
+      <End Role="assignmentResult" EntitySet="assignmentResults" />
+    </AssociationSet>
+    <AssociationSet Name="FK_assignmentResult_ToTable_1" Association="pucitdbModel3.FK_assignmentResult_ToTable_1">
+      <End Role="student" EntitySet="students" />
+      <End Role="assignmentResult" EntitySet="assignmentResults" />
+    </AssociationSet>
+    <AssociationSet Name="FK_assignmentResult_ToTable_2" Association="pucitdbModel3.FK_assignmentResult_ToTable_2">
+      <End Role="courses" EntitySet="courses" />
+      <End Role="assignmentResult" EntitySet="assignmentResults" />
+    </AssociationSet>
+    <AssociationSet Name="FK_attendance_ToTable" Association="pucitdbModel3.FK_attendance_ToTable">
+      <End Role="student" EntitySet="students" />
+      <End Role="attendance" EntitySet="attendances" />
+    </AssociationSet>
+    <AssociationSet Name="FK_attendance_ToTable_1" Association="pucitdbModel3.FK_attendance_ToTable_1">
+      <End Role="courses" EntitySet="courses" />
+      <End Role="attendance" EntitySet="attendances" />
+    </AssociationSet>
+    <AssociationSet Name="FK_attendance_ToTable_2" Association="pucitdbModel3.FK_attendance_ToTable_2">
+      <End Role="teacher" EntitySet="teachers" />
+      <End Role="attendance" EntitySet="attendances" />
+    </AssociationSet>
+    <AssociationSet Name="FK_question_ToTable" Association="pucitdbModel3.FK_question_ToTable">
+      <End Role="courses" EntitySet="courses" />
+      <End Role="question" EntitySet="questions" />
+    </AssociationSet>
+    <AssociationSet Name="FK_quiz_ToTable_1" Association="pucitdbModel3.FK_quiz_ToTable_1">
+      <End Role="courses" EntitySet="courses" />
+      <End Role="quiz" EntitySet="quizs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_quizResult_ToTable_2" Association="pucitdbModel3.FK_quizResult_ToTable_2">
+      <End Role="courses" EntitySet="courses" />
+      <End Role="quizResult" EntitySet="quizResults" />
+    </AssociationSet>
+    <AssociationSet Name="FK_quiz_ToTable" Association="pucitdbModel3.FK_quiz_ToTable">
+      <End Role="teacher" EntitySet="teachers" />
+      <End Role="quiz" EntitySet="quizs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_quizResult_ToTable" Association="pucitdbModel3.FK_quizResult_ToTable">
+      <End Role="quiz" EntitySet="quizs" />
+      <End Role="quizResult" EntitySet="quizResults" />
+    </AssociationSet>
+    <AssociationSet Name="FK_quizResult_ToTable_1" Association="pucitdbModel3.FK_quizResult_ToTable_1">
+      <End Role="student" EntitySet="students" />
+      <End Role="quizResult" EntitySet="quizResults" />
+    </AssociationSet>
+    <AssociationSet Name="FK_quizResult_ToTable_3" Association="pucitdbModel3.FK_quizResult_ToTable_3">
+      <End Role="teacher" EntitySet="teachers" />
+      <End Role="quizResult" EntitySet="quizResults" />
+    </AssociationSet>
+    <AssociationSet Name="FK_student_ToTable" Association="pucitdbModel3.FK_student_ToTable">
+      <End Role="semester" EntitySet="semesters" />
+      <End Role="student" EntitySet="students" />
+    </AssociationSet>
+    <AssociationSet Name="coursesInSemester" Association="pucitdbModel3.coursesInSemester">
+      <End Role="semester" EntitySet="semesters" />
+      <End Role="courses" EntitySet="courses" />
+    </AssociationSet>
+    <AssociationSet Name="studentToCourses" Association="pucitdbModel3.studentToCourses">
+      <End Role="student" EntitySet="students" />
+      <End Role="courses" EntitySet="courses" />
+    </AssociationSet>
+    <AssociationSet Name="teacherToCourses" Association="pucitdbModel3.teacherToCourses">
+      <End Role="teacher" EntitySet="teachers" />
+      <End Role="courses" EntitySet="courses" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Announcement">
+    <Key>
+      <PropertyRef Name="announcement_id" />
+    </Key>
+    <Property Name="announcement_id" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+    <Property Name="audience" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+    <Property Name="status" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+    <Property Name="Sender_u_id" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+    <Property Name="dateTime" Type="DateTime" Precision="7" />
+    <Property Name="attachment" Type="String" MaxLength="100" Unicode="false" FixedLength="false" />
+    <Property Name="destination" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="title" Type="String" MaxLength="100" Unicode="false" FixedLength="false" />
+    <Property Name="mesg_text" Type="String" MaxLength="400" Unicode="false" FixedLength="false" />
+    <NavigationProperty Name="user" Relationship="pucitdbModel3.FK_Announcement_ToTable" FromRole="Announcement" ToRole="user" />
+  </EntityType>
+  <EntityType Name="assignment">
+    <Key>
+      <PropertyRef Name="aid" />
+    </Key>
+    <Property Name="aid" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="tid" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="cid" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="totalMarks" Type="Int32" Nullable="false" />
+    <Property Name="questionFilePath" Type="String" Nullable="false" MaxLength="Max" Unicode="false" FixedLength="false" />
+    <Property Name="startDate" Type="DateTime" Nullable="false" Precision="7" />
+    <Property Name="endDate" Type="DateTime" Nullable="false" Precision="7" />
+    <Property Name="solutionFilePath" Type="String" Nullable="false" MaxLength="Max" Unicode="false" FixedLength="false" />
+    <Property Name="aNumber" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="teacher" Relationship="pucitdbModel3.FK_assignment_ToTable" FromRole="assignment" ToRole="teacher" />
+    <NavigationProperty Name="cours" Relationship="pucitdbModel3.FK_assignment_ToTable_1" FromRole="assignment" ToRole="courses" />
+    <NavigationProperty Name="assignmentResults" Relationship="pucitdbModel3.FK_assignmentResult_ToTable" FromRole="assignment" ToRole="assignmentResult" />
+  </EntityType>
+  <EntityType Name="assignmentResult">
+    <Key>
+      <PropertyRef Name="aid" />
+      <PropertyRef Name="sid" />
+      <PropertyRef Name="cid" />
+    </Key>
+    <Property Name="aid" Type="Int32" Nullable="false" />
+    <Property Name="sid" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="cid" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="totalMarks" Type="Int32" Nullable="false" />
+    <Property Name="marksObtained" Type="Int32" Nullable="false" />
+    <Property Name="outPutFilePath" Type="String" Nullable="false" MaxLength="Max" Unicode="false" FixedLength="false" />
+    <Property Name="codeFilePath" Type="String" Nullable="false" MaxLength="Max" Unicode="false" FixedLength="false" />
+    <NavigationProperty Name="assignment" Relationship="pucitdbModel3.FK_assignmentResult_ToTable" FromRole="assignmentResult" ToRole="assignment" />
+    <NavigationProperty Name="student" Relationship="pucitdbModel3.FK_assignmentResult_ToTable_1" FromRole="assignmentResult" ToRole="student" />
+    <NavigationProperty Name="cours" Relationship="pucitdbModel3.FK_assignmentResult_ToTable_2" FromRole="assignmentResult" ToRole="courses" />
+  </EntityType>
+  <EntityType Name="attendance">
+    <Key>
+      <PropertyRef Name="studentId" />
+      <PropertyRef Name="courseId" />
+      <PropertyRef Name="tName" />
+    </Key>
+    <Property Name="studentId" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="courseId" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="presents" Type="Int32" Nullable="false" />
+    <Property Name="absents" Type="Int32" Nullable="false" />
+    <Property Name="tName" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+    <NavigationProperty Name="student" Relationship="pucitdbModel3.FK_attendance_ToTable" FromRole="attendance" ToRole="student" />
+    <NavigationProperty Name="cours" Relationship="pucitdbModel3.FK_attendance_ToTable_1" FromRole="attendance" ToRole="courses" />
+    <NavigationProperty Name="teacher" Relationship="pucitdbModel3.FK_attendance_ToTable_2" FromRole="attendance" ToRole="teacher" />
+  </EntityType>
+  <EntityType Name="cours">
+    <Key>
+      <PropertyRef Name="cid" />
+    </Key>
+    <Property Name="cid" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="name" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="creditHours" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="assignments" Relationship="pucitdbModel3.FK_assignment_ToTable_1" FromRole="courses" ToRole="assignment" />
+    <NavigationProperty Name="assignmentResults" Relationship="pucitdbModel3.FK_assignmentResult_ToTable_2" FromRole="courses" ToRole="assignmentResult" />
+    <NavigationProperty Name="attendances" Relationship="pucitdbModel3.FK_attendance_ToTable_1" FromRole="courses" ToRole="attendance" />
+    <NavigationProperty Name="questions" Relationship="pucitdbModel3.FK_question_ToTable" FromRole="courses" ToRole="question" />
+    <NavigationProperty Name="quizs" Relationship="pucitdbModel3.FK_quiz_ToTable_1" FromRole="courses" ToRole="quiz" />
+    <NavigationProperty Name="quizResults" Relationship="pucitdbModel3.FK_quizResult_ToTable_2" FromRole="courses" ToRole="quizResult" />
+    <NavigationProperty Name="semesters" Relationship="pucitdbModel3.coursesInSemester" FromRole="courses" ToRole="semester" />
+    <NavigationProperty Name="students" Relationship="pucitdbModel3.studentToCourses" FromRole="courses" ToRole="student" />
+    <NavigationProperty Name="teachers" Relationship="pucitdbModel3.teacherToCourses" FromRole="courses" ToRole="teacher" />
+  </EntityType>
+  <EntityType Name="question">
+    <Key>
+      <PropertyRef Name="quid" />
+    </Key>
+    <Property Name="quid" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="statement" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Name="option_A" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Name="option_B" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Name="Option_C" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Name="option_D" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Name="correctOption" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="marks" Type="Int32" Nullable="false" />
+    <Property Name="solution" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Name="cid" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="topic" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <NavigationProperty Name="cours" Relationship="pucitdbModel3.FK_question_ToTable" FromRole="question" ToRole="courses" />
+  </EntityType>
+  <EntityType Name="quiz">
+    <Key>
+      <PropertyRef Name="qid" />
+    </Key>
+    <Property Name="qid" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="cid" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="tid" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="totalQuestion" Type="Int32" Nullable="false" />
+    <Property Name="TotalMarks" Type="Int32" Nullable="false" />
+    <Property Name="startDate" Type="DateTime" Nullable="false" Precision="7" />
+    <Property Name="endDate" Type="DateTime" Nullable="false" Precision="7" />
+    <Property Name="TotalTime" Type="Int32" Nullable="false" />
+    <Property Name="topic" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="totalAttempts" Type="Int32" />
+    <NavigationProperty Name="cours" Relationship="pucitdbModel3.FK_quiz_ToTable_1" FromRole="quiz" ToRole="courses" />
+    <NavigationProperty Name="teacher" Relationship="pucitdbModel3.FK_quiz_ToTable" FromRole="quiz" ToRole="teacher" />
+    <NavigationProperty Name="quizResults" Relationship="pucitdbModel3.FK_quizResult_ToTable" FromRole="quiz" ToRole="quizResult" />
+  </EntityType>
+  <EntityType Name="quizResult">
+    <Key>
+      <PropertyRef Name="qid" />
+      <PropertyRef Name="sid" />
+      <PropertyRef Name="cid" />
+      <PropertyRef Name="tid" />
+    </Key>
+    <Property Name="qid" Type="Int32" Nullable="false" />
+    <Property Name="sid" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="cid" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="tid" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="totalmarks" Type="String" Nullable="false" MaxLength="10" Unicode="true" FixedLength="true" />
+    <Property Name="obtainMarks" Type="String" Nullable="false" MaxLength="10" Unicode="true" FixedLength="true" />
+    <Property Name="attempts" Type="Int32" />
+    <NavigationProperty Name="cours" Relationship="pucitdbModel3.FK_quizResult_ToTable_2" FromRole="quizResult" ToRole="courses" />
+    <NavigationProperty Name="quiz" Relationship="pucitdbModel3.FK_quizResult_ToTable" FromRole="quizResult" ToRole="quiz" />
+    <NavigationProperty Name="student" Relationship="pucitdbModel3.FK_quizResult_ToTable_1" FromRole="quizResult" ToRole="student" />
+    <NavigationProperty Name="teacher" Relationship="pucitdbModel3.FK_quizResult_ToTable_3" FromRole="quizResult" ToRole="teacher" />
+  </EntityType>
+  <EntityType Name="semester">
+    <Key>
+      <PropertyRef Name="smid" />
+    </Key>
+    <Property Name="smid" Type="Int32" Nullable="false" />
+    <Property Name="credithours" Type="Int32" />
+    <Property Name="gpa" Type="Double" />
+    <NavigationProperty Name="students" Relationship="pucitdbModel3.FK_student_ToTable" FromRole="semester" ToRole="student" />
+    <NavigationProperty Name="courses" Relationship="pucitdbModel3.coursesInSemester" FromRole="semester" ToRole="courses" />
+  </EntityType>
+  <EntityType Name="student">
+    <Key>
+      <PropertyRef Name="sid" />
+    </Key>
+    <Property Name="sid" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="name" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="password" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="email" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="degree" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="session" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="batch" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="smid" Type="Int32" />
+    <Property Name="cgpa" Type="Double" />
+    <Property Name="address" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="section" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+    <Property Name="semester" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+    <NavigationProperty Name="assignmentResults" Relationship="pucitdbModel3.FK_assignmentResult_ToTable_1" FromRole="student" ToRole="assignmentResult" />
+    <NavigationProperty Name="attendances" Relationship="pucitdbModel3.FK_attendance_ToTable" FromRole="student" ToRole="attendance" />
+    <NavigationProperty Name="quizResults" Relationship="pucitdbModel3.FK_quizResult_ToTable_1" FromRole="student" ToRole="quizResult" />
+    <NavigationProperty Name="semester1" Relationship="pucitdbModel3.FK_student_ToTable" FromRole="student" ToRole="semester" />
+    <NavigationProperty Name="courses" Relationship="pucitdbModel3.studentToCourses" FromRole="student" ToRole="courses" />
+  </EntityType>
+  <EntityType Name="teacher">
+    <Key>
+      <PropertyRef Name="tid" />
+    </Key>
+    <Property Name="tid" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="name" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="password" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="email" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="designation" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="status" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="qualification" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <NavigationProperty Name="assignments" Relationship="pucitdbModel3.FK_assignment_ToTable" FromRole="teacher" ToRole="assignment" />
+    <NavigationProperty Name="attendances" Relationship="pucitdbModel3.FK_attendance_ToTable_2" FromRole="teacher" ToRole="attendance" />
+    <NavigationProperty Name="quizs" Relationship="pucitdbModel3.FK_quiz_ToTable" FromRole="teacher" ToRole="quiz" />
+    <NavigationProperty Name="quizResults" Relationship="pucitdbModel3.FK_quizResult_ToTable_3" FromRole="teacher" ToRole="quizResult" />
+    <NavigationProperty Name="courses" Relationship="pucitdbModel3.teacherToCourses" FromRole="teacher" ToRole="courses" />
+  </EntityType>
+  <EntityType Name="user">
+    <Key>
+      <PropertyRef Name="uid" />
+    </Key>
+    <Property Name="uid" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="name" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="type" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="password" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="email" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+    <NavigationProperty Name="Announcements" Relationship="pucitdbModel3.FK_Announcement_ToTable" FromRole="user" ToRole="Announcement" />
+  </EntityType>
+  <Association Name="FK_Announcement_ToTable">
+    <End Role="user" Type="pucitdbModel3.user" Multiplicity="0..1" />
+    <End Role="Announcement" Type="pucitdbModel3.Announcement" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="user">
+        <PropertyRef Name="uid" />
+      </Principal>
+      <Dependent Role="Announcement">
+        <PropertyRef Name="destination" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_assignment_ToTable">
+    <End Role="teacher" Type="pucitdbModel3.teacher" Multiplicity="1" />
+    <End Role="assignment" Type="pucitdbModel3.assignment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="teacher">
+        <PropertyRef Name="tid" />
+      </Principal>
+      <Dependent Role="assignment">
+        <PropertyRef Name="tid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_assignment_ToTable_1">
+    <End Role="courses" Type="pucitdbModel3.cours" Multiplicity="1" />
+    <End Role="assignment" Type="pucitdbModel3.assignment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="courses">
+        <PropertyRef Name="cid" />
+      </Principal>
+      <Dependent Role="assignment">
+        <PropertyRef Name="cid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_assignmentResult_ToTable">
+    <End Role="assignment" Type="pucitdbModel3.assignment" Multiplicity="1" />
+    <End Role="assignmentResult" Type="pucitdbModel3.assignmentResult" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="assignment">
+        <PropertyRef Name="aid" />
+      </Principal>
+      <Dependent Role="assignmentResult">
+        <PropertyRef Name="aid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_assignmentResult_ToTable_1">
+    <End Role="student" Type="pucitdbModel3.student" Multiplicity="1" />
+    <End Role="assignmentResult" Type="pucitdbModel3.assignmentResult" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="student">
+        <PropertyRef Name="sid" />
+      </Principal>
+      <Dependent Role="assignmentResult">
+        <PropertyRef Name="sid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_assignmentResult_ToTable_2">
+    <End Role="courses" Type="pucitdbModel3.cours" Multiplicity="1" />
+    <End Role="assignmentResult" Type="pucitdbModel3.assignmentResult" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="courses">
+        <PropertyRef Name="cid" />
+      </Principal>
+      <Dependent Role="assignmentResult">
+        <PropertyRef Name="cid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_attendance_ToTable">
+    <End Role="student" Type="pucitdbModel3.student" Multiplicity="1" />
+    <End Role="attendance" Type="pucitdbModel3.attendance" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="student">
+        <PropertyRef Name="sid" />
+      </Principal>
+      <Dependent Role="attendance">
+        <PropertyRef Name="studentId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_attendance_ToTable_1">
+    <End Role="courses" Type="pucitdbModel3.cours" Multiplicity="1" />
+    <End Role="attendance" Type="pucitdbModel3.attendance" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="courses">
+        <PropertyRef Name="cid" />
+      </Principal>
+      <Dependent Role="attendance">
+        <PropertyRef Name="courseId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_attendance_ToTable_2">
+    <End Role="teacher" Type="pucitdbModel3.teacher" Multiplicity="1" />
+    <End Role="attendance" Type="pucitdbModel3.attendance" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="teacher">
+        <PropertyRef Name="tid" />
+      </Principal>
+      <Dependent Role="attendance">
+        <PropertyRef Name="tName" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_question_ToTable">
+    <End Role="courses" Type="pucitdbModel3.cours" Multiplicity="1" />
+    <End Role="question" Type="pucitdbModel3.question" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="courses">
+        <PropertyRef Name="cid" />
+      </Principal>
+      <Dependent Role="question">
+        <PropertyRef Name="cid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_quiz_ToTable_1">
+    <End Role="courses" Type="pucitdbModel3.cours" Multiplicity="1" />
+    <End Role="quiz" Type="pucitdbModel3.quiz" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="courses">
+        <PropertyRef Name="cid" />
+      </Principal>
+      <Dependent Role="quiz">
+        <PropertyRef Name="cid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_quizResult_ToTable_2">
+    <End Role="courses" Type="pucitdbModel3.cours" Multiplicity="1" />
+    <End Role="quizResult" Type="pucitdbModel3.quizResult" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="courses">
+        <PropertyRef Name="cid" />
+      </Principal>
+      <Dependent Role="quizResult">
+        <PropertyRef Name="cid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_quiz_ToTable">
+    <End Role="teacher" Type="pucitdbModel3.teacher" Multiplicity="1" />
+    <End Role="quiz" Type="pucitdbModel3.quiz" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="teacher">
+        <PropertyRef Name="tid" />
+      </Principal>
+      <Dependent Role="quiz">
+        <PropertyRef Name="tid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_quizResult_ToTable">
+    <End Role="quiz" Type="pucitdbModel3.quiz" Multiplicity="1" />
+    <End Role="quizResult" Type="pucitdbModel3.quizResult" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="quiz">
+        <PropertyRef Name="qid" />
+      </Principal>
+      <Dependent Role="quizResult">
+        <PropertyRef Name="qid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_quizResult_ToTable_1">
+    <End Role="student" Type="pucitdbModel3.student" Multiplicity="1" />
+    <End Role="quizResult" Type="pucitdbModel3.quizResult" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="student">
+        <PropertyRef Name="sid" />
+      </Principal>
+      <Dependent Role="quizResult">
+        <PropertyRef Name="sid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_quizResult_ToTable_3">
+    <End Role="teacher" Type="pucitdbModel3.teacher" Multiplicity="1" />
+    <End Role="quizResult" Type="pucitdbModel3.quizResult" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="teacher">
+        <PropertyRef Name="tid" />
+      </Principal>
+      <Dependent Role="quizResult">
+        <PropertyRef Name="tid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_student_ToTable">
+    <End Role="semester" Type="pucitdbModel3.semester" Multiplicity="0..1" />
+    <End Role="student" Type="pucitdbModel3.student" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="semester">
+        <PropertyRef Name="smid" />
+      </Principal>
+      <Dependent Role="student">
+        <PropertyRef Name="smid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="coursesInSemester">
+    <End Role="semester" Type="pucitdbModel3.semester" Multiplicity="*" />
+    <End Role="courses" Type="pucitdbModel3.cours" Multiplicity="*" />
+  </Association>
+  <Association Name="studentToCourses">
+    <End Role="student" Type="pucitdbModel3.student" Multiplicity="*" />
+    <End Role="courses" Type="pucitdbModel3.cours" Multiplicity="*" />
+  </Association>
+  <Association Name="teacherToCourses">
+    <End Role="teacher" Type="pucitdbModel3.teacher" Multiplicity="*" />
+    <End Role="courses" Type="pucitdbModel3.cours" Multiplicity="*" />
+  </Association>
+</Schema>

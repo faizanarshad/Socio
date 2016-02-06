@@ -1,0 +1,30 @@
+﻿@{
+    ViewBag.Title = "index";
+   
+}
+
+
+<div id="sliderFrame" style ="height:auto; width:80%;margin-left:10%">
+        <div id="slider" style ="width:100%">
+            <img src="~/images/slide-10.jpg" />
+            <img src="~/images/slide-12.jpg" />
+            
+          
+            
+
+
+            
+        </div>
+
+</div> 
+
+@if (ViewBag.passwordChanged != null)
+{
+    <script>
+        $(document).ready(function () {
+            alert("Password Changed Successfully!");
+
+        });
+ </script>
+    ViewBag.passwordChanged = null;
+}

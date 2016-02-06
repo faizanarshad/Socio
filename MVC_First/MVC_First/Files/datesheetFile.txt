@@ -1,0 +1,5 @@
+BCSF10M001,6/6/2014 6:40:43 AM,LabA,Mathematics,Seat#23
+BCSF10M025,6/6/2014 6:40:43 AM,LabA,Mathematics,Seat#2
+BCSF10M040,6/6/2014 6:40:43 AM,LabA,Mathematics,Seat#4
+BCSF10M002,6/6/2014 6:40:43 AM,LabA,Mathematics,Seat#5
+BCSF10M027,6/6/2014 6:40:43 AM,LabA,Mathematics,Seat#6

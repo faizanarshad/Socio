@@ -1,0 +1,38 @@
+﻿@using MVC_First.Models
+@model MVC_First.Models.user
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_LayoutAfterLogin.cshtml";
+}
+<div class ="container" style ="background-color:mintcream; height:430px; width:550px">
+<fieldset>
+    <legend>Are you sure you want to delete this?</legend>
+
+    <div style ="font-family:Arial; font-size:medium">
+        
+       LoginID:  @Model.uid
+    </div><br>
+    
+    <div style ="font-family:Arial; font-size:medium">
+        Name : @Model.name
+    </div><br>
+    
+
+    <div style ="font-family:Arial; font-size:medium">
+        Type : @Model.type
+    </div><br>
+    <div style ="font-family:Arial; font-size:medium">
+        Email : @Model.email
+    </div><br>
+   
+</fieldset>
+@using (Html.BeginForm()) {
+    
+        <button class="btn btn-lg btn-primary btn-block" type="submit" style ="width:200px" id ="save">Delete</button>
+        <div style ="width:200px;position:relative;top:-50px; margin-left:250px; font-size:xx-large;">
+             @Html.ActionLink("Back", "UserSetup")
+        </div>
+   
+}
+</div>

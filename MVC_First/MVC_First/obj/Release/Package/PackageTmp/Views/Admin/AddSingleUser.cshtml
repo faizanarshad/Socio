@@ -1,0 +1,59 @@
+﻿@{
+    ViewBag.Title = "AddSingleUser";
+    Layout = "~/Views/Shared/_LayoutAfterLogin.cshtml";
+}
+
+<title>@ViewBag.Title</title>
+
+<link rel="stylesheet" href="~/Content/bootstrap.min.css">
+<link rel="stylesheet" href="~/Content/bootstrap-responsive.min.css">
+<link type= "text/css" href="~/Content/bootstrap.css" rel="stylesheet" />
+<script class="cssdeck" src="~/Scripts/jquery.min.js"></script>
+<script class="cssdeck" src="~/Scripts/bootstrap.min.js"></script>
+<script type="text/javascript" src="~/Scripts/bootstrap.js"></script>
+<script src="~/Scripts/jquery-1.9.1.js"></script>
+
+@if (ViewBag.message == 0)
+{
+    <script>
+        $(document).ready(function () {
+                alert("User ID Already exist");
+
+        });
+ </script>
+    ViewBag.message = -1;
+}
+
+<div class ="container" style ="background-color:mintcream; height:430px; width:550px">
+
+    <form class="form-signin" role="form" method ="post" action ="/Admin/SaveUser">
+
+        <h2 class="form-signin-heading">User Information Setup Form:</h2><br><br>
+
+        <label for ="name" class ="control-label" >UserID </label><br>
+        <input type="text" class="form-control" name ="uid" placeholder="UserID" required id ="id" style ="width:350px">
+         
+        <label for ="name" class ="control-label" >Full Name </label>
+        <input type="text" class="form-control" name ="name" placeholder ="Full Name" required id ="name" style ="width:350px">
+
+        <label for ="name" class ="control-label" >User Type </label><br>
+        <select class="selectpicker" id="type" name ="type" style ="width:300px">
+            <option>Select Type</option>
+            <option>Teacher</option>
+            <option>Student</option>
+        </select><br>        
+
+        <label for ="name" class ="control-label" >Email </label>
+        <input type="email" class="form-control" name ="email" placeholder="Email address" required id = "email" style ="width:350px">
+
+        <br><button class="btn btn-lg btn-primary btn-block" type="submit" style ="width:350px" id ="save">Save</button>
+        
+
+    </form>
+
+    <div style ="width:200px;position:relative; top:-40px; margin-left:400px; font-size:xx-large;">
+             @Html.ActionLink("Back", "UserSetup")
+        </div>
+     
+</div>
+

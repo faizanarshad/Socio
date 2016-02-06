@@ -1,0 +1,119 @@
+﻿@model IEnumerable<MVC_First.Models.quiz>
+
+@{
+    ViewBag.Title = "EditQuiz";
+}
+
+<title>EditQuiz</title>
+
+
+<script class="cssdeck" src="~/Scripts/jquery.min.js"></script>
+        <link href="~/Content/kendo/2013.3.1119/kendo.flat.min.css" rel="stylesheet" />
+        <link href="~/Content/kendo/2013.3.1119/kendo.common.min.css" rel="stylesheet" />
+        <script src="~/Scripts/kendo/2013.3.1119/jquery.min.js"></script>
+        <script src="~/Scripts/kendo/2013.3.1119/kendo.web.min.js"></script>
+<script>
+    $('document').ready(function () {
+
+
+        $(".k-primary").kendoButton();
+
+    });
+    </script>
+
+
+
+
+<div class ="k-content" style ="background-color:mintcream; height:auto; width:60%;margin-left:25%">
+<h2 class="k-header">Edit Quiz:</h2><br>
+
+<table class="metrotable">
+
+    <tr>
+        <th style ="font-size:medium">
+            Quiz No
+        </th>
+        <th style ="font-size:medium">
+            Course ID
+        </th>
+        <th style ="font-size:medium">
+            @Html.DisplayNameFor(model => model.totalQuestion)
+        </th>
+        <th style ="font-size:medium">
+            @Html.DisplayNameFor(model => model.TotalMarks)
+        </th>
+        <th style ="font-size:medium">
+            @Html.DisplayNameFor(model => model.startDate)
+        </th>
+        <th style ="font-size:medium">
+            @Html.DisplayNameFor(model => model.endDate)
+        </th>
+        <th style ="font-size:medium">
+            @Html.DisplayNameFor(model => model.TotalTime)
+        </th>
+        <th style ="font-size:medium">
+            @Html.DisplayNameFor(model => model.topic)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td style ="font-size:small;text-align:center">
+            @Html.DisplayFor(modelItem => item.quizNum)
+        </td>
+        <td style ="font-size:small;text-align:center">
+            @ViewBag.name
+        </td>
+         <td style ="font-size:small;text-align:center">
+            @Html.DisplayFor(modelItem => item.totalQuestion)
+        </td>
+        <td style ="font-size:small;text-align:center">
+            @Html.DisplayFor(modelItem => item.TotalMarks)
+        </td>
+        <td style ="font-size:small;text-align:center">
+            @Html.DisplayFor(modelItem => item.startDate)
+        </td>
+        <td style ="font-size:small;text-align:center">
+            @Html.DisplayFor(modelItem => item.endDate)
+        </td>
+        <td style ="font-size:small;text-align:center">
+            @Html.DisplayFor(modelItem => item.TotalTime) Minuts
+        </td>
+        <td style ="font-size:small;text-align:center">
+            @Html.DisplayFor(modelItem => item.topic)
+        </td>
+        <td style ="font-size:small;text-align:center;margin-left:5%">
+            @Html.ActionLink("Edit", "Edit", new {  id=item.qid })
+           
+        </td>
+    </tr>
+}
+
+</table>
+
+    <div style ="position:relative;margin-top:2%; margin-left:95%; font-size:x-large">
+             @Html.ActionLink("Back", "TeacherHome")
+     </div>
+</div>
+
+<style scoped>
+                .demo-section {
+                    width: 600px;	
+                }
+                
+                .metrotable {
+                	width: 100%;
+                	border-collapse: collapse;
+                    border:dashed;
+                }
+                
+                .metrotable > thead > tr > th 
+                {
+                	font-size: 1.3em;
+                	padding-top: 0;
+                	padding-bottom: 5px;
+                    text-align:center;
+                }
+                
+            </style>

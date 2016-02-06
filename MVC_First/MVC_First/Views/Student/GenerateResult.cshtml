@@ -1,0 +1,100 @@
+﻿@model MVC_First.Models.quizResult
+
+@{
+    ViewBag.Title = "GenerateResult";
+}
+
+<div class ="k-content" style ="background-color:mintcream; height:auto; width:60%;margin-left:25%"> 
+<h2 class ="k-header">Quiz Result:</h2>
+<table class="metrotable">
+
+    <tr>
+        <th style ="font-size:medium">
+            Student ID
+        </th>
+        <th style ="font-size:medium">
+            Course Name
+        </th>
+        <th style ="font-size:medium">
+            Teacher ID
+        </th>
+        <th style ="font-size:medium">
+            Attempted
+        </th>
+        <th style ="font-size:medium">
+            Correct
+        </th>
+        <th style ="font-size:medium">
+            Wrong
+        </th>
+        <th style ="font-size:medium">
+            Blank
+        </th>
+        <th style ="font-size:medium">
+            Total Marks
+        </th>
+        <th style ="font-size:medium">
+            @Html.DisplayNameFor(model => model.obtainMarks)
+        </th>
+        <th></th>
+    </tr>
+    <tr>
+        <td style ="font-size:small;text-align:center">
+            @Html.DisplayFor(model => model.sid)
+        </td>
+        <td style ="font-size:small;text-align:center">
+            @ViewBag.name
+        </td>
+        <td style ="font-size:small;text-align:center">
+            @Html.DisplayFor(model => model.tid)
+        </td>
+        <td style ="font-size:small;text-align:center">
+            @ViewBag.attempted
+        </td>
+        <td style ="font-size:small;text-align:center">
+            @ViewBag.correct
+        </td>
+        <td style ="font-size:small;text-align:center">
+            @ViewBag.wrong
+        </td>
+        <td style ="font-size:small;text-align:center">
+            @ViewBag.blank
+        </td>
+        <td style ="font-size:small;text-align:center">
+            @Html.DisplayFor(model => model.totalmarks)
+        </td>
+        <td style ="font-size:small;text-align:center">
+            @Html.DisplayFor(model => model.obtainMarks)
+        </td>
+        
+    </tr>
+
+</table>
+    <br><br><div style ="margin-left:95%">
+             @Html.ActionLink("Back", "StudentHome")
+     </div>   
+    </div>
+
+
+<style scoped>
+                .demo-section {
+                    width: 600px;	
+                }
+                
+                .metrotable {
+                	width: 100%;
+                	border-collapse: collapse;
+                    border:dashed;
+                }
+                
+                .metrotable > thead > tr > th 
+                {
+                	font-size: 1.3em;
+                	padding-top: 0;
+                	padding-bottom: 5px;
+                    text-align:center;
+                }
+                
+            </style>
+
+

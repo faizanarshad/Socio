@@ -1,0 +1,84 @@
+﻿@model List<MVC_First.Models.quizResult>
+
+@{
+    ViewBag.Title = "ViewResult";
+}
+
+<div class ="k-content" style ="background-color:mintcream; height:auto; width:50%;margin-left:25%"> 
+    <h2 class ="k-header">View Result:</h2>
+
+
+<table class="metrotable">
+       <tr>
+        <th style ="font-size:medium">
+            Quiz ID
+        </th>
+        <th style ="font-size:medium">
+            Student ID
+        </th>
+        <th style ="font-size:medium">
+            Course Name
+        </th>
+        <th style ="font-size:medium">
+            Teacher ID
+        </th>
+        
+        <th style ="font-size:medium">
+            Total Marks
+        </th>
+        <th style ="font-size:medium">
+            Obtained Marks
+        </th>
+        <th></th>
+    </tr>
+@foreach( var m in Model ){
+        
+    <tr>
+        <td style ="font-size:small;text-align:center">
+            @Html.DisplayFor(modelItem => m.qid)
+        </td>
+        <td style ="font-size:small;text-align:center">
+            @Html.DisplayFor(modelItem => m.sid)
+        </td>
+        <td style ="font-size:small;text-align:center">
+            @ViewBag.name
+        </td>
+        <td style ="font-size:small;text-align:center">
+            @Html.DisplayFor(modelItem => m.tid)
+        </td>
+         <td style ="font-size:small;text-align:center">
+            @Html.DisplayFor(modelItem => m.totalmarks)
+        </td>
+        <td style ="font-size:small;text-align:center">
+            @Html.DisplayFor(modelItem => m.obtainMarks)
+        </td>
+        
+    </tr>
+  
+}
+</table>
+           <br><br><div style ="margin-left:90%">
+             @Html.ActionLink("Back", "StudentHome")
+     </div>   
+       
+    </div>
+<style scoped>
+                .demo-section {
+                    width: 600px;	
+                }
+                
+                .metrotable {
+                	width: 100%;
+                	border-collapse: collapse;
+                    border:dashed;
+                }
+                
+                .metrotable > thead > tr > th 
+                {
+                	font-size: 1.3em;
+                	padding-top: 0;
+                	padding-bottom: 5px;
+                    text-align:center;
+                }
+                
+            </style>

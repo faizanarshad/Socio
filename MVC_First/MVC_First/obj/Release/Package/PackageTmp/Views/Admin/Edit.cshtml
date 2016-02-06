@@ -1,0 +1,55 @@
+﻿@using MVC_First.Models
+@model MVC_First.Models.user
+
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Views/Shared/_LayoutAfterLogin.cshtml";
+}
+ 
+
+ <form class="form-signin" action ="/Admin/EditConfirmed" method ="post">    
+<div class ="container" style ="background-color:mintcream; height:430px; width:550px">   
+  <fieldset>
+        <legend style ="font-size:xx-large">Edit User:</legend>
+
+        @Html.HiddenFor(model => model.uid)
+
+        <div class="editor-label" style ="font-size:large">
+            @Html.LabelFor(model => model.name)
+        </div>
+        <div class="editor-field" style ="font-size:small">
+            @Html.TextBoxFor(model => model.name)
+           
+        </div>
+         <div class="editor-label" style ="font-size:large">
+            @Html.LabelFor(model => model.type)
+        </div>
+
+        <div class="editor-field" style ="font-size:small">
+            @Html.TextBoxFor(model => model.type)
+           
+        </div>
+       <div class="editor-label" style ="font-size:large">
+            @Html.LabelFor(model => model.password)
+        </div>
+
+        <div class="editor-field" style ="font-size:small">
+            @Html.TextBoxFor(model => model.password)
+           
+        </div>
+
+        <div class="editor-label" style ="font-size:large; ">
+            @Html.LabelFor(model => model.email)
+        </div>
+        <div class="editor-field" style ="font-size:small">
+            @Html.TextBoxFor(model => model.email)
+           
+        </div><br>
+
+        <button class="btn btn-lg btn-primary btn-block" type="submit" style ="width:200px" value ="Save" >Save</button>
+     <div style ="width:200px;position:relative;top:-50px; margin-left:250px; font-size:xx-large;">
+             @Html.ActionLink("Back", "UserSetup")
+     </div>   
+    </fieldset>
+    </div>
+     </form>

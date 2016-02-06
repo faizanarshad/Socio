@@ -1,0 +1,97 @@
+﻿@model IEnumerable<MVC_First.Models.quiz>
+
+@{
+    ViewBag.Title = "StartQuiz";
+    Layout = "~/Views/Shared/_LayoutAfterLogin.cshtml";
+}
+
+<div class ="k-content" style ="background-color:mintcream; height:auto; width:60%;margin-left:25%"> 
+<h2 class ="k-header">Start Quiz:</h2>
+
+<table class="metrotable">
+    <tr>
+        <th style ="font-size:medium">
+            Quiz No
+        </th>
+        <th style ="font-size:medium">
+            Course ID
+        </th>
+        <th style ="font-size:medium">
+            Teacher ID
+        </th>
+        <th style ="font-size:medium">
+            @Html.DisplayNameFor(model => model.totalQuestion)
+        </th>
+        <th style ="font-size:medium">
+            @Html.DisplayNameFor(model => model.TotalMarks)
+        </th>
+        <th style ="font-size:medium">
+            @Html.DisplayNameFor(model => model.startDate)
+        </th>
+        <th style ="font-size:medium">
+            @Html.DisplayNameFor(model => model.endDate)
+        </th>
+        <th style ="font-size:medium">
+            @Html.DisplayNameFor(model => model.TotalTime)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td style ="font-size:small;text-align:center">
+            @Html.DisplayFor(modelItem => item.quizNum)
+        </td>
+        <td style ="font-size:small;text-align:center">
+           @ViewBag.name
+        </td>
+        <td style ="font-size:small;text-align:center">
+            @Html.DisplayFor(modelItem => item.tid)
+        </td>
+        <td style ="font-size:small;text-align:center">
+            @Html.DisplayFor(modelItem => item.totalQuestion)
+        </td>
+        <td style ="font-size:small;text-align:center">
+            @Html.DisplayFor(modelItem => item.TotalMarks)
+        </td>
+        <td style ="font-size:small;text-align:center">
+            @Html.DisplayFor(modelItem => item.startDate)
+        </td>
+        <td style ="font-size:small;text-align:center">
+            @Html.DisplayFor(modelItem => item.endDate)
+        </td>
+        <td style ="font-size:small;text-align:center">
+            @Html.DisplayFor(modelItem => item.TotalTime)
+            Minuts
+        </td>
+        <td style ="font-size:small;text-align:center">
+            @Html.ActionLink("Start", "Start", new {  id=item.cid , totalQ = item.totalQuestion , qid = item.qid , tid = item.tid , totalTime = item.TotalTime , totalAttempts = item.totalAttempts , qNo = item.quizNum })
+         </td>
+    </tr>
+}
+
+</table>
+    <br><div style ="margin-left:95%">
+             @Html.ActionLink("Back", "StudentHome")
+     </div>   
+    </div>
+<style scoped>
+                .demo-section {
+                    width: 600px;	
+                }
+                
+                .metrotable {
+                	width: 100%;
+                	border-collapse: collapse;
+                    border:dashed;
+                }
+                
+                .metrotable > thead > tr > th 
+                {
+                	font-size: 1.3em;
+                	padding-top: 0;
+                	padding-bottom: 5px;
+                    text-align:center;
+                }
+                
+            </style>

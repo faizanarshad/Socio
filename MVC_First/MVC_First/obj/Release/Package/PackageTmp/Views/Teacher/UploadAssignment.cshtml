@@ -1,0 +1,86 @@
+﻿@{
+    ViewBag.Title = "UploadAssignment";
+}
+
+<h2>UploadAssignment</h2>
+
+   
+<link rel="stylesheet" href="~/Content/bootstrap.min.css">
+<link rel="stylesheet" href="~/Content/bootstrap-responsive.min.css">
+<link type= "text/css" href="~/Content/bootstrap.css" rel="stylesheet" />
+<script class="cssdeck" src="~/Scripts/jquery.min.js"></script>
+<script class="cssdeck" src="~/Scripts/bootstrap.min.js"></script>
+<script type="text/javascript" src="~/Scripts/bootstrap.js"></script>
+<script src="~/Scripts/jquery-1.9.1.js"></script>
+
+<link href="~/Content/kendo/2013.3.1119/kendo.common.min.css" rel="stylesheet" />
+    <link href="~/Content/kendo/2013.3.1119/kendo.default.min.css" rel="stylesheet" />
+    <script src="~/Scripts/kendo/2013.3.1119/jquery.min.js"></script>
+    <script src="~/Scripts/kendo/2013.3.1119/kendo.web.min.js"></script>
+
+<script>
+        $(document).ready(function () {
+            
+                $("#ccid").focusin(function () {
+
+                    $("#ccid option").remove();
+
+                    $.getJSON("/Teacher/GetCourses", function (data) {
+                       
+                        $.each(data, function (i, item) {
+                            $("#ccid").append('<option value=' + item.cid + '>' + item.cid + '</option>');
+                            
+                        });
+
+                    });
+                });
+
+                $("#datetimepicker").kendoDateTimePicker({
+                    value: new Date()
+                });
+
+
+                $("#datetimepicker2").kendoDateTimePicker({
+                    value: new Date()
+
+                });
+        });
+        </script>
+
+<div class ="container" style ="background-color:mintcream; height:600px; width:550px">
+
+    <form class="form-signin" role="form" method ="post" action ="/Teacher/SaveAssignment" enctype="multipart/form-data">
+        <br><label for ="name" class ="control-label" style ="font-size:small">Course ID </label><br>
+        <div >
+        <select class ="form-control" id ="ccid" name ="cid" style ="width:350px">
+          <option>-Course ID-</option>  
+        </select>
+            </div>
+
+        <br><label for ="name" class ="control-label" style ="font-size:small">Total Marks </label>
+        <input type="text" class="form-control" name ="totalMarks" placeholder ="Total Marks" required id ="tm" style ="width:350px">
+
+        <br><label for ="name" class ="control-label" style ="font-size:small">Start DateTime </label><br>
+        
+            <input type ="datetime" id="datetimepicker" name ="startDate" style="width:350px; height:20px;font-size:small" /><br>
+            
+
+        <br><label for ="name" class ="control-label" style ="font-size:small">End DateTime </label><br>
+        <input type ="datetime" id="datetimepicker2" name ="endDate" style="width:350px; height:20px;font-size:small" /><br>
+
+        <br><h2 class="form-signin-heading">UpLoad Question File:</h2><br><br>
+        <input type="file" name = "text"><br>
+
+        <br><h2 class="form-signin-heading">UpLoad OutPut File: (Text File)</h2><br><br>
+        <input type="file" name = "text"><br>
+         
+        <br><button class="btn btn-lg btn-primary btn-block" type="submit" style ="width:350px" id ="save">Upload Assignment</button>
+        
+
+    </form>
+
+    <br><br><div style ="width:200px;position:relative;top:-80px; margin-left:400px; font-size:xx-large;">
+             @Html.ActionLink("Back", "TeacherHome")
+     </div>
+</div>
+

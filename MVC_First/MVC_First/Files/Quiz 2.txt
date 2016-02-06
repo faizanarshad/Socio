@@ -1,0 +1,70 @@
+Which is an internal command?
+Scandisk
+XCOPY
+Deltree
+None of the above
+None of the above
+4
+Any files deleted in Windows goes into
+Trash can
+Recycle bin
+Deleted Files
+None of above
+Recycle bin
+2
+Which command is used to delete all the files from root directory of drive A?
+Del a:\
+Del *.*
+Del A
+Erase *
+Del a:\
+1
+Which command used to delete all files from current directory?
+Del
+Deltree/y *
+Del *.*
+All of the above
+Del *.*
+3
+Which of the following is a disk compression tool?
+Drive space
+Scandisk
+Defragmenter
+None of the above
+Drive space
+1
+What does Belady’s Anomaly related to?
+Page Replacement Algorithm
+Memory Management Algorithm
+Deadlock Prevention Algorithm
+Disk Scheduling Algorithm
+Page Replacement Algorithm
+1
+A ….allows you to write on screen with a digital pen and convert that writing into characters that the PC can process
+Monitor RS
+Tablet PC
+Database manager
+Media Center
+Tablet PC
+2
+Which is not utility program?
+Backup
+Scandisk
+Data recovery
+XCOPY
+XCOPY
+4
+Driver is
+Hardware controller
+Hardware and gain controller
+Data controller
+All of above
+Hardware controlle
+1
+System files allocated at
+Boot area
+FAT area
+Data area
+Directory
+Boot area
+1

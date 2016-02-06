@@ -1,0 +1,26 @@
+﻿@{
+    ViewBag.Title = "Personal Messages from student";
+    Layout = "~/Views/Shared/_LayoutAfterLogin.cshtml";
+}
+
+         <link href="~/Content/kendo/2013.3.1119/kendo.flat.min.css" rel="stylesheet" />
+        <link href="~/Content/kendo/2013.3.1119/kendo.common.min.css" rel="stylesheet" />
+        <script src="~/Scripts/kendo/2013.3.1119/jquery.min.js"></script>
+        <script src="~/Scripts/kendo/2013.3.1119/kendo.web.min.js"></script>
+
+<script>
+  $('document').ready(function () {
+
+
+        $(".k-primary").kendoButton();
+
+  });
+    </script>
+
+
+<div class="demo-section" style="height:60%; width:50%; margin-left:25%">
+    <h2 class="k-header">Personal Messages:-</h2><br>
+        <button class="k-primary" type="submit" id ="btn1" style="width:25%;height:auto;margin-left:15%" onclick="location.href='@Url.Action("personalMesgS2S","Student")'">Message to Student</button>
+        <button class="k-primary" type="submit" id ="btn2" style="width:25%;height:auto;margin-left:15%" onclick="location.href='@Url.Action("personalMesgS2T","Student")'">Messege to Teacher</button>
+       <br><br>
+    </div>

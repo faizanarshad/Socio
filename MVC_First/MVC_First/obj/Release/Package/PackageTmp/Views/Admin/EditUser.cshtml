@@ -1,0 +1,57 @@
+﻿@model MVC_First.Models.user
+
+@{
+    ViewBag.Title = "EditUser";
+    Layout = "~/Views/Shared/_LayoutAfterLogin.cshtml";
+}
+    
+<title>@ViewBag.Title</title>
+
+<link rel="stylesheet" href="~/Content/bootstrap.min.css">
+<link rel="stylesheet" href="~/Content/bootstrap-responsive.min.css">
+<link type= "text/css" href="~/Content/bootstrap.css" rel="stylesheet" />
+<script class="cssdeck" src="~/Scripts/jquery.min.js"></script>
+<script class="cssdeck" src="~/Scripts/bootstrap.min.js"></script>
+<script type="text/javascript" src="~/Scripts/bootstrap.js"></script>
+<script src="~/Scripts/jquery-1.9.1.js"></script>
+
+<script>
+$(document).ready(function () {
+            
+                $("#uuid").focusin(function () {
+
+                    $("#uuid option").remove();
+
+                    $.getJSON("/Home/GetUsers", function (data) {
+                       
+                        $.each(data, function (i, item) {
+                            $("#uuid").append('<option value=' + item.uid + '>' + item.uid + '</option>');
+                            
+                        });
+
+                    });
+                });
+            });
+</script>
+
+<div class ="container" style ="background-color:mintcream; height:430px; width:550px">
+
+    <form class="form-signin" role="form" method ="get" action ="/Admin/Edit">
+
+        <h2 class="form-signin-heading">Edit User Form:</h2><br><br>
+        <div>
+        <select class ="form-control" id ="uuid" name ="uid" style ="width:350px">
+          <option>-User ID-</option>  
+        </select>
+            </div>         
+        <br><button class="btn btn-lg btn-primary btn-block" type="submit" style ="width:350px" id ="save">Submit</button>
+        
+
+    </form>
+
+    <div style ="width:200px;position:relative; top:-40px; margin-left:400px; font-size:xx-large;">
+             @Html.ActionLink("Back", "UserSetup")
+        </div>
+     
+</div>
+

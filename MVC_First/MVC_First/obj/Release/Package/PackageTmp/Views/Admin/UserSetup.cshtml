@@ -1,0 +1,26 @@
+﻿@{
+    ViewBag.Title = "UserSetup";
+    Layout = "~/Views/Shared/_LayoutAfterLogin.cshtml";
+}
+<title>@ViewBag.Title</title>
+
+<link rel="stylesheet" href="~/Content/bootstrap.min.css">
+<link rel="stylesheet" href="~/Content/bootstrap-responsive.min.css">
+<link type= "text/css" href="~/Content/bootstrap.css" rel="stylesheet" />
+<script class="cssdeck" src="~/Scripts/jquery.min.js"></script>
+<script class="cssdeck" src="~/Scripts/bootstrap.min.js"></script>
+<script type="text/javascript" src="~/Scripts/bootstrap.js"></script>
+<script src="~/Scripts/jquery-1.9.1.js"></script>
+
+<div class ="container" style ="background-color:mintcream; height:350px; width:50%">
+
+        <button class="btn btn-lg btn-primary" type="submit" style ="width:200px;" id ="btn1" onclick = "location.href='@Url.Action("AddUser", "Admin" )'">Add User</button>
+        <button class="btn btn-lg btn-primary" type="submit" style ="width:200px; margin-left:100px" id ="btn2" onclick = "location.href='@Url.Action("EditUser", "Admin" )'">Edit User</button>
+        <button class="btn btn-lg btn-primary" type="submit" style ="width:200px; margin-left:150px; margin-top:10%" id ="btn3" onclick = "location.href='@Url.Action("DeleteUser", "Admin" )'">Delete User</button>
+
+        <br><br><br><br><div style ="width:200px;position:relative;top:-20px; margin-left:220px; font-size:xx-large;">
+                 @Html.ActionLink("Back", "AdminHome")
+            </div>   
+
+</div>
+

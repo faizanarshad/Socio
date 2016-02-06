@@ -1,0 +1,119 @@
+﻿@{
+    ViewBag.Title = "_LayoutAfterLogin";
+}
+<html>
+    <head>
+        <title>
+            SOCIO NU-FEIT
+
+            </title>
+        
+        <link href="~/Content/kendo/2013.3.1119/kendo.flat.min.css" rel="stylesheet" />
+
+        <link href="~/Content/kendo/2013.3.1119/kendo.common.min.css" rel="stylesheet" />
+     
+        <script src="~/Scripts/kendo/2013.3.1119/jquery.min.js"></script>
+        <script src="~/Scripts/kendo/2013.3.1119/kendo.web.min.js"></script>
+        
+
+       <link href="~/themes/8/js-image-slider.css" rel="stylesheet" type="text/css" />
+      <script src="~/themes/8/js-image-slider.js" type="text/javascript"></script>
+       
+        <script type="text/javascript">
+            $(document).ready(function () {
+                $('#tabstrip').kendoTabStrip();
+
+            });
+
+        </script>
+
+    </head>
+
+    <body style="background-color:mintcream">
+        <div style ="background-color:#463b3b ; height:45px ">
+        <div>
+        <b style ="color:white; font-size:medium">Faculty of Engineering and Information Technology Northern University Nowshera</b>
+            @{if(Session["id"]!=null){
+                        <b style ="color:ActiveBorder; font-size:larger; margin-left:25%">Username: @Session["id"].ToString()</b>
+              }}
+        </div>
+    </div>
+    <div style ="background-color:#a7d9d8; height:165px; padding-left:0px">
+        <img src="~/images/logo2.png" class="img-circle" style="box-sizing:border-box; margin-left:20%; margin-top:4px; height:120px" /> <b style ="color:black; font-size:x-large">NU-FEIT</b> | <small> Online </small>                  
+        <br><br>
+
+        </div>
+          <div id="tabstrip" class ="k-content" >
+
+            <ul>
+                @{if(Session["id"]==null){
+                        <li><a href ="/Home/index"><b style = "text-align:center">Home</b></a></li>
+                  }
+                  else
+                  {
+                      
+                      if (Session["type"] != null && Session["type"].ToString().Equals("admin"))
+                      {
+                               <li><a href ="/Admin/AdminHome"><b style = "text-align:center">Home</b></a></li>
+                      }
+                      else if (Session["type"] != null && Session["type"].ToString().Equals("Teacher"))
+                      {
+                                <li><a href ="/Teacher/TeacherHome"><b style = "text-align:center">Home</b></a></li>
+                      }
+                      else if (Session["type"] != null && Session["type"].ToString().Equals("Student"))
+                      {
+                                <li><a href ="/Student/StudentHome"><b style = "text-align:center">Home</b></a></li>
+                      }
+                      else if (Session["type"] != null && Session["type"].ToString().Equals("ExamBranch"))
+                      {
+                                <li><a href ="/Home/ExamBranchHome"><b style = "text-align:center">Home</b></a></li>
+                      }
+                      else
+                      {
+                               <li><a href ="/Home/index"><b style = "text-align:center">Home</b></a></li>
+                      }
+                  }}
+                
+                  <li><a href ="/Home/Courses">Courses</a></li>
+                  <li><a href ="/Home/Faculty">Faculty</a></li>
+                  <li><a href ="/Home/About">About Us</a></li>
+
+                    @{if (Session["id"] == null)
+                      {
+                        <li style ="margin-left:750px"><a href="~/Home/signIn">Sign In</a></li>
+                      }
+                      else
+                      {
+                          <li style ="margin-left:650px"><a href="~/Home/Logout">Sign Out</a></li>
+                          if (Session["type"] != null && Session["type"].ToString().Equals("admin"))
+                          {
+                               <li style ="margin-left:10px"><a href="~/Admin/AdminHome">Back</a></li>
+                          }
+                          else if (Session["type"] != null && Session["type"].ToString().Equals("Teacher"))
+                          {
+                               <li style ="margin-left:10px"><a href="~/Teacher/TeacherHome">Back</a></li>
+                          }
+                          else if (Session["type"] != null && Session["type"].ToString().Equals("Student"))
+                          {
+                               <li style ="margin-left:10px"><a href="~/Student/StudentHome">Back</a></li>
+                          }
+                          else if (Session["type"] != null && Session["type"].ToString().Equals("ExamBranch"))
+                          {
+                               <li style ="margin-left:10px"><a href="~/Home/ExamBranchHome">Back</a></li>
+                          }
+                          else
+                          {
+                               <li style ="margin-left:10px"><a href="#">Back</a></li>
+                          }
+                           <li style ="margin-left:10px"><a href="~/Home/changePassword">Change Password</a></li>
+
+                      }}
+
+                  
+            </ul>
+
+        </div>
+
+       @RenderBody()     
+        </body>
+    </html>

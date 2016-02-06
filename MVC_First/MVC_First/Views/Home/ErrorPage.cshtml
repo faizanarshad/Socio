@@ -1,0 +1,14 @@
+﻿@{
+    ViewBag.Title = "ErrorPage";
+}
+<div class ="k-content" style ="background-color:mintcream; height:auto; width:30%;margin-left:25%">
+    <h2 class ="k-header">Error in @ViewBag.ErrorType:</h2>
+<p style ="font-size:large">
+    <br>@ViewBag.message
+<p>
+   <br><div style ="margin-left:80%; font-size:x-large;">
+             @Html.ActionLink("Back", "CustomUserHome")
+     </div>
+</div>
+
+

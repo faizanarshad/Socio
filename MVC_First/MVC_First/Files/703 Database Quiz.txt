@@ -1,0 +1,140 @@
+What Are The Different Views To Display A Table
+Datasheet View 
+Design View 
+Pivote Table & Pivot Chart View 
+All Of Above
+All Of Above 
+4 
+Which Of The Following Creates A Drop Down List Of Values To Choose From?
+Ole Object 
+Hyperlink 
+Memo 
+Lookup Wizard 
+Lookup Wizard 
+4
+The Command Center Of Access File That Appears When You Create Or Open The Ms Access Database File.
+Database Window 
+Query Window 
+Design View Window 
+Switchboard 
+Database Window
+1
+The Third Stage In Designing A Database Is When We Analyze Our Tables More Closely And Create A ___________ Between Tables
+Relationship 
+Join 
+Query 
+None Of These
+Relationship
+1 
+In A Database Table, The Category Of Information Is Called __________
+Tuple 
+Field 
+Record 
+All Of Above
+Field 
+2
+This Key Uniquely Identifies Each Record
+Primary Key 
+Key Record 
+Unique Key 
+Field Name
+Primary Key
+1
+It Is An Association Established Between Common
+Line 
+Relationship 
+Primary Key 
+Records 
+Relationship
+2
+This Is The Stage In Database Design Where One Gathers And List All The Necessary Fields For The Database Project.
+Data Definition 
+Data Refinement 
+Establishing Relationship 
+None Of The Above 
+Data Definition 
+1
+A Database Language Concerned With The Definition Of The Whole Database Structure And Schema Is ________
+DCL 
+DML 
+DDL 
+All Of Above
+DDL
+3
+Which Of The Field Has Width 8 Bytes?
+Memo 
+Number 
+Date/time 
+Hyperlink
+Date/time 
+3
+Which Of The Following Statement Is True?
+Foreign Key Fields Don\'t Allow Duplicate Values 
+In Primary Key Field You Can Enter Duplicate Value 
+In An Indexed Field You May Or May Not Enter Duplicate Value    Depending Upon Setting 
+All Statements Are True
+In Primary Key Field You Can Enter Duplicate Value
+3
+Following Is Not A Database Model
+Network Database Model 
+Relational Database Model 
+Object Oriented Database Model 
+None
+Object Oriented Database Model
+3 
+Microsoft Access Is A
+RDBMS 
+OODBMS 
+ORDBMS 
+Network Database Model
+RDBMS 
+1 
+DCL Provides Commands To Perform Actions Like
+Change The Structure Of Tables 
+Insert, Update Or Delete Records And Data Values 
+Authorizing Access And Other Control Over Database 
+None Of Above 
+Authorizing Access And Other Control Over Database
+3
+The Database Language That Allows You To Access Or Maintain Data In A Database
+DCL 
+DML 
+DDL 
+None Of Above
+DCL
+1
+What Is The Maximum Length A Text Field Can Be?
+120 
+255 
+265 
+75
+255 
+2
+Which Of The Following Is Not A Database Object?
+Tables 
+Queries 
+Relationships 
+Reports
+Relationships 
+3
+A __________ Enables You To View Data From A Table Based On A Specific Criterion
+Form 
+Query 
+Macro 
+Report 
+Query 
+2
+What Are The Columns In A Microsoft Access Table Called?
+Rows 
+Records 
+Fields 
+Columns 
+Fields
+3
+Which Of The Following Is Not A Type Of Microsoft Access Database Object?
+Table 
+Form 
+Worksheets 
+Modules 
+Worksheets 
+3

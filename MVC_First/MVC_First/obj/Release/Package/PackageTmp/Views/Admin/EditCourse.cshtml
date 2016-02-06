@@ -1,0 +1,39 @@
+﻿@using MVC_First.Models
+@model MVC_First.Models.cours
+
+@{
+    ViewBag.Title = "EditCourse";
+    Layout = "~/Views/Shared/_LayoutAfterLogin.cshtml";
+}
+ 
+ <form class="form-signin" id ="form1" method="post" action ="/Admin/SaveCourseInfo">    
+<div class ="container" style ="background-color:mintcream; height:430px; width:550px">   
+  <fieldset>
+        <legend style ="font-size:xx-large">Edit Course:</legend>
+
+        @Html.HiddenFor(model => model.cid)
+
+        <div class="editor-label" style ="font-size:large">
+            @Html.LabelFor(model => model.name)
+        </div>
+        <div class="editor-field" style ="font-size:small">
+            @Html.TextBoxFor(model => model.name)
+           
+        </div><br>
+         <div class="editor-label" style ="font-size:large">
+            @Html.LabelFor(model => model.creditHours)
+        </div>
+
+        <div class="editor-field" style ="font-size:small">
+            @Html.TextBoxFor(model => model.creditHours)
+           
+        </div><br>
+
+        <button class="btn btn-lg btn-primary btn-block" type="submit" style ="width:200px" id ="btn1" name ="SaveCourseInfo" value="SaveCourseInfo" >SaveCourseInfo</button>
+        
+     <br><br><div style ="width:200px;position:relative;top:-60px; margin-left:300px; font-size:xx-large;">
+             @Html.ActionLink("Back", "CourseConfiguration")
+     </div>   
+    </fieldset>
+    </div>
+     </form>

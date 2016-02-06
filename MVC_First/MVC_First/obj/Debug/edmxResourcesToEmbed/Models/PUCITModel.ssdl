@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="PUCITModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityContainer Name="PUCITModelStoreContainer">
+    <EntitySet Name="Admin" EntityType="PUCITModel.Store.Admin" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="student" EntityType="PUCITModel.Store.student" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="teacher" EntityType="PUCITModel.Store.teacher" store:Type="Tables" Schema="dbo" />
+  </EntityContainer>
+  <EntityType Name="Admin">
+    <Key>
+      <PropertyRef Name="aid" />
+    </Key>
+    <Property Name="aid" Type="int" Nullable="false" />
+    <Property Name="name" Type="nchar" Nullable="false" MaxLength="10" />
+    <Property Name="password" Type="nchar" MaxLength="10" />
+    <Property Name="email" Type="nchar" MaxLength="10" />
+  </EntityType>
+  <EntityType Name="student">
+    <Key>
+      <PropertyRef Name="sid" />
+    </Key>
+    <Property Name="sid" Type="int" Nullable="false" />
+    <Property Name="name" Type="nchar" MaxLength="10" />
+    <Property Name="rollno" Type="nchar" Nullable="false" MaxLength="10" />
+    <Property Name="degree" Type="nchar" MaxLength="10" />
+    <Property Name="password" Type="nchar" MaxLength="10" />
+    <Property Name="email" Type="nchar" MaxLength="10" />
+  </EntityType>
+  <EntityType Name="teacher">
+    <Key>
+      <PropertyRef Name="tid" />
+    </Key>
+    <Property Name="tid" Type="int" Nullable="false" />
+    <Property Name="name" Type="nchar" Nullable="false" MaxLength="10" />
+    <Property Name="password" Type="nchar" MaxLength="10" />
+    <Property Name="email" Type="nchar" MaxLength="10" />
+  </EntityType>
+</Schema>

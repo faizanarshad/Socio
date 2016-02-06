@@ -1,0 +1,55 @@
+Confiz interview question:
+Linklist
+1-findMiddle.
+2.find loop from link list i know you can do it but also remove loop
+3-write isBST function.
+4-reverse the linklist
+OOP Questions
+1-can we make static classes
+2-purpose of static classes
+3-scope of static objects
+4-static variables
+5-calling of non static method nd data members in static functions
+6-calling of static functions nd data members in non static functions
+These questions are all related to java concepts nd c++
+7-abstraction(not abstract classes)
+8-calling of grand parent method from child in java
+Design patterns
+1-proxy pattern
+2-observer pattern
+Coding part
+1-write binary search code
+2-find key if size of the array not known in minimum time complexity
+3-print first left child thn right child from a tree.
+4-find subsequence arrays from a array
+Operating system
+1-If we have to build a new operating system thn wht necessary features should be in it.
+2-if 32 bit window is thn wht will be the memory size
+Compiler construction
+1-how compiler identify tokens,semantics,parse tree.open discussion.
+Database
+1-how to represnt 1 to many relation in database schema if employee(id,name) works for department(id,name)
+2-if employee table has attributes e_id,name,d_id thn what is the purpose of using foreign key d_id means why we are making composite key(e_id,d_id)
+3-normalization,indexing,anomolies etc.
+
+1- Find if a string has a palindrom e.g "abac" is not a palindrom but has "aba" substring that's a palindrom.
+
+2- You have an array of 100000 elements containing numbers in range 0-100.. Your task is to make a function that return a new array of unique elements found in given one.
+
+3- Consecutive maximum sequence in an array e.g in array = {1,6,4,2,3,7,8} the max sub sequence is {1,2,3,4}
+
+Theoretical:
+Garbage collector , class , encapsulation , Interface , Object vs instance
+Hashing
+
+Operating system:
+Locks , Addressable memory , Thread vs process
+
+Networking:
+OSI model , link layer of OSI
+
+DB:
+Denormalization and its benifits
+
+Analytical part:
+You have 8 bottles (1 with poison in it). You can't distinguish that bottle by any thing like color, taste.. Now there are 3 person and unko bottle pila k apne batana he k kis me poison tha...

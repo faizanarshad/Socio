@@ -1,0 +1,189 @@
+A piece of icon or image on a web page associated with another webpage is called
+url
+hyperlink
+plugin
+none of the mentioned
+hyperlink
+2
+becuse it is in the book.....
+Parser
+Dynamic web page
+is same every time whenever it displays
+generates on demand by a program or a request from browser
+both (a) and (b)
+none of the mentioned
+generates on demand by a program or a request from browser
+2
+becuse it is in the book.....
+Parser
+What is a web browser?
+a program that can display a web page
+a program used to view html documents
+it enables user to access the resources of internet
+all of the mentioned
+all of the mentioned
+4
+becuse it is in the book.....
+Parser
+Common gateway interface is used to
+generate executable files from web content by web server
+generate web pages
+stream videos
+none of the mentioned
+generate executable files from web content by web server
+1
+becuse it is in the book.....
+Parser
+URL stands for
+unique reference label
+uniform reference label
+uniform resource locator
+unique resource locator
+uniform resource locator
+3
+becuse it is in the book.....
+Parser
+A web cookie is a small piece of data
+sent from a website and stored in user’s web browser while a user is browsing a website
+sent from user and stored in the server while a user is browsing a website
+sent from root server to all servers
+none of the mentioned
+sent from a website and stored in user’s web browser while a user is browsing a website
+1
+becuse it is in the book.....
+Parser
+Which one of the following is not used to generate dynamic web pages?
+PHP
+ASP.NET
+JSP
+none of the mentioned
+none of the mentioned
+4
+becuse it is in the book.....
+Parser
+An alternative of javascript on windows platform is
+VBScript
+ASP.NET
+JSP
+none of the mentioned
+VBScript
+1
+becuse it is in the book.....
+Parser
+What is document object model (DOM)?
+convention for representing and interacting with objects in html documents
+application programming interface
+hierarchy of objects in ASP.NET
+none of the mentioned
+convention for representing and interacting with objects in html documents
+1
+becuse it is in the book.....
+Parser
+AJAX stands for
+asynchronous javascript and xml
+advanced JSP and xml
+asynchronous JSP and xml
+advanced javascript and xml
+asynchronous javascript and xml
+1
+becuse it is in the book.....
+Parser
+________ programs are automatically loaded and operates as a part of browser.
+Add-ons
+Widgets
+Utilities
+Plug-ins
+Plug-ins
+4
+becuse it is in the book.....
+Parser
+Computer that requests the resources or data from other computer is called as ________ computer.
+Server
+Client
+All Above
+None of these
+Client
+2
+becuse it is in the book.....
+Parser
+Software which allows user to view the webpage is called as __________.
+Operating System
+Internet Browser
+Website
+Interpreter
+Internet Browser
+2
+becuse it is in the book.....
+Parser
+Which of the following language is used to write animation and games in browser ?
+HTML
+None of these
+Java
+C Programming
+Java
+3
+becuse it is in the book.....
+Parser
+___________ programs automatically connects to web sites and download documents and save them to local drive.
+None of these
+Offline Browsers
+Web Downloading Utilities
+Web Servers
+Web Downloading Utilities
+3
+becuse it is in the book.....
+Parser
+Which of the following website is used to search other website by typing a keyword ?
+Social Networks
+Search Engine
+None of these
+Routers
+Search Engine
+2
+becuse it is in the book.....
+Parser
+Which of the following is valid Website Address ?
+c4learn@.com
+www.c4learn.com
+www.c4learn
+ww#.c4learn.com
+www.c4learn.com
+2
+becuse it is in the book.....
+Parser
+Which of the following is called as protocol in the URL ?http://www.c4learn.com
+.com
+c4learn
+www
+http
+http
+4
+becuse it is in the book.....
+Parser
+Whenever user opens any website then main page is called as ________.
+Home Page
+Backend Page
+Dead End
+None of these
+Home Page
+1
+becuse it is in the book.....
+Parser
+Whenever crawler crawls the website then any page not having a link is called as ________.
+Home Page
+Dead End Page
+Doorway Page
+Absolute Page
+Dead End Page
+3
+becuse it is in the book.....
+Parser
+
+
+
+
+
+
+
+
+

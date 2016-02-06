@@ -1,0 +1,122 @@
+﻿@{
+    ViewBag.Title = "UploadAssignment";
+}
+   <!--
+<link rel="stylesheet" href="~/Content/bootstrap.min.css">
+<link rel="stylesheet" href="~/Content/bootstrap-responsive.min.css">
+<link type= "text/css" href="~/Content/bootstrap.css" rel="stylesheet" />
+<script class="cssdeck" src="~/Scripts/jquery.min.js"></script>
+<script class="cssdeck" src="~/Scripts/bootstrap.min.js"></script>
+<script type="text/javascript" src="~/Scripts/bootstrap.js"></script>-->
+
+<script src="~/Scripts/jquery-1.9.1.js"></script>
+
+
+        <link href="~/Content/kendo/2013.3.1119/kendo.flat.min.css" rel="stylesheet" />
+        <link href="~/Content/kendo/2013.3.1119/kendo.common.min.css" rel="stylesheet" />
+        <script src="~/Scripts/kendo/2013.3.1119/jquery.min.js"></script>
+        <script src="~/Scripts/kendo/2013.3.1119/kendo.web.min.js"></script>
+
+
+<script>
+        $(document).ready(function () {
+            
+            $(".k-primary").kendoButton();
+                $("#ccid").focusin(function () {
+
+                    $("#ccid option").remove();
+
+                    $.getJSON("/Teacher/GetCourses", function (data) {
+                       
+                        $.each(data, function (i, item) {
+                            $("#ccid").append('<option value=' + item.cid + '>' + item.name + '</option>');
+                            
+                        });
+
+                    });
+                });
+
+                $("#am").focusout(function () {
+                    var aNumber = $('#am').val();
+                    var id = $("#ccid option:selected").val();
+
+                    $.getJSON("/Teacher/CheckAssignmentNumber?aNumber="+aNumber+","+id , function (data) {
+                        if (data) {
+                            $('#u').text("Assignment Number already exist.");
+                            $('#am').css("color", "red");
+                            $('#am').css("border-color", "red");
+                            $('#u').css("color", "red");
+                            $('#u').css("font-size", "small");
+                            $('#am').val("");
+                        }
+                    });
+                });
+
+                $("#datetimepicker").kendoDateTimePicker({
+                    value: new Date()
+                });
+
+
+                $("#datetimepicker2").kendoDateTimePicker({
+                    value: new Date()
+
+                });
+
+        });
+        </script>
+
+<div class ="k-content" style ="background-color:mintcream; height:auto; width:30%;margin-left:25%">
+    <h2 class ="k-header">Upload Assignment:</h2>
+    <form class="forms" role="form" method ="post" action ="/Teacher/SaveAssignment" enctype="multipart/form-data">
+        <label for ="name" style ="font-size:small">Course ID </label><br>
+        <div >
+        <select id ="ccid" name ="cid" style ="width:90%">
+          <option>-Course ID-</option>  
+        </select>
+            </div>
+
+        <br><label for ="name" style ="font-size:small">Total Marks </label>
+        <input type="text" name ="totalMarks" placeholder ="Total Marks" required id ="tm" style ="width:90%"><br>
+
+        <br><label for ="name" style ="font-size:small">Assignment No </label>
+        <input type="text"  name ="aNumber" placeholder ="Assignment Number" required id ="am" style ="width:90%">
+        <div id ="u" style = "width:400px; position:relative"></div>
+        
+        <br><label for ="name"  style ="font-size:small">Start DateTime </label><br>
+        
+            <input type ="datetime" id="datetimepicker" name ="startDate" style="width:90%; height:auto;font-size:small" /><br>
+            
+
+        <br><label for ="name" style ="font-size:small">End DateTime </label><br>
+        <input type ="datetime" id="datetimepicker2" name ="endDate" style="width:90%; height:auto;font-size:small" /><br>
+
+        <br><h2 class="k-header">UpLoad Question File:</h2><br><br>
+        <input type="file" name = "text"><br>
+
+        <br><h2 class="k-header">UpLoad OutPut File: (Text File)</h2><br><br>
+        <input type="file" name = "text"><br>
+         
+        <br><button class="k-primary" type="submit" style ="width:350px" id ="save">Upload Assignment</button>
+        
+
+    </form>
+
+</div>
+
+<style scoped>
+            .forms {
+                float: left;
+                
+            }
+
+            .forms li {
+                margin-bottom: 5px;
+                list-style: none;
+                
+            }
+
+            .forms li > * {
+                width: 200px;
+            }
+        </style>
+

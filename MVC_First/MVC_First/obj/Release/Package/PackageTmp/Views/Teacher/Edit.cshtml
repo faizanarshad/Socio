@@ -1,0 +1,116 @@
+﻿@model MVC_First.Models.quiz
+
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Views/Shared/_LayoutAfterLogin.cshtml";
+}
+
+
+<html>
+<head>
+    <title>Edit</title>
+    <link href="~/Content/themes/jquery-ui.css" rel="stylesheet" />
+    <link href="~/Content/themes/jquery.ui.datepicker.css" rel="stylesheet" />
+    <script src="~/Scripts/jquery-ui.js"></script>
+    <script src="~/Scripts/jquery.ui.datepicker.js"></script>
+
+
+    <link href="~/Content/kendo/2013.3.1119/kendo.common.min.css" rel="stylesheet" />
+    <link href="~/Content/kendo/2013.3.1119/kendo.default.min.css" rel="stylesheet" />
+    <script src="~/Scripts/kendo/2013.3.1119/jquery.min.js"></script>
+    <script src="~/Scripts/kendo/2013.3.1119/kendo.web.min.js"></script>
+    
+</head>
+    <script>
+        $(document).ready(function () {
+            
+                $("#ccid").focusin(function () {
+
+                    $("#ccid option").remove();
+
+                    $.getJSON("/Teacher/GetCourses", function (data) {
+                       
+                        $.each(data, function (i, item) {
+                            $("#ccid").append('<option value=' + item.cid + '>' + item.cid + '</option>');
+                            
+                        });
+
+                    });
+                });
+                
+                $("#tp").focusin(function () {
+                    var id = $("#ccid option:selected").text();
+                    $("#tp option").remove();
+
+                    $.getJSON("/Teacher/GetTopic?cid=" + id, function (data) {
+                        
+                        $.each(data, function (i, item) {
+                            $("#tp").append('<option value=' + item.topic + '>' + item.topic + '</option>');
+
+                        });
+
+                    });
+                });
+
+
+            $("#datetimepicker").kendoDateTimePicker({
+               
+            });
+
+            
+            $("#datetimepicker2").kendoDateTimePicker({
+                
+                
+            });
+            
+
+        });
+        </script>
+
+<body>
+<div class ="container" style ="background-color:mintcream; height:600px; width:50%">
+<h2 class="form-signin-heading">Edit Quiz:</h2><br><br>
+    <form class="form-group" role="form" method ="post" action ="/Teacher/SaveUpdatedQuiz">
+         @Html.HiddenFor(model => model.qid)
+        @Html.HiddenFor(model => model.tid)
+        <br><label for ="name" class ="control-label" style ="font-size:small">Course ID </label><br>
+        <div >
+        <select class ="form-control" id ="ccid" name ="cid"  style ="width:350px">
+           <option>@Model.cid</option>
+        </select>
+            </div>
+        <br><label for ="name" class ="control-label" style ="font-size:small">Topic </label><br>
+        <div >
+        <select class ="form-control" id ="tp" name ="topic" style ="width:350px">
+           <option>@Model.topic</option>
+        </select>
+        </div>
+                 
+        <br><label for ="name" class ="control-label" style ="font-size:small">Total Questions </label>
+        <input type="text" class="form-control" name ="totalQuestion" value ="@Model.totalQuestion" required id ="tq" style ="width:350px">
+
+        <br><label for ="name" class ="control-label" style ="font-size:small">Total Marks </label>
+        <input type="text" class="form-control" name ="TotalMarks" value ="@Model.TotalMarks" required id ="tm" style ="width:350px">
+
+        <br><label for ="name" class ="control-label" style ="font-size:small">Total Time </label>
+        <input type="text" class="form-control" name ="TotalTime" value ="@Model.TotalTime" required id ="tt" style ="width:350px">
+        
+        <br><label for ="name" class ="control-label" style ="font-size:small">Start DateTime </label><br>
+        
+            <input type ="datetime" id="datetimepicker" name ="startDate" value ="@Model.startDate" style="width:350px; height:20px;font-size:small" /><br>
+            
+
+        <br><label for ="name" class ="control-label" style ="font-size:small">End DateTime </label><br>
+        <input type ="datetime" id="datetimepicker2" name ="endDate" value ="@Model.endDate" style="width:350px; height:20px;font-size:small" /><br>
+
+        <br><br><button class="btn btn-lg btn-primary btn-block" type="submit" style ="width:200px" value ="Create" >Save</button>
+</form>
+
+<br><br><div style ="width:200px;position:relative;top:-60px; margin-left:250px; font-size:xx-large;">
+             @Html.ActionLink("Back", "TeacherHome")
+     </div>   
+
+</div>
+</body>
+</html>
+

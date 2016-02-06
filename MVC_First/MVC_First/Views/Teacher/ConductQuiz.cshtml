@@ -1,0 +1,179 @@
+﻿ @model MVC_First.Models.quiz
+
+@{
+    ViewBag.Title = "CourseDetails";
+    Layout = "~/Views/Shared/_LayoutAfterLogin.cshtml";
+}
+
+
+<html>
+<head>
+    <title>CourseDetails</title>
+    <link href="~/Content/themes/jquery-ui.css" rel="stylesheet" />
+    <link href="~/Content/themes/jquery.ui.datepicker.css" rel="stylesheet" />
+    <script src="~/Scripts/jquery-ui.js"></script>
+    <script src="~/Scripts/jquery.ui.datepicker.js"></script>
+    
+        <link href="~/Content/kendo/2013.3.1119/kendo.flat.min.css" rel="stylesheet" />
+
+    <link href="~/Content/kendo/2013.3.1119/kendo.common.min.css" rel="stylesheet" />
+    <script src="~/Scripts/kendo/2013.3.1119/jquery.min.js"></script>
+    <script src="~/Scripts/kendo/2013.3.1119/kendo.web.min.js"></script>
+    
+</head>
+    <script>
+        $(document).ready(function () {
+            
+            $(".k-primary").kendoButton();
+                $("#ccid").focusin(function () {
+
+                    $("#ccid option").remove();
+
+                    $.getJSON("/Teacher/GetCourses", function (data) {
+                       
+                        $.each(data, function (i, item) {
+                            $("#ccid").append('<option value=' + item.cid + '>' + item.name + '</option>');
+                            
+                        });
+
+                    });
+                });
+                
+                $("#tp").focusin(function () {
+                    var id = $("#ccid option:selected").val();
+                    $("#tp option").remove();
+
+                    $.getJSON("/Teacher/GetTopic?cid=" + id, function (data) {
+                        
+                        $.each(data, function (i, item) {
+                            $("#tp").append('<option value=' + item.topic + '>' + item.topic + '</option>');
+
+                        });
+
+                    });
+                });
+
+                $('#tq').focusout(function () {
+                    var id = $("#ccid option:selected").val();
+                    var totalQ = $("#tq").val();
+                    
+
+                    $.getJSON("/Teacher/CheckTotalQuestions?cid=" + id + ","+totalQ ,  function (data) {
+                        if (!data) {
+                            $('#u').text("There is not enough questions for this topic");
+                            $('#tq').css("color", "red");
+                            $('#tq').css("border-color", "red");
+                            $('#u').css("color", "red");
+                            $('#u').css("font-size", "small");
+                            $('#tq').val("");
+                        }
+                        else {
+                            $('#tq').css("color", "black");
+                            $('#tq').css("border-color", "green");
+                            $('#u').text("");
+                            $('#u').css("color", "green");
+                            $('#u').css("font-size", "small");
+                        }
+
+                    });
+                });
+                $('#qn').focusout(function () {
+                    var qno = $("#qn").val();
+                    var id = $("#ccid option:selected").val();
+
+
+                    $.getJSON("/Teacher/CheckQuizNumber?quizNum=" + qno + "," + id, function (data) {
+                        if (!data) {
+                            $('#u1').text("Quiz No " + qno + " is already uploaded");
+                            $('#qn').css("color", "red");
+                            $('#qn').css("border-color", "red");
+                            $('#u1').css("color", "red");
+                            $('#u1').css("font-size", "small");
+                            $('#qn').val("");
+                        }
+                        else {
+                            $('#qn').css("color", "black");
+                            $('#qn').css("border-color", "green");
+                            $('#u1').text("");
+                            $('#u1').css("color", "green");
+                            $('#u1').css("font-size", "small");
+                        }
+
+                    });
+                });
+            $("#datetimepicker").kendoDateTimePicker({
+                value: new Date()
+            });
+
+            
+            $("#datetimepicker2").kendoDateTimePicker({
+                value: new Date()
+                
+            });
+
+            $("#datetimepicker2").focusin(function () {
+                var date = $("#datetimepicker2").val();
+                date.setMinutes(date.getMinutes() + 15*60000);
+                alert(date);
+                
+
+            });
+            
+
+        });
+        </script>
+
+<body>
+
+<div class ="k-content" style ="background-color:mintcream; height:10%; width:30%;margin-left:25%">
+<h2 class="k-header">Conduct Quiz:</h2>
+    <form class="forms" role="form" method ="post" action ="/Teacher/Save">
+        <br><label for ="name" class ="control-label" style ="font-size:small">Course ID </label><br>
+        <div >
+        <select id ="ccid" name ="cid" style ="width:80%">
+          <option>-Course ID-</option>  
+        </select>
+            </div>
+        <br><label for ="name" style ="font-size:small">Topic </label><br>
+        <div >
+        <select id ="tp" name ="topic" style ="width:80%">
+          <option>-Topic-</option>  
+        </select>
+        </div>
+                         <!-- classes of select tag and label tag n text editor tag are to be inserted ater.. pending.. -->
+        <br><label for ="name" style ="font-size:small">Total Questions </label>
+        <br><input type="text"  name ="totalQuestion" placeholder ="Total Question" required id ="tq" style ="width:80%">
+        <div id ="u" style = "width:400px; position:relative"></div>
+
+        <br><label for ="name"  style ="font-size:small">Total Marks </label>
+        <br><input type="text"  name ="TotalMarks" placeholder ="Total Marks" required id ="tm" style ="width:80%">
+
+        <br><label for ="name"  style ="font-size:small">Quiz No </label>
+        <br><input type="text"  name ="quizNum" placeholder ="Quiz Number" required id ="qn" style ="width:80%">
+        
+        <div id ="u1" style = "width:400px; position:relative"></div>
+
+        <br><br><label for ="name" style ="font-size:small">Total Time </label>
+        <br><input type="text"  name ="TotalTime" placeholder ="Total Time" required id ="tt" style ="width:80%">
+
+        <br><br><label for ="name"  style ="font-size:small">Number of Attempts </label>
+       <br> <input type="text" name ="totalAttempts" placeholder ="Number of Attempts" required id ="ta" style ="width:80%">
+
+        <br><br><label for ="name"  style ="font-size:small">Start DateTime </label><br>
+        
+        <input type ="datetime" id="datetimepicker" name ="startDate" style="width:80%; height:20px;font-size:small" /><br>
+            
+
+        <br><label for ="name" class ="control-label" style ="font-size:small">End DateTime </label><br>
+        <input type ="datetime" id="datetimepicker2" name ="endDate" style="width:80%; height:20px;font-size:small" /><br>
+
+        <br><br><button class="k-primary" type="submit" style ="width:50%" value ="Create" >Create</button>
+</form>
+
+<br><br><div style ="width:10%;position:relative;top:-85px; margin-left:250px; font-size:x-large;">
+             @Html.ActionLink("Back", "TeacherHome")
+     </div>   
+
+</div>
+</body>
+</html>

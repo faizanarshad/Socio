@@ -1,0 +1,53 @@
+﻿@model IEnumerable<MVC_First.Models.quiz>
+@{
+    ViewBag.Title = "TakeQuiz";
+    Layout = "~/Views/Shared/_LayoutAfterLogin.cshtml";
+}
+
+<link rel="stylesheet" href="~/Content/bootstrap.min.css">
+<link rel="stylesheet" href="~/Content/bootstrap-responsive.min.css">
+<link type= "text/css" href="~/Content/bootstrap.css" rel="stylesheet" />
+<script class="cssdeck" src="~/Scripts/jquery.min.js"></script>
+<script class="cssdeck" src="~/Scripts/bootstrap.min.js"></script>
+<script type="text/javascript" src="~/Scripts/bootstrap.js"></script>
+
+<script>
+    $('document').ready(function () {
+        $('#id').focusout(function () {
+            var id = $('#id').val();
+
+            $.getJSON("/Student/CheckCourse?cid=" + id, function (data) {
+                if (!data) {
+                    $('#u').text("Course does not exist or you are not enrolled in this course or currently no quiz is uploaded related to this course");
+                    $('#id').css("color", "red");
+                    $('#id').css("border-color", "red");
+                    $('#u').css("color", "red");
+                    $('#u').css("font-size", "small");
+                    $('#id').val("");
+                }
+                else {
+                    $('#id').css("color", "black");
+                    $('#id').css("border-color", "green");
+                    $('#u').text("course Exist..!");
+                    $('#u').css("color", "green");
+                    $('#u').css("font-size", "small");
+                }
+
+            });
+        });
+    });
+</script>
+
+<div class ="container" style ="background-color:mintcream; height:350px; width:500px">
+     <form class="form-signin" role="form" method ="post" action ="/Student/StartQuiz">
+        <h2 class="form-signin-heading">Take Quiz:</h2><br><br>
+         <label for ="name" class ="control-label" >Course ID </label>
+        <input type="text" name ="cid" class="form-control" placeholder="Course ID" id ="id" style ="width:350px" required> <br>
+         <div id ="u" style = "width:350px;"></div>
+               
+        <br><button class="btn btn-lg btn-primary btn-block" type="submit" style ="width:350px" id ="btn">Submit</button>
+         </form>
+     
+    </div>
+
+

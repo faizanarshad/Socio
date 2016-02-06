@@ -1,0 +1,114 @@
+﻿@model IEnumerable<MVC_First.Models.assignmentResult>
+
+@{
+    ViewBag.Title = "ShowAssignmentsResult";
+}
+
+
+
+
+<script class="cssdeck" src="~/Scripts/jquery.min.js"></script>
+        <link href="~/Content/kendo/2013.3.1119/kendo.flat.min.css" rel="stylesheet" />
+        <link href="~/Content/kendo/2013.3.1119/kendo.common.min.css" rel="stylesheet" />
+        <script src="~/Scripts/kendo/2013.3.1119/jquery.min.js"></script>
+        <script src="~/Scripts/kendo/2013.3.1119/kendo.web.min.js"></script>
+<script>
+    $('document').ready(function () {
+
+
+        $(".k-primary").kendoButton();
+
+    });
+    </script>
+
+
+
+<div class ="k-content" style ="background-color:mintcream; height:auto; width:50%;margin-left:25%">
+<h2 class ="k-header">Assignments Result:</h2>
+<table class="metrotable">
+
+    <tr>
+        <th style ="font-size:medium">
+            Assignment No
+        </th>
+        <th style ="font-size:medium">
+            Student ID
+        </th>
+        <th style ="font-size:medium">
+            Course ID
+        </th>
+        <th style ="font-size:medium">
+            Total Marks
+        </th>
+        <th style ="font-size:medium">
+            Obtained Marks
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model)
+{
+    <tr>
+        <td style ="font-size:small;text-align:center">
+            @ViewBag.aNumber
+        </td>
+        <td style ="font-size:small;text-align:center">
+            @Html.DisplayFor(modelItem => item.sid)
+        </td>
+        <td style ="font-size:small;text-align:center">
+            @ViewBag.name
+        </td>
+         <td style ="font-size:small;text-align:center">
+            @Html.DisplayFor(modelItem => item.totalMarks)
+        </td>
+        <td style ="font-size:small;text-align:center">
+            @Html.DisplayFor(modelItem => item.marksObtained)
+        </td>
+        <td style ="font-size:small;text-align:center;margin-left:5%">
+            @Html.ActionLink("View CodeFile", "ShowFile", new {  path=item.codeFilePath })
+           
+        </td>
+        <td style ="font-size:small;text-align:center;margin-left:5%">
+            @Html.ActionLink("View OutPutFile" , "ShowFile" , new {  path=item.outPutFilePath })
+           
+        </td>
+        
+    </tr>
+    
+    /*<div style ="font-size:medium;border:solid;border-color:darkgray;width:100%;background-color:#e5e0e0" >          
+                   &nbsp Student ID : @item.sid<br><br>
+                   &nbsp MarksObtained:@item.marksObtained<br><br>
+                   &nbsp TotalMarks:@item.totalMarks<br><br>
+
+                   &nbsp <button class="k-primary" type="submit" style ="width:20%" onclick="location.href='@Url.Action("ShowFile", "Teacher", new { path = item.outPutFilePath })'">View OutPut File</button>
+                   &nbsp <button class="k-primary" type="submit" style ="width:20%" onclick="location.href='@Url.Action("ShowFile", "Teacher", new { path = item.codeFilePath })'">view Source Code</button><br><br>
+                  </div><br>*/
+
+}
+</table>
+     
+</div>
+
+<style scoped>
+                .demo-section {
+                    width: 600px;	
+                }
+                
+                .metrotable {
+                	width: 100%;
+                	border-collapse: collapse;
+                    border:dashed;
+                }
+                
+                .metrotable > thead > tr > th 
+                {
+                	font-size: 1.3em;
+                	padding-top: 0;
+                	padding-bottom: 5px;
+                    text-align:center;
+                }
+                
+            </style>
+
+
+

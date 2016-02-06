@@ -1,0 +1,101 @@
+﻿@model List<MVC_First.Models.attendance1>
+@{
+    ViewBag.Title = "showAttendance1";
+    Layout = "~/Views/Shared/_LayoutAfterLogin.cshtml";
+}
+
+
+
+<link href="~/Content/themes/jquery-ui.css" rel="stylesheet" />
+    <link href="~/Content/themes/jquery.ui.datepicker.css" rel="stylesheet" />
+    <script src="~/Scripts/jquery-ui.js"></script>
+    <script src="~/Scripts/jquery.ui.datepicker.js"></script>
+    
+        <link href="~/Content/kendo/2013.3.1119/kendo.flat.min.css" rel="stylesheet" />
+
+    <link href="~/Content/kendo/2013.3.1119/kendo.common.min.css" rel="stylesheet" />
+    <script src="~/Scripts/kendo/2013.3.1119/jquery.min.js"></script>
+    <script src="~/Scripts/kendo/2013.3.1119/kendo.web.min.js"></script>
+    
+<script>
+
+
+    $('document').ready(function () {
+
+        $('#btn1').click(function () {
+
+            document.getElementById('dateForm').style.visibility = 'visible';
+            $('#btn1').hide();
+        });
+
+        $(".k-primary").kendoButton();
+
+        $("#datetimepicker").kendoDateTimePicker({
+            value: new Date()
+        });
+
+    });
+    var j = 0;
+    function attendance(sid) {
+        
+        var id = sid.substring(1, 11);
+        $.getJSON("/Teacher/AttendanceJSON?sid="+id, function (data) {
+            
+            $.each(data, function (i, item) {
+                
+                $('#' + id).append('<td style =\"font-size:medium;text-align:center\">' + data[i].atnd + '</td>');
+
+            });
+            $('#date1').append('<th style =\"font-size:medium;text-align:center\">' + data[j].courseId + '</th>');
+
+            j = j + 1;
+        });
+    }
+
+    </script>
+
+<div class ="k-content" style ="background-color:mintcream; height:auto; width:50%;margin-left:25%"> 
+    <h2 class ="k-header">Attendance</h2>
+    
+<table class="metrotable" id="id1">
+<tr id="date1">
+      <th style ="font-size:medium;text-align:center"> Name </th>
+      <th style ="font-size:medium;text-align:center"> RollNumber </th>
+    <th></th>
+</tr>
+    
+    @foreach( var m in Model ){
+    <tr id="@Html.DisplayFor(modelItem => m.studentId)">
+         <td style ="font-size:small;text-align:center">
+            @Html.DisplayFor(modelItem => m.student.name)
+        </td>
+        <td style ="font-size:small;text-align:center">
+            @Html.DisplayFor(modelItem => m.studentId)
+        </td>
+
+        <td style ="font-size:small;text-align:center">
+            <script>
+                attendance("+@Html.DisplayFor(modelItem => m.studentId)+");
+            </script>
+        </td>
+    </tr>
+}
+    
+
+    <tr>
+
+        <td>
+            <br />
+            <button class="k-primary" type="button" id ="btn1"  style="width:auto;height:auto;margin-top:3%; margin-bottom:3%">Edit Attendance</button>
+        </td>
+    </tr>
+</table>
+
+    <form id="dateForm" style="visibility:hidden" action="/Teacher/EditAttendance"> 
+    <label for ="name"  style ="font-size:small; visibility:hidden">DateTime </label><br>   
+     <input type="hidden" name="cor" value="@ViewBag.course" />   
+      <input type="hidden" name="class1" value="@ViewBag.classN" />  
+    <input type ="datetime" id="datetimepicker" name ="startDate" style="width:40%; height:20px;font-size:small" /><br>
+    <input type="submit" class="k-primary" id ="btn2" value="Edit Now" style="width:auto;height:auto;margin-top:3%; margin-bottom:3%"/>
+    </form>
+</div>

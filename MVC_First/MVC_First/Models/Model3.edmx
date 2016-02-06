@@ -1,0 +1,1209 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="pucitdbModel2.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityContainer Name="pucitdbModel2StoreContainer">
+          <EntitySet Name="assignment" EntityType="pucitdbModel2.Store.assignment" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="assignmentResult" EntityType="pucitdbModel2.Store.assignmentResult" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="attendance" EntityType="pucitdbModel2.Store.attendance" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="courses" EntityType="pucitdbModel2.Store.courses" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="coursesInSemester" EntityType="pucitdbModel2.Store.coursesInSemester" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="question" EntityType="pucitdbModel2.Store.question" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="quiz" EntityType="pucitdbModel2.Store.quiz" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="quizResult" EntityType="pucitdbModel2.Store.quizResult" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="semester" EntityType="pucitdbModel2.Store.semester" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="student" EntityType="pucitdbModel2.Store.student" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="studentToCourses" EntityType="pucitdbModel2.Store.studentToCourses" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="teacher" EntityType="pucitdbModel2.Store.teacher" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="teacherToCourses" EntityType="pucitdbModel2.Store.teacherToCourses" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="user" EntityType="pucitdbModel2.Store.user" store:Type="Tables" Schema="dbo" />
+          <AssociationSet Name="FK_assignment_ToTable" Association="pucitdbModel2.Store.FK_assignment_ToTable">
+            <End Role="teacher" EntitySet="teacher" />
+            <End Role="assignment" EntitySet="assignment" />
+          </AssociationSet>
+          <AssociationSet Name="FK_assignment_ToTable_1" Association="pucitdbModel2.Store.FK_assignment_ToTable_1">
+            <End Role="courses" EntitySet="courses" />
+            <End Role="assignment" EntitySet="assignment" />
+          </AssociationSet>
+          <AssociationSet Name="FK_assignmentResult_ToTable" Association="pucitdbModel2.Store.FK_assignmentResult_ToTable">
+            <End Role="assignment" EntitySet="assignment" />
+            <End Role="assignmentResult" EntitySet="assignmentResult" />
+          </AssociationSet>
+          <AssociationSet Name="FK_assignmentResult_ToTable_1" Association="pucitdbModel2.Store.FK_assignmentResult_ToTable_1">
+            <End Role="student" EntitySet="student" />
+            <End Role="assignmentResult" EntitySet="assignmentResult" />
+          </AssociationSet>
+          <AssociationSet Name="FK_assignmentResult_ToTable_2" Association="pucitdbModel2.Store.FK_assignmentResult_ToTable_2">
+            <End Role="courses" EntitySet="courses" />
+            <End Role="assignmentResult" EntitySet="assignmentResult" />
+          </AssociationSet>
+          <AssociationSet Name="FK_attendance_ToTable" Association="pucitdbModel2.Store.FK_attendance_ToTable">
+            <End Role="student" EntitySet="student" />
+            <End Role="attendance" EntitySet="attendance" />
+          </AssociationSet>
+          <AssociationSet Name="FK_attendance_ToTable_1" Association="pucitdbModel2.Store.FK_attendance_ToTable_1">
+            <End Role="courses" EntitySet="courses" />
+            <End Role="attendance" EntitySet="attendance" />
+          </AssociationSet>
+          <AssociationSet Name="FK_attendance_ToTable_2" Association="pucitdbModel2.Store.FK_attendance_ToTable_2">
+            <End Role="teacher" EntitySet="teacher" />
+            <End Role="attendance" EntitySet="attendance" />
+          </AssociationSet>
+          <AssociationSet Name="FK_coursesInSemester_ToTable" Association="pucitdbModel2.Store.FK_coursesInSemester_ToTable">
+            <End Role="semester" EntitySet="semester" />
+            <End Role="coursesInSemester" EntitySet="coursesInSemester" />
+          </AssociationSet>
+          <AssociationSet Name="FK_coursesInSemester_ToTable_1" Association="pucitdbModel2.Store.FK_coursesInSemester_ToTable_1">
+            <End Role="courses" EntitySet="courses" />
+            <End Role="coursesInSemester" EntitySet="coursesInSemester" />
+          </AssociationSet>
+          <AssociationSet Name="FK_question_ToTable" Association="pucitdbModel2.Store.FK_question_ToTable">
+            <End Role="courses" EntitySet="courses" />
+            <End Role="question" EntitySet="question" />
+          </AssociationSet>
+          <AssociationSet Name="FK_quiz_ToTable" Association="pucitdbModel2.Store.FK_quiz_ToTable">
+            <End Role="teacher" EntitySet="teacher" />
+            <End Role="quiz" EntitySet="quiz" />
+          </AssociationSet>
+          <AssociationSet Name="FK_quiz_ToTable_1" Association="pucitdbModel2.Store.FK_quiz_ToTable_1">
+            <End Role="courses" EntitySet="courses" />
+            <End Role="quiz" EntitySet="quiz" />
+          </AssociationSet>
+          <AssociationSet Name="FK_quizResult_ToTable" Association="pucitdbModel2.Store.FK_quizResult_ToTable">
+            <End Role="quiz" EntitySet="quiz" />
+            <End Role="quizResult" EntitySet="quizResult" />
+          </AssociationSet>
+          <AssociationSet Name="FK_quizResult_ToTable_1" Association="pucitdbModel2.Store.FK_quizResult_ToTable_1">
+            <End Role="student" EntitySet="student" />
+            <End Role="quizResult" EntitySet="quizResult" />
+          </AssociationSet>
+          <AssociationSet Name="FK_quizResult_ToTable_2" Association="pucitdbModel2.Store.FK_quizResult_ToTable_2">
+            <End Role="courses" EntitySet="courses" />
+            <End Role="quizResult" EntitySet="quizResult" />
+          </AssociationSet>
+          <AssociationSet Name="FK_quizResult_ToTable_3" Association="pucitdbModel2.Store.FK_quizResult_ToTable_3">
+            <End Role="teacher" EntitySet="teacher" />
+            <End Role="quizResult" EntitySet="quizResult" />
+          </AssociationSet>
+          <AssociationSet Name="FK_student_ToTable" Association="pucitdbModel2.Store.FK_student_ToTable">
+            <End Role="semester" EntitySet="semester" />
+            <End Role="student" EntitySet="student" />
+          </AssociationSet>
+          <AssociationSet Name="FK_studentToCourses_ToTable" Association="pucitdbModel2.Store.FK_studentToCourses_ToTable">
+            <End Role="student" EntitySet="student" />
+            <End Role="studentToCourses" EntitySet="studentToCourses" />
+          </AssociationSet>
+          <AssociationSet Name="FK_studentToCourses_ToTable_1" Association="pucitdbModel2.Store.FK_studentToCourses_ToTable_1">
+            <End Role="courses" EntitySet="courses" />
+            <End Role="studentToCourses" EntitySet="studentToCourses" />
+          </AssociationSet>
+          <AssociationSet Name="FK_teacherToCourses_ToTable" Association="pucitdbModel2.Store.FK_teacherToCourses_ToTable">
+            <End Role="teacher" EntitySet="teacher" />
+            <End Role="teacherToCourses" EntitySet="teacherToCourses" />
+          </AssociationSet>
+          <AssociationSet Name="FK_teacherToCourses_ToTable_1" Association="pucitdbModel2.Store.FK_teacherToCourses_ToTable_1">
+            <End Role="courses" EntitySet="courses" />
+            <End Role="teacherToCourses" EntitySet="teacherToCourses" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="assignment">
+          <Key>
+            <PropertyRef Name="aid" />
+          </Key>
+          <Property Name="aid" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="tid" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="cid" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="totalMarks" Type="int" Nullable="false" />
+          <Property Name="questionFilePath" Type="varchar(max)" Nullable="false" />
+          <Property Name="startDate" Type="datetime2" Nullable="false" />
+          <Property Name="endDate" Type="datetime2" Nullable="false" />
+          <Property Name="solutionFilePath" Type="varchar(max)" Nullable="false" />
+          <Property Name="aNumber" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="assignmentResult">
+          <Key>
+            <PropertyRef Name="aid" />
+            <PropertyRef Name="sid" />
+            <PropertyRef Name="cid" />
+          </Key>
+          <Property Name="aid" Type="int" Nullable="false" />
+          <Property Name="sid" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="cid" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="totalMarks" Type="int" Nullable="false" />
+          <Property Name="marksObtained" Type="int" Nullable="false" />
+          <Property Name="outPutFilePath" Type="varchar(max)" Nullable="false" />
+          <Property Name="codeFilePath" Type="varchar(max)" Nullable="false" />
+        </EntityType>
+        <EntityType Name="attendance">
+          <Key>
+            <PropertyRef Name="studentId" />
+            <PropertyRef Name="courseId" />
+            <PropertyRef Name="tName" />
+          </Key>
+          <Property Name="studentId" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="courseId" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="presents" Type="int" Nullable="false" />
+          <Property Name="absents" Type="int" Nullable="false" />
+          <Property Name="tName" Type="nvarchar" Nullable="false" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="courses">
+          <Key>
+            <PropertyRef Name="cid" />
+          </Key>
+          <Property Name="cid" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="name" Type="nvarchar" MaxLength="50" />
+          <Property Name="creditHours" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="coursesInSemester">
+          <Key>
+            <PropertyRef Name="cid" />
+            <PropertyRef Name="smid" />
+          </Key>
+          <Property Name="cid" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="smid" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="question">
+          <Key>
+            <PropertyRef Name="quid" />
+          </Key>
+          <Property Name="quid" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="statement" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="option_A" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="option_B" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Option_C" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="option_D" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="correctOption" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="marks" Type="int" Nullable="false" />
+          <Property Name="solution" Type="nvarchar(max)" />
+          <Property Name="cid" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="topic" Type="nvarchar(max)" Nullable="false" />
+        </EntityType>
+        <EntityType Name="quiz">
+          <Key>
+            <PropertyRef Name="qid" />
+          </Key>
+          <Property Name="qid" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="cid" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="tid" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="totalQuestion" Type="int" Nullable="false" />
+          <Property Name="TotalMarks" Type="int" Nullable="false" />
+          <Property Name="startDate" Type="datetime2" Nullable="false" />
+          <Property Name="endDate" Type="datetime2" Nullable="false" />
+          <Property Name="TotalTime" Type="int" Nullable="false" />
+          <Property Name="topic" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="totalAttempts" Type="int" />
+        </EntityType>
+        <EntityType Name="quizResult">
+          <Key>
+            <PropertyRef Name="qid" />
+            <PropertyRef Name="sid" />
+            <PropertyRef Name="cid" />
+            <PropertyRef Name="tid" />
+          </Key>
+          <Property Name="qid" Type="int" Nullable="false" />
+          <Property Name="sid" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="cid" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="tid" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="totalmarks" Type="nchar" Nullable="false" MaxLength="10" />
+          <Property Name="obtainMarks" Type="nchar" Nullable="false" MaxLength="10" />
+          <Property Name="attempts" Type="int" />
+        </EntityType>
+        <EntityType Name="semester">
+          <Key>
+            <PropertyRef Name="smid" />
+          </Key>
+          <Property Name="smid" Type="int" Nullable="false" />
+          <Property Name="credithours" Type="int" />
+          <Property Name="gpa" Type="float" />
+        </EntityType>
+        <EntityType Name="student">
+          <Key>
+            <PropertyRef Name="sid" />
+          </Key>
+          <Property Name="sid" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="name" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="password" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="email" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="degree" Type="nvarchar" MaxLength="50" />
+          <Property Name="session" Type="nvarchar" MaxLength="50" />
+          <Property Name="batch" Type="nvarchar" MaxLength="50" />
+          <Property Name="smid" Type="int" />
+          <Property Name="cgpa" Type="float" />
+          <Property Name="address" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="studentToCourses">
+          <Key>
+            <PropertyRef Name="sid" />
+            <PropertyRef Name="cid" />
+          </Key>
+          <Property Name="sid" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="cid" Type="nvarchar" Nullable="false" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="teacher">
+          <Key>
+            <PropertyRef Name="tid" />
+          </Key>
+          <Property Name="tid" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="name" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="password" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="email" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="designation" Type="nvarchar" MaxLength="50" />
+          <Property Name="status" Type="nvarchar" MaxLength="50" />
+          <Property Name="qualification" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="teacherToCourses">
+          <Key>
+            <PropertyRef Name="tid" />
+            <PropertyRef Name="cid" />
+          </Key>
+          <Property Name="tid" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="cid" Type="nvarchar" Nullable="false" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="user">
+          <Key>
+            <PropertyRef Name="uid" />
+          </Key>
+          <Property Name="uid" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="name" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="type" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="password" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="email" Type="nvarchar" Nullable="false" MaxLength="50" />
+        </EntityType>
+        <Association Name="FK_assignment_ToTable">
+          <End Role="teacher" Type="pucitdbModel2.Store.teacher" Multiplicity="1" />
+          <End Role="assignment" Type="pucitdbModel2.Store.assignment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="teacher">
+              <PropertyRef Name="tid" />
+            </Principal>
+            <Dependent Role="assignment">
+              <PropertyRef Name="tid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_assignment_ToTable_1">
+          <End Role="courses" Type="pucitdbModel2.Store.courses" Multiplicity="1" />
+          <End Role="assignment" Type="pucitdbModel2.Store.assignment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="courses">
+              <PropertyRef Name="cid" />
+            </Principal>
+            <Dependent Role="assignment">
+              <PropertyRef Name="cid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_assignmentResult_ToTable">
+          <End Role="assignment" Type="pucitdbModel2.Store.assignment" Multiplicity="1" />
+          <End Role="assignmentResult" Type="pucitdbModel2.Store.assignmentResult" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="assignment">
+              <PropertyRef Name="aid" />
+            </Principal>
+            <Dependent Role="assignmentResult">
+              <PropertyRef Name="aid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_assignmentResult_ToTable_1">
+          <End Role="student" Type="pucitdbModel2.Store.student" Multiplicity="1" />
+          <End Role="assignmentResult" Type="pucitdbModel2.Store.assignmentResult" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="student">
+              <PropertyRef Name="sid" />
+            </Principal>
+            <Dependent Role="assignmentResult">
+              <PropertyRef Name="sid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_assignmentResult_ToTable_2">
+          <End Role="courses" Type="pucitdbModel2.Store.courses" Multiplicity="1" />
+          <End Role="assignmentResult" Type="pucitdbModel2.Store.assignmentResult" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="courses">
+              <PropertyRef Name="cid" />
+            </Principal>
+            <Dependent Role="assignmentResult">
+              <PropertyRef Name="cid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_attendance_ToTable">
+          <End Role="student" Type="pucitdbModel2.Store.student" Multiplicity="1" />
+          <End Role="attendance" Type="pucitdbModel2.Store.attendance" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="student">
+              <PropertyRef Name="sid" />
+            </Principal>
+            <Dependent Role="attendance">
+              <PropertyRef Name="studentId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_attendance_ToTable_1">
+          <End Role="courses" Type="pucitdbModel2.Store.courses" Multiplicity="1" />
+          <End Role="attendance" Type="pucitdbModel2.Store.attendance" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="courses">
+              <PropertyRef Name="cid" />
+            </Principal>
+            <Dependent Role="attendance">
+              <PropertyRef Name="courseId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_attendance_ToTable_2">
+          <End Role="teacher" Type="pucitdbModel2.Store.teacher" Multiplicity="1" />
+          <End Role="attendance" Type="pucitdbModel2.Store.attendance" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="teacher">
+              <PropertyRef Name="tid" />
+            </Principal>
+            <Dependent Role="attendance">
+              <PropertyRef Name="tName" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_coursesInSemester_ToTable">
+          <End Role="semester" Type="pucitdbModel2.Store.semester" Multiplicity="1" />
+          <End Role="coursesInSemester" Type="pucitdbModel2.Store.coursesInSemester" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="semester">
+              <PropertyRef Name="smid" />
+            </Principal>
+            <Dependent Role="coursesInSemester">
+              <PropertyRef Name="smid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_coursesInSemester_ToTable_1">
+          <End Role="courses" Type="pucitdbModel2.Store.courses" Multiplicity="1" />
+          <End Role="coursesInSemester" Type="pucitdbModel2.Store.coursesInSemester" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="courses">
+              <PropertyRef Name="cid" />
+            </Principal>
+            <Dependent Role="coursesInSemester">
+              <PropertyRef Name="cid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_question_ToTable">
+          <End Role="courses" Type="pucitdbModel2.Store.courses" Multiplicity="1" />
+          <End Role="question" Type="pucitdbModel2.Store.question" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="courses">
+              <PropertyRef Name="cid" />
+            </Principal>
+            <Dependent Role="question">
+              <PropertyRef Name="cid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_quiz_ToTable">
+          <End Role="teacher" Type="pucitdbModel2.Store.teacher" Multiplicity="1" />
+          <End Role="quiz" Type="pucitdbModel2.Store.quiz" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="teacher">
+              <PropertyRef Name="tid" />
+            </Principal>
+            <Dependent Role="quiz">
+              <PropertyRef Name="tid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_quiz_ToTable_1">
+          <End Role="courses" Type="pucitdbModel2.Store.courses" Multiplicity="1" />
+          <End Role="quiz" Type="pucitdbModel2.Store.quiz" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="courses">
+              <PropertyRef Name="cid" />
+            </Principal>
+            <Dependent Role="quiz">
+              <PropertyRef Name="cid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_quizResult_ToTable">
+          <End Role="quiz" Type="pucitdbModel2.Store.quiz" Multiplicity="1" />
+          <End Role="quizResult" Type="pucitdbModel2.Store.quizResult" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="quiz">
+              <PropertyRef Name="qid" />
+            </Principal>
+            <Dependent Role="quizResult">
+              <PropertyRef Name="qid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_quizResult_ToTable_1">
+          <End Role="student" Type="pucitdbModel2.Store.student" Multiplicity="1" />
+          <End Role="quizResult" Type="pucitdbModel2.Store.quizResult" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="student">
+              <PropertyRef Name="sid" />
+            </Principal>
+            <Dependent Role="quizResult">
+              <PropertyRef Name="sid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_quizResult_ToTable_2">
+          <End Role="courses" Type="pucitdbModel2.Store.courses" Multiplicity="1" />
+          <End Role="quizResult" Type="pucitdbModel2.Store.quizResult" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="courses">
+              <PropertyRef Name="cid" />
+            </Principal>
+            <Dependent Role="quizResult">
+              <PropertyRef Name="cid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_quizResult_ToTable_3">
+          <End Role="teacher" Type="pucitdbModel2.Store.teacher" Multiplicity="1" />
+          <End Role="quizResult" Type="pucitdbModel2.Store.quizResult" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="teacher">
+              <PropertyRef Name="tid" />
+            </Principal>
+            <Dependent Role="quizResult">
+              <PropertyRef Name="tid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_student_ToTable">
+          <End Role="semester" Type="pucitdbModel2.Store.semester" Multiplicity="0..1" />
+          <End Role="student" Type="pucitdbModel2.Store.student" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="semester">
+              <PropertyRef Name="smid" />
+            </Principal>
+            <Dependent Role="student">
+              <PropertyRef Name="smid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_studentToCourses_ToTable">
+          <End Role="student" Type="pucitdbModel2.Store.student" Multiplicity="1" />
+          <End Role="studentToCourses" Type="pucitdbModel2.Store.studentToCourses" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="student">
+              <PropertyRef Name="sid" />
+            </Principal>
+            <Dependent Role="studentToCourses">
+              <PropertyRef Name="sid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_studentToCourses_ToTable_1">
+          <End Role="courses" Type="pucitdbModel2.Store.courses" Multiplicity="1" />
+          <End Role="studentToCourses" Type="pucitdbModel2.Store.studentToCourses" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="courses">
+              <PropertyRef Name="cid" />
+            </Principal>
+            <Dependent Role="studentToCourses">
+              <PropertyRef Name="cid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_teacherToCourses_ToTable">
+          <End Role="teacher" Type="pucitdbModel2.Store.teacher" Multiplicity="1" />
+          <End Role="teacherToCourses" Type="pucitdbModel2.Store.teacherToCourses" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="teacher">
+              <PropertyRef Name="tid" />
+            </Principal>
+            <Dependent Role="teacherToCourses">
+              <PropertyRef Name="tid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_teacherToCourses_ToTable_1">
+          <End Role="courses" Type="pucitdbModel2.Store.courses" Multiplicity="1" />
+          <End Role="teacherToCourses" Type="pucitdbModel2.Store.teacherToCourses" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="courses">
+              <PropertyRef Name="cid" />
+            </Principal>
+            <Dependent Role="teacherToCourses">
+              <PropertyRef Name="cid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="pucitdbModel2" Alias="Self" p1:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="puEntities" p1:LazyLoadingEnabled="true">
+          <EntitySet Name="assignments" EntityType="pucitdbModel2.assignment" />
+          <EntitySet Name="assignmentResults" EntityType="pucitdbModel2.assignmentResult" />
+          <EntitySet Name="attendances" EntityType="pucitdbModel2.attendance" />
+          <EntitySet Name="courses" EntityType="pucitdbModel2.cours" />
+          <EntitySet Name="questions" EntityType="pucitdbModel2.question" />
+          <EntitySet Name="quizs" EntityType="pucitdbModel2.quiz" />
+          <EntitySet Name="quizResults" EntityType="pucitdbModel2.quizResult" />
+          <EntitySet Name="semesters" EntityType="pucitdbModel2.semester" />
+          <EntitySet Name="students" EntityType="pucitdbModel2.student" />
+          <EntitySet Name="teachers" EntityType="pucitdbModel2.teacher" />
+          <EntitySet Name="users" EntityType="pucitdbModel2.user" />
+          <AssociationSet Name="FK_assignment_ToTable" Association="pucitdbModel2.FK_assignment_ToTable">
+            <End Role="teacher" EntitySet="teachers" />
+            <End Role="assignment" EntitySet="assignments" />
+          </AssociationSet>
+          <AssociationSet Name="FK_assignment_ToTable_1" Association="pucitdbModel2.FK_assignment_ToTable_1">
+            <End Role="courses" EntitySet="courses" />
+            <End Role="assignment" EntitySet="assignments" />
+          </AssociationSet>
+          <AssociationSet Name="FK_assignmentResult_ToTable" Association="pucitdbModel2.FK_assignmentResult_ToTable">
+            <End Role="assignment" EntitySet="assignments" />
+            <End Role="assignmentResult" EntitySet="assignmentResults" />
+          </AssociationSet>
+          <AssociationSet Name="FK_assignmentResult_ToTable_1" Association="pucitdbModel2.FK_assignmentResult_ToTable_1">
+            <End Role="student" EntitySet="students" />
+            <End Role="assignmentResult" EntitySet="assignmentResults" />
+          </AssociationSet>
+          <AssociationSet Name="FK_assignmentResult_ToTable_2" Association="pucitdbModel2.FK_assignmentResult_ToTable_2">
+            <End Role="courses" EntitySet="courses" />
+            <End Role="assignmentResult" EntitySet="assignmentResults" />
+          </AssociationSet>
+          <AssociationSet Name="FK_attendance_ToTable" Association="pucitdbModel2.FK_attendance_ToTable">
+            <End Role="student" EntitySet="students" />
+            <End Role="attendance" EntitySet="attendances" />
+          </AssociationSet>
+          <AssociationSet Name="FK_attendance_ToTable_1" Association="pucitdbModel2.FK_attendance_ToTable_1">
+            <End Role="courses" EntitySet="courses" />
+            <End Role="attendance" EntitySet="attendances" />
+          </AssociationSet>
+          <AssociationSet Name="FK_attendance_ToTable_2" Association="pucitdbModel2.FK_attendance_ToTable_2">
+            <End Role="teacher" EntitySet="teachers" />
+            <End Role="attendance" EntitySet="attendances" />
+          </AssociationSet>
+          <AssociationSet Name="FK_question_ToTable" Association="pucitdbModel2.FK_question_ToTable">
+            <End Role="courses" EntitySet="courses" />
+            <End Role="question" EntitySet="questions" />
+          </AssociationSet>
+          <AssociationSet Name="FK_quiz_ToTable_1" Association="pucitdbModel2.FK_quiz_ToTable_1">
+            <End Role="courses" EntitySet="courses" />
+            <End Role="quiz" EntitySet="quizs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_quizResult_ToTable_2" Association="pucitdbModel2.FK_quizResult_ToTable_2">
+            <End Role="courses" EntitySet="courses" />
+            <End Role="quizResult" EntitySet="quizResults" />
+          </AssociationSet>
+          <AssociationSet Name="FK_quiz_ToTable" Association="pucitdbModel2.FK_quiz_ToTable">
+            <End Role="teacher" EntitySet="teachers" />
+            <End Role="quiz" EntitySet="quizs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_quizResult_ToTable" Association="pucitdbModel2.FK_quizResult_ToTable">
+            <End Role="quiz" EntitySet="quizs" />
+            <End Role="quizResult" EntitySet="quizResults" />
+          </AssociationSet>
+          <AssociationSet Name="FK_quizResult_ToTable_1" Association="pucitdbModel2.FK_quizResult_ToTable_1">
+            <End Role="student" EntitySet="students" />
+            <End Role="quizResult" EntitySet="quizResults" />
+          </AssociationSet>
+          <AssociationSet Name="FK_quizResult_ToTable_3" Association="pucitdbModel2.FK_quizResult_ToTable_3">
+            <End Role="teacher" EntitySet="teachers" />
+            <End Role="quizResult" EntitySet="quizResults" />
+          </AssociationSet>
+          <AssociationSet Name="FK_student_ToTable" Association="pucitdbModel2.FK_student_ToTable">
+            <End Role="semester" EntitySet="semesters" />
+            <End Role="student" EntitySet="students" />
+          </AssociationSet>
+          <AssociationSet Name="coursesInSemester" Association="pucitdbModel2.coursesInSemester">
+            <End Role="semester" EntitySet="semesters" />
+            <End Role="courses" EntitySet="courses" />
+          </AssociationSet>
+          <AssociationSet Name="studentToCourses" Association="pucitdbModel2.studentToCourses">
+            <End Role="student" EntitySet="students" />
+            <End Role="courses" EntitySet="courses" />
+          </AssociationSet>
+          <AssociationSet Name="teacherToCourses" Association="pucitdbModel2.teacherToCourses">
+            <End Role="teacher" EntitySet="teachers" />
+            <End Role="courses" EntitySet="courses" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="assignment">
+          <Key>
+            <PropertyRef Name="aid" />
+          </Key>
+          <Property Name="aid" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="tid" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="cid" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="totalMarks" Type="Int32" Nullable="false" />
+          <Property Name="questionFilePath" Type="String" Nullable="false" MaxLength="Max" Unicode="false" FixedLength="false" />
+          <Property Name="startDate" Type="DateTime" Nullable="false" Precision="7" />
+          <Property Name="endDate" Type="DateTime" Nullable="false" Precision="7" />
+          <Property Name="solutionFilePath" Type="String" Nullable="false" MaxLength="Max" Unicode="false" FixedLength="false" />
+          <Property Name="aNumber" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="teacher" Relationship="pucitdbModel2.FK_assignment_ToTable" FromRole="assignment" ToRole="teacher" />
+          <NavigationProperty Name="cours" Relationship="pucitdbModel2.FK_assignment_ToTable_1" FromRole="assignment" ToRole="courses" />
+          <NavigationProperty Name="assignmentResults" Relationship="pucitdbModel2.FK_assignmentResult_ToTable" FromRole="assignment" ToRole="assignmentResult" />
+        </EntityType>
+        <EntityType Name="assignmentResult">
+          <Key>
+            <PropertyRef Name="aid" />
+            <PropertyRef Name="sid" />
+            <PropertyRef Name="cid" />
+          </Key>
+          <Property Name="aid" Type="Int32" Nullable="false" />
+          <Property Name="sid" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="cid" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="totalMarks" Type="Int32" Nullable="false" />
+          <Property Name="marksObtained" Type="Int32" Nullable="false" />
+          <Property Name="outPutFilePath" Type="String" Nullable="false" MaxLength="Max" Unicode="false" FixedLength="false" />
+          <Property Name="codeFilePath" Type="String" Nullable="false" MaxLength="Max" Unicode="false" FixedLength="false" />
+          <NavigationProperty Name="assignment" Relationship="pucitdbModel2.FK_assignmentResult_ToTable" FromRole="assignmentResult" ToRole="assignment" />
+          <NavigationProperty Name="student" Relationship="pucitdbModel2.FK_assignmentResult_ToTable_1" FromRole="assignmentResult" ToRole="student" />
+          <NavigationProperty Name="cours" Relationship="pucitdbModel2.FK_assignmentResult_ToTable_2" FromRole="assignmentResult" ToRole="courses" />
+        </EntityType>
+        <EntityType Name="attendance">
+          <Key>
+            <PropertyRef Name="studentId" />
+            <PropertyRef Name="courseId" />
+            <PropertyRef Name="tName" />
+          </Key>
+          <Property Name="studentId" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="courseId" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="presents" Type="Int32" Nullable="false" />
+          <Property Name="absents" Type="Int32" Nullable="false" />
+          <Property Name="tName" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+          <NavigationProperty Name="student" Relationship="pucitdbModel2.FK_attendance_ToTable" FromRole="attendance" ToRole="student" />
+          <NavigationProperty Name="cours" Relationship="pucitdbModel2.FK_attendance_ToTable_1" FromRole="attendance" ToRole="courses" />
+          <NavigationProperty Name="teacher" Relationship="pucitdbModel2.FK_attendance_ToTable_2" FromRole="attendance" ToRole="teacher" />
+        </EntityType>
+        <EntityType Name="cours">
+          <Key>
+            <PropertyRef Name="cid" />
+          </Key>
+          <Property Name="cid" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="name" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="creditHours" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="assignments" Relationship="pucitdbModel2.FK_assignment_ToTable_1" FromRole="courses" ToRole="assignment" />
+          <NavigationProperty Name="assignmentResults" Relationship="pucitdbModel2.FK_assignmentResult_ToTable_2" FromRole="courses" ToRole="assignmentResult" />
+          <NavigationProperty Name="attendances" Relationship="pucitdbModel2.FK_attendance_ToTable_1" FromRole="courses" ToRole="attendance" />
+          <NavigationProperty Name="questions" Relationship="pucitdbModel2.FK_question_ToTable" FromRole="courses" ToRole="question" />
+          <NavigationProperty Name="quizs" Relationship="pucitdbModel2.FK_quiz_ToTable_1" FromRole="courses" ToRole="quiz" />
+          <NavigationProperty Name="quizResults" Relationship="pucitdbModel2.FK_quizResult_ToTable_2" FromRole="courses" ToRole="quizResult" />
+          <NavigationProperty Name="semesters" Relationship="pucitdbModel2.coursesInSemester" FromRole="courses" ToRole="semester" />
+          <NavigationProperty Name="students" Relationship="pucitdbModel2.studentToCourses" FromRole="courses" ToRole="student" />
+          <NavigationProperty Name="teachers" Relationship="pucitdbModel2.teacherToCourses" FromRole="courses" ToRole="teacher" />
+        </EntityType>
+        <EntityType Name="question">
+          <Key>
+            <PropertyRef Name="quid" />
+          </Key>
+          <Property Name="quid" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="statement" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="option_A" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="option_B" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="Option_C" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="option_D" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="correctOption" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="marks" Type="Int32" Nullable="false" />
+          <Property Name="solution" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="cid" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="topic" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <NavigationProperty Name="cours" Relationship="pucitdbModel2.FK_question_ToTable" FromRole="question" ToRole="courses" />
+        </EntityType>
+        <EntityType Name="quiz">
+          <Key>
+            <PropertyRef Name="qid" />
+          </Key>
+          <Property Name="qid" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="cid" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="tid" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="totalQuestion" Type="Int32" Nullable="false" />
+          <Property Name="TotalMarks" Type="Int32" Nullable="false" />
+          <Property Name="startDate" Type="DateTime" Nullable="false" Precision="7" />
+          <Property Name="endDate" Type="DateTime" Nullable="false" Precision="7" />
+          <Property Name="TotalTime" Type="Int32" Nullable="false" />
+          <Property Name="topic" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="totalAttempts" Type="Int32" />
+          <NavigationProperty Name="cours" Relationship="pucitdbModel2.FK_quiz_ToTable_1" FromRole="quiz" ToRole="courses" />
+          <NavigationProperty Name="teacher" Relationship="pucitdbModel2.FK_quiz_ToTable" FromRole="quiz" ToRole="teacher" />
+          <NavigationProperty Name="quizResults" Relationship="pucitdbModel2.FK_quizResult_ToTable" FromRole="quiz" ToRole="quizResult" />
+        </EntityType>
+        <EntityType Name="quizResult">
+          <Key>
+            <PropertyRef Name="qid" />
+            <PropertyRef Name="sid" />
+            <PropertyRef Name="cid" />
+            <PropertyRef Name="tid" />
+          </Key>
+          <Property Name="qid" Type="Int32" Nullable="false" />
+          <Property Name="sid" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="cid" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="tid" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="totalmarks" Type="String" Nullable="false" MaxLength="10" Unicode="true" FixedLength="true" />
+          <Property Name="obtainMarks" Type="String" Nullable="false" MaxLength="10" Unicode="true" FixedLength="true" />
+          <Property Name="attempts" Type="Int32" />
+          <NavigationProperty Name="cours" Relationship="pucitdbModel2.FK_quizResult_ToTable_2" FromRole="quizResult" ToRole="courses" />
+          <NavigationProperty Name="quiz" Relationship="pucitdbModel2.FK_quizResult_ToTable" FromRole="quizResult" ToRole="quiz" />
+          <NavigationProperty Name="student" Relationship="pucitdbModel2.FK_quizResult_ToTable_1" FromRole="quizResult" ToRole="student" />
+          <NavigationProperty Name="teacher" Relationship="pucitdbModel2.FK_quizResult_ToTable_3" FromRole="quizResult" ToRole="teacher" />
+        </EntityType>
+        <EntityType Name="semester">
+          <Key>
+            <PropertyRef Name="smid" />
+          </Key>
+          <Property Name="smid" Type="Int32" Nullable="false" />
+          <Property Name="credithours" Type="Int32" />
+          <Property Name="gpa" Type="Double" />
+          <NavigationProperty Name="students" Relationship="pucitdbModel2.FK_student_ToTable" FromRole="semester" ToRole="student" />
+          <NavigationProperty Name="courses" Relationship="pucitdbModel2.coursesInSemester" FromRole="semester" ToRole="courses" />
+        </EntityType>
+        <EntityType Name="student">
+          <Key>
+            <PropertyRef Name="sid" />
+          </Key>
+          <Property Name="sid" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="name" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="password" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="email" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="degree" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="session" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="batch" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="smid" Type="Int32" />
+          <Property Name="cgpa" Type="Double" />
+          <Property Name="address" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <NavigationProperty Name="assignmentResults" Relationship="pucitdbModel2.FK_assignmentResult_ToTable_1" FromRole="student" ToRole="assignmentResult" />
+          <NavigationProperty Name="attendances" Relationship="pucitdbModel2.FK_attendance_ToTable" FromRole="student" ToRole="attendance" />
+          <NavigationProperty Name="quizResults" Relationship="pucitdbModel2.FK_quizResult_ToTable_1" FromRole="student" ToRole="quizResult" />
+          <NavigationProperty Name="semester" Relationship="pucitdbModel2.FK_student_ToTable" FromRole="student" ToRole="semester" />
+          <NavigationProperty Name="courses" Relationship="pucitdbModel2.studentToCourses" FromRole="student" ToRole="courses" />
+        </EntityType>
+        <EntityType Name="teacher">
+          <Key>
+            <PropertyRef Name="tid" />
+          </Key>
+          <Property Name="tid" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="name" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="password" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="email" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="designation" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="status" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="qualification" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <NavigationProperty Name="assignments" Relationship="pucitdbModel2.FK_assignment_ToTable" FromRole="teacher" ToRole="assignment" />
+          <NavigationProperty Name="attendances" Relationship="pucitdbModel2.FK_attendance_ToTable_2" FromRole="teacher" ToRole="attendance" />
+          <NavigationProperty Name="quizs" Relationship="pucitdbModel2.FK_quiz_ToTable" FromRole="teacher" ToRole="quiz" />
+          <NavigationProperty Name="quizResults" Relationship="pucitdbModel2.FK_quizResult_ToTable_3" FromRole="teacher" ToRole="quizResult" />
+          <NavigationProperty Name="courses" Relationship="pucitdbModel2.teacherToCourses" FromRole="teacher" ToRole="courses" />
+        </EntityType>
+        <EntityType Name="user">
+          <Key>
+            <PropertyRef Name="uid" />
+          </Key>
+          <Property Name="uid" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="name" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="type" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="password" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="email" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+        </EntityType>
+        <Association Name="FK_assignment_ToTable">
+          <End Role="teacher" Type="pucitdbModel2.teacher" Multiplicity="1" />
+          <End Role="assignment" Type="pucitdbModel2.assignment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="teacher">
+              <PropertyRef Name="tid" />
+            </Principal>
+            <Dependent Role="assignment">
+              <PropertyRef Name="tid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_assignment_ToTable_1">
+          <End Role="courses" Type="pucitdbModel2.cours" Multiplicity="1" />
+          <End Role="assignment" Type="pucitdbModel2.assignment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="courses">
+              <PropertyRef Name="cid" />
+            </Principal>
+            <Dependent Role="assignment">
+              <PropertyRef Name="cid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_assignmentResult_ToTable">
+          <End Role="assignment" Type="pucitdbModel2.assignment" Multiplicity="1" />
+          <End Role="assignmentResult" Type="pucitdbModel2.assignmentResult" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="assignment">
+              <PropertyRef Name="aid" />
+            </Principal>
+            <Dependent Role="assignmentResult">
+              <PropertyRef Name="aid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_assignmentResult_ToTable_1">
+          <End Role="student" Type="pucitdbModel2.student" Multiplicity="1" />
+          <End Role="assignmentResult" Type="pucitdbModel2.assignmentResult" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="student">
+              <PropertyRef Name="sid" />
+            </Principal>
+            <Dependent Role="assignmentResult">
+              <PropertyRef Name="sid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_assignmentResult_ToTable_2">
+          <End Role="courses" Type="pucitdbModel2.cours" Multiplicity="1" />
+          <End Role="assignmentResult" Type="pucitdbModel2.assignmentResult" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="courses">
+              <PropertyRef Name="cid" />
+            </Principal>
+            <Dependent Role="assignmentResult">
+              <PropertyRef Name="cid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_attendance_ToTable">
+          <End Role="student" Type="pucitdbModel2.student" Multiplicity="1" />
+          <End Role="attendance" Type="pucitdbModel2.attendance" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="student">
+              <PropertyRef Name="sid" />
+            </Principal>
+            <Dependent Role="attendance">
+              <PropertyRef Name="studentId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_attendance_ToTable_1">
+          <End Role="courses" Type="pucitdbModel2.cours" Multiplicity="1" />
+          <End Role="attendance" Type="pucitdbModel2.attendance" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="courses">
+              <PropertyRef Name="cid" />
+            </Principal>
+            <Dependent Role="attendance">
+              <PropertyRef Name="courseId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_attendance_ToTable_2">
+          <End Role="teacher" Type="pucitdbModel2.teacher" Multiplicity="1" />
+          <End Role="attendance" Type="pucitdbModel2.attendance" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="teacher">
+              <PropertyRef Name="tid" />
+            </Principal>
+            <Dependent Role="attendance">
+              <PropertyRef Name="tName" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_question_ToTable">
+          <End Role="courses" Type="pucitdbModel2.cours" Multiplicity="1" />
+          <End Role="question" Type="pucitdbModel2.question" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="courses">
+              <PropertyRef Name="cid" />
+            </Principal>
+            <Dependent Role="question">
+              <PropertyRef Name="cid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_quiz_ToTable_1">
+          <End Role="courses" Type="pucitdbModel2.cours" Multiplicity="1" />
+          <End Role="quiz" Type="pucitdbModel2.quiz" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="courses">
+              <PropertyRef Name="cid" />
+            </Principal>
+            <Dependent Role="quiz">
+              <PropertyRef Name="cid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_quizResult_ToTable_2">
+          <End Role="courses" Type="pucitdbModel2.cours" Multiplicity="1" />
+          <End Role="quizResult" Type="pucitdbModel2.quizResult" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="courses">
+              <PropertyRef Name="cid" />
+            </Principal>
+            <Dependent Role="quizResult">
+              <PropertyRef Name="cid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_quiz_ToTable">
+          <End Role="teacher" Type="pucitdbModel2.teacher" Multiplicity="1" />
+          <End Role="quiz" Type="pucitdbModel2.quiz" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="teacher">
+              <PropertyRef Name="tid" />
+            </Principal>
+            <Dependent Role="quiz">
+              <PropertyRef Name="tid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_quizResult_ToTable">
+          <End Role="quiz" Type="pucitdbModel2.quiz" Multiplicity="1" />
+          <End Role="quizResult" Type="pucitdbModel2.quizResult" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="quiz">
+              <PropertyRef Name="qid" />
+            </Principal>
+            <Dependent Role="quizResult">
+              <PropertyRef Name="qid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_quizResult_ToTable_1">
+          <End Role="student" Type="pucitdbModel2.student" Multiplicity="1" />
+          <End Role="quizResult" Type="pucitdbModel2.quizResult" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="student">
+              <PropertyRef Name="sid" />
+            </Principal>
+            <Dependent Role="quizResult">
+              <PropertyRef Name="sid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_quizResult_ToTable_3">
+          <End Role="teacher" Type="pucitdbModel2.teacher" Multiplicity="1" />
+          <End Role="quizResult" Type="pucitdbModel2.quizResult" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="teacher">
+              <PropertyRef Name="tid" />
+            </Principal>
+            <Dependent Role="quizResult">
+              <PropertyRef Name="tid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_student_ToTable">
+          <End Role="semester" Type="pucitdbModel2.semester" Multiplicity="0..1" />
+          <End Role="student" Type="pucitdbModel2.student" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="semester">
+              <PropertyRef Name="smid" />
+            </Principal>
+            <Dependent Role="student">
+              <PropertyRef Name="smid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="coursesInSemester">
+          <End Role="semester" Type="pucitdbModel2.semester" Multiplicity="*" />
+          <End Role="courses" Type="pucitdbModel2.cours" Multiplicity="*" />
+        </Association>
+        <Association Name="studentToCourses">
+          <End Role="student" Type="pucitdbModel2.student" Multiplicity="*" />
+          <End Role="courses" Type="pucitdbModel2.cours" Multiplicity="*" />
+        </Association>
+        <Association Name="teacherToCourses">
+          <End Role="teacher" Type="pucitdbModel2.teacher" Multiplicity="*" />
+          <End Role="courses" Type="pucitdbModel2.cours" Multiplicity="*" />
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="pucitdbModel2StoreContainer" CdmEntityContainer="puEntities">
+          <EntitySetMapping Name="assignments">
+            <EntityTypeMapping TypeName="pucitdbModel2.assignment">
+              <MappingFragment StoreEntitySet="assignment">
+                <ScalarProperty Name="aid" ColumnName="aid" />
+                <ScalarProperty Name="tid" ColumnName="tid" />
+                <ScalarProperty Name="cid" ColumnName="cid" />
+                <ScalarProperty Name="totalMarks" ColumnName="totalMarks" />
+                <ScalarProperty Name="questionFilePath" ColumnName="questionFilePath" />
+                <ScalarProperty Name="startDate" ColumnName="startDate" />
+                <ScalarProperty Name="endDate" ColumnName="endDate" />
+                <ScalarProperty Name="solutionFilePath" ColumnName="solutionFilePath" />
+                <ScalarProperty Name="aNumber" ColumnName="aNumber" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="assignmentResults">
+            <EntityTypeMapping TypeName="pucitdbModel2.assignmentResult">
+              <MappingFragment StoreEntitySet="assignmentResult">
+                <ScalarProperty Name="aid" ColumnName="aid" />
+                <ScalarProperty Name="sid" ColumnName="sid" />
+                <ScalarProperty Name="cid" ColumnName="cid" />
+                <ScalarProperty Name="totalMarks" ColumnName="totalMarks" />
+                <ScalarProperty Name="marksObtained" ColumnName="marksObtained" />
+                <ScalarProperty Name="outPutFilePath" ColumnName="outPutFilePath" />
+                <ScalarProperty Name="codeFilePath" ColumnName="codeFilePath" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="attendances">
+            <EntityTypeMapping TypeName="pucitdbModel2.attendance">
+              <MappingFragment StoreEntitySet="attendance">
+                <ScalarProperty Name="studentId" ColumnName="studentId" />
+                <ScalarProperty Name="courseId" ColumnName="courseId" />
+                <ScalarProperty Name="presents" ColumnName="presents" />
+                <ScalarProperty Name="absents" ColumnName="absents" />
+                <ScalarProperty Name="tName" ColumnName="tName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="courses">
+            <EntityTypeMapping TypeName="pucitdbModel2.cours">
+              <MappingFragment StoreEntitySet="courses">
+                <ScalarProperty Name="cid" ColumnName="cid" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="creditHours" ColumnName="creditHours" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="questions">
+            <EntityTypeMapping TypeName="pucitdbModel2.question">
+              <MappingFragment StoreEntitySet="question">
+                <ScalarProperty Name="quid" ColumnName="quid" />
+                <ScalarProperty Name="statement" ColumnName="statement" />
+                <ScalarProperty Name="option_A" ColumnName="option_A" />
+                <ScalarProperty Name="option_B" ColumnName="option_B" />
+                <ScalarProperty Name="Option_C" ColumnName="Option_C" />
+                <ScalarProperty Name="option_D" ColumnName="option_D" />
+                <ScalarProperty Name="correctOption" ColumnName="correctOption" />
+                <ScalarProperty Name="marks" ColumnName="marks" />
+                <ScalarProperty Name="solution" ColumnName="solution" />
+                <ScalarProperty Name="cid" ColumnName="cid" />
+                <ScalarProperty Name="topic" ColumnName="topic" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="quizs">
+            <EntityTypeMapping TypeName="pucitdbModel2.quiz">
+              <MappingFragment StoreEntitySet="quiz">
+                <ScalarProperty Name="qid" ColumnName="qid" />
+                <ScalarProperty Name="cid" ColumnName="cid" />
+                <ScalarProperty Name="tid" ColumnName="tid" />
+                <ScalarProperty Name="totalQuestion" ColumnName="totalQuestion" />
+                <ScalarProperty Name="TotalMarks" ColumnName="TotalMarks" />
+                <ScalarProperty Name="startDate" ColumnName="startDate" />
+                <ScalarProperty Name="endDate" ColumnName="endDate" />
+                <ScalarProperty Name="TotalTime" ColumnName="TotalTime" />
+                <ScalarProperty Name="topic" ColumnName="topic" />
+                <ScalarProperty Name="totalAttempts" ColumnName="totalAttempts" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="quizResults">
+            <EntityTypeMapping TypeName="pucitdbModel2.quizResult">
+              <MappingFragment StoreEntitySet="quizResult">
+                <ScalarProperty Name="qid" ColumnName="qid" />
+                <ScalarProperty Name="sid" ColumnName="sid" />
+                <ScalarProperty Name="cid" ColumnName="cid" />
+                <ScalarProperty Name="tid" ColumnName="tid" />
+                <ScalarProperty Name="totalmarks" ColumnName="totalmarks" />
+                <ScalarProperty Name="obtainMarks" ColumnName="obtainMarks" />
+                <ScalarProperty Name="attempts" ColumnName="attempts" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="semesters">
+            <EntityTypeMapping TypeName="pucitdbModel2.semester">
+              <MappingFragment StoreEntitySet="semester">
+                <ScalarProperty Name="smid" ColumnName="smid" />
+                <ScalarProperty Name="credithours" ColumnName="credithours" />
+                <ScalarProperty Name="gpa" ColumnName="gpa" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="students">
+            <EntityTypeMapping TypeName="pucitdbModel2.student">
+              <MappingFragment StoreEntitySet="student">
+                <ScalarProperty Name="sid" ColumnName="sid" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="password" ColumnName="password" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="degree" ColumnName="degree" />
+                <ScalarProperty Name="session" ColumnName="session" />
+                <ScalarProperty Name="batch" ColumnName="batch" />
+                <ScalarProperty Name="smid" ColumnName="smid" />
+                <ScalarProperty Name="cgpa" ColumnName="cgpa" />
+                <ScalarProperty Name="address" ColumnName="address" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="teachers">
+            <EntityTypeMapping TypeName="pucitdbModel2.teacher">
+              <MappingFragment StoreEntitySet="teacher">
+                <ScalarProperty Name="tid" ColumnName="tid" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="password" ColumnName="password" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="designation" ColumnName="designation" />
+                <ScalarProperty Name="status" ColumnName="status" />
+                <ScalarProperty Name="qualification" ColumnName="qualification" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="users">
+            <EntityTypeMapping TypeName="pucitdbModel2.user">
+              <MappingFragment StoreEntitySet="user">
+                <ScalarProperty Name="uid" ColumnName="uid" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="type" ColumnName="type" />
+                <ScalarProperty Name="password" ColumnName="password" />
+                <ScalarProperty Name="email" ColumnName="email" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <AssociationSetMapping Name="coursesInSemester" TypeName="pucitdbModel2.coursesInSemester" StoreEntitySet="coursesInSemester">
+            <EndProperty Name="semester">
+              <ScalarProperty Name="smid" ColumnName="smid" />
+            </EndProperty>
+            <EndProperty Name="courses">
+              <ScalarProperty Name="cid" ColumnName="cid" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <AssociationSetMapping Name="studentToCourses" TypeName="pucitdbModel2.studentToCourses" StoreEntitySet="studentToCourses">
+            <EndProperty Name="student">
+              <ScalarProperty Name="sid" ColumnName="sid" />
+            </EndProperty>
+            <EndProperty Name="courses">
+              <ScalarProperty Name="cid" ColumnName="cid" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <AssociationSetMapping Name="teacherToCourses" TypeName="pucitdbModel2.teacherToCourses" StoreEntitySet="teacherToCourses">
+            <EndProperty Name="teacher">
+              <ScalarProperty Name="tid" ColumnName="tid" />
+            </EndProperty>
+            <EndProperty Name="courses">
+              <ScalarProperty Name="cid" ColumnName="cid" />
+            </EndProperty>
+          </AssociationSetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="True" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

@@ -1,0 +1,134 @@
+﻿@model MVC_First.Models.quiz
+
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Views/Shared/_LayoutAfterLogin.cshtml";
+}
+
+
+<html>
+<head>
+    <title>Edit</title>
+    <link href="~/Content/themes/jquery-ui.css" rel="stylesheet" />
+    <link href="~/Content/themes/jquery.ui.datepicker.css" rel="stylesheet" />
+    <script src="~/Scripts/jquery-ui.js"></script>
+    <script src="~/Scripts/jquery.ui.datepicker.js"></script>
+
+    
+     <link href="~/Content/kendo/2013.3.1119/kendo.flat.min.css" rel="stylesheet" />
+    <link href="~/Content/kendo/2013.3.1119/kendo.common.min.css" rel="stylesheet" />
+   <!-- <link href="~/Content/kendo/2013.3.1119/kendo.default.min.css" rel="stylesheet" /> -->
+    <script src="~/Scripts/kendo/2013.3.1119/jquery.min.js"></script>
+    <script src="~/Scripts/kendo/2013.3.1119/kendo.web.min.js"></script>
+    
+</head>
+    <script>
+        $(document).ready(function () {
+
+            $(".k-primary").kendoButton();
+            
+                $("#ccid").focusin(function () {
+
+                    $("#ccid option").remove();
+
+                    $.getJSON("/Teacher/GetCourses", function (data) {
+                       
+                        $.each(data, function (i, item) {
+                            $("#ccid").append('<option value=' + item.cid + '>' + item.name + '</option>');
+                            
+                        });
+
+                    });
+                });
+                
+                $("#tp").focusin(function () {
+                    var id = $("#ccid option:selected").text();
+                    $("#tp option").remove();
+
+                    $.getJSON("/Teacher/GetTopic?cid=" + id, function (data) {
+                        
+                        $.each(data, function (i, item) {
+                            $("#tp").append('<option value=' + item.topic + '>' + item.topic + '</option>');
+
+                        });
+
+                    });
+                });
+
+
+            $("#datetimepicker").kendoDateTimePicker({
+               
+            });
+
+            
+            $("#datetimepicker2").kendoDateTimePicker({
+                
+                
+            });
+            
+
+        });
+        </script>
+
+<body>
+<div class ="k-content" style ="background-color:mintcream; height:auto; width:30%;margin-left:25%">
+<h2 class="k-header">Edit Quiz:</h2>
+    <form class="forms" role="form" method ="post" action ="/Teacher/SaveUpdatedQuiz">
+         @Html.HiddenFor(model => model.qid)
+        @Html.HiddenFor(model => model.tid)
+        <br><label for ="name" style ="font-size:small">Course ID </label><br>
+        <div >
+        <select id ="ccid" name ="cid"  style ="width:200%">
+           <option>@Model.cid</option>
+        </select>
+            </div>
+        <br><label for ="name" style ="font-size:small">Topic </label><br>
+        <div >
+        <select id ="tp" name ="topic" style ="width:200%">
+           <option>@Model.topic</option>
+        </select>
+        </div>
+                 
+        <br><label for ="name" style ="font-size:small">Total Questions </label><br>
+        <input type="text"  name ="totalQuestion" value ="@Model.totalQuestion" required id ="tq" style ="width:200%"><br>
+
+        <br><label for ="name" style ="font-size:small">Total Marks </label><br>
+        <input type="text"  name ="TotalMarks" value ="@Model.TotalMarks" required id ="tm" style ="width:200%"><br>
+
+        <br><label for ="name"  style ="font-size:small">Total Time </label><br>
+        <input type="text" name ="TotalTime" value ="@Model.TotalTime" required id ="tt" style ="width:200%"><br>
+        
+        <br><label for ="name"  style ="font-size:small">Start DateTime </label><br>
+        
+            <input type ="datetime" id="datetimepicker" name ="startDate" value ="@Model.startDate" style="width:200%; height:auto;font-size:small" /><br>
+            
+
+        <br><label for ="name"  style ="font-size:small">End DateTime </label><br>
+        <input type ="datetime" id="datetimepicker2" name ="endDate" value ="@Model.endDate" style="width:200%; height:auto;font-size:small" /><br>
+
+        <br><br><button class="k-primary" type="submit" style ="width:100%" value ="Create" >Save</button>
+</form>
+</div>
+</body>
+</html>
+
+
+
+<style scoped>
+            .forms {
+                float: left;
+                
+            }
+
+            .forms li {
+                margin-bottom: 5px;
+                list-style: none;
+                
+            }
+
+            .forms li > * {
+                width: 200px;
+            }
+        </style>
+
+

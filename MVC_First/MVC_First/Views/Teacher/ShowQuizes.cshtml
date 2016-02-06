@@ -1,0 +1,65 @@
+﻿@{
+    ViewBag.Title = "ShowQuizes";
+}
+<script src="~/Scripts/jquery-1.9.1.js"></script>
+
+
+        <link href="~/Content/kendo/2013.3.1119/kendo.flat.min.css" rel="stylesheet" />
+        <link href="~/Content/kendo/2013.3.1119/kendo.common.min.css" rel="stylesheet" />
+        <script src="~/Scripts/kendo/2013.3.1119/jquery.min.js"></script>
+        <script src="~/Scripts/kendo/2013.3.1119/kendo.web.min.js"></script>
+
+
+<script>
+    $(document).ready(function () {
+        $(".k-primary").kendoButton();
+            
+                $("#ccid").focusin(function () {
+
+                    $("#ccid option").remove();
+
+                    $.getJSON("/Teacher/GetCourses", function (data) {
+                       
+                        $.each(data, function (i, item) {
+                            $("#ccid").append('<option value=' + item.cid + '>' + item.name + '</option>');
+                            
+                        });
+
+                    });
+                });
+        });
+        </script>
+
+<div class ="k-content" style ="background-color:mintcream; height:auto; width:30%;margin-left:25%">
+    <h2 class="k-header">View Quizes:</h2>
+    <form class="forms" role="form" method ="post" action ="/Teacher/ViewQuizes" enctype="multipart/form-data">
+        <label for ="name" style ="font-size:small">Course ID </label><br>
+        <div >
+        <select id ="ccid" name ="cid" style ="width:350px">
+          <option>-Course ID-</option>  
+        </select>
+            </div>
+                 
+        <br><button class="k-primary" type="submit" style ="width:350px" id ="save">Submit</button>
+        
+
+    </form>
+</div>
+
+<style scoped>
+            .forms {
+                float: left;
+                
+            }
+
+            .forms li {
+                margin-bottom: 5px;
+                list-style: none;
+                
+            }
+
+            .forms li > * {
+                width: 200px;
+            }
+        </style>
+

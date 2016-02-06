@@ -1,0 +1,67 @@
+﻿@{
+    ViewBag.Title = "AddQuestions";
+    Layout = "~/Views/Shared/_LayoutAfterLogin.cshtml";
+}
+
+<!--
+<link rel="stylesheet" href="~/Content/bootstrap.min.css">
+<link rel="stylesheet" href="~/Content/bootstrap-responsive.min.css">
+<link type= "text/css" href="~/Content/bootstrap.css" rel="stylesheet" />
+<script class="cssdeck" src="~/Scripts/jquery.min.js"></script>
+<script class="cssdeck" src="~/Scripts/bootstrap.min.js"></script>
+<script type="text/javascript" src="~/Scripts/bootstrap.js"></script>
+
+-->
+      
+
+<script src="~/Scripts/jquery-1.9.1.js"></script>
+
+
+        <link href="~/Content/kendo/2013.3.1119/kendo.flat.min.css" rel="stylesheet" />
+        <link href="~/Content/kendo/2013.3.1119/kendo.common.min.css" rel="stylesheet" />
+        <script src="~/Scripts/kendo/2013.3.1119/jquery.min.js"></script>
+        <script src="~/Scripts/kendo/2013.3.1119/kendo.web.min.js"></script>
+
+<script>
+    $('document').ready(function () {
+
+
+        $(".k-primary").kendoButton();
+
+ $("#ccid").focusin(function () {
+
+                    $("#ccid option").remove();
+
+                    $.getJSON("/Teacher/GetCourses", function (data) {
+                       
+                        $.each(data, function (i, item) {
+                            $("#ccid").append('<option value=' + item.cid + '>' + item.name + '</option>');
+                            
+                        });
+
+                    });
+                });
+        });
+        </script>
+
+<div class ="k-content" style ="background-color:mintcream; height:auto; width:30%;margin-left:25%">
+    <br><h2 class="k-header">Add Questions:</h2>
+    <form class="forms" role="form" method ="post" action ="/Teacher/SaveQuestion" enctype="multipart/form-data">
+        <label for ="name" style ="font-size:small">Course ID </label><br>
+        <div >
+        <select  id ="ccid" name ="cid" style ="width:100%">
+          <option>-Course ID-</option>  
+        </select>
+            </div>
+        <br><label for ="name"  style ="font-size:small">Topic </label><br>
+        <input type="text" name ="topic" placeholder="Topic" id ="id" style ="width:100%" required> <br> 
+        <br><h2 class="k-header">UpLoad File:</h2><br><br>
+        <input type="file" name = "text"><br>
+         
+        <br><button class="k-primary" type="submit" style ="width:50%" id ="save">Add</button>
+        
+
+    </form>
+
+   
+</div>

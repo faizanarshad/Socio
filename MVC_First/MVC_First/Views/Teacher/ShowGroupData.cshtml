@@ -1,0 +1,134 @@
+﻿@model IEnumerable<MVC_First.Models.post>
+
+@{
+    ViewBag.Title = "ShowGroupData";
+    Layout = "~/Views/Shared/_LayoutAfterLogin1.cshtml";
+}
+
+<link href="~/Content/kendo/2013.3.1119/kendo.flat.min.css" rel="stylesheet" />
+<link href="~/Content/kendo/2013.3.1119/kendo.common.min.css" rel="stylesheet" />
+<script src="~/Scripts/kendo/2013.3.1119/jquery.min.js"></script>
+<script src="~/Scripts/kendo/2013.3.1119/kendo.web.min.js"></script>
+
+<script>
+
+    function like(pid) {
+
+        document.getElementById(pid).style.visibility = 'hidden';
+        $.getJSON("/Teacher/DeletePost?pid=" + pid, function (data) {
+            
+        });
+    }
+
+    $('document').ready(function () {
+        $('#btn1').click(function () {
+
+            document.getElementById('enter').style.visibility = 'visible';
+            document.getElementById('other').style.visibility = 'visible';
+            $('#btn1').hide();
+        });
+
+        $('#enter').click(function () {
+
+            document.getElementById('enter').style.visibility = 'hidden';
+            document.getElementById('other').style.visibility = 'hidden';
+            var str = document.getElementById('other').value;
+            var row = "";
+            var gid = @ViewBag.grpID
+
+            $.getJSON("/Teacher/AddPost?id=" + str + "&gid=" + gid, function (data) {
+
+                row = row + "<tr><td style =\"font-size:medium;text-align:left; color:darkblue\">&nbsp;&nbsp;&nbsp;&nbsp;" + data.p_creator + "</td></tr>";
+
+                row = row + "<tr><td style =\"font-size:x-small;text-align:left; color:gray\">";
+                row = row + "&nbsp;&nbsp;&nbsp;&nbsp;" + data.time + "</td></tr>";
+
+                row = row + "<tr><td style =\"font-size:small;text-align:left\">";
+                row = row + "&nbsp;&nbsp;&nbsp;&nbsp;" + data.body + "</td></tr>";
+
+                row = row + "<tr><td style =\"font-size:x-small;text-align:left; color:brown\">";
+                row = row + "&nbsp;&nbsp;&nbsp;&nbsp;" + data.likes + " people likes this &nbsp;&nbsp;&nbsp;&nbsp;</td></tr>";
+
+                $("#tab").append(row);
+            });
+
+            $('#btn1').show();
+        });
+        $(".k-primary").kendoButton();
+    });
+
+</script>
+
+<div class ="k-content" style ="background-color:mintcream; height:auto; width:50%;margin-left:25%"> 
+    <h2 class ="k-header">@ViewBag.grpNam</h2>
+<table id="tab" class="metrotable">
+    <tr id="newComment">
+        <td style ="font-size:medium;text-align:left">
+            &nbsp;&nbsp;<button class="k-primary" type="button" id ="btn1" style="width:25%;height:auto;margin-top:3%; margin-bottom:3%">Create Post</button><input style="visibility:hidden;width:50%;height:60%;margin-top:3%; margin-bottom:3%" type='text' id='other' name='other'>&nbsp;&nbsp;&nbsp;<button class="k-primary" type="button" id ="enter" style="visibility:hidden;width:17%;height:auto">Enter</button>
+        </td>
+    </tr>
+
+@foreach (var item in Model) {
+    
+        <tr>
+            <td style ="font-size:large;text-align:left; color:darkblue">
+                &nbsp;&nbsp; @Html.DisplayFor(modelItem => item.p_creator)
+            </td>
+        </tr>
+        <tr>
+            <td style ="font-size:small;text-align:left; color:gray">
+                &nbsp;&nbsp;&nbsp;&nbsp;@Html.DisplayFor(modelItem => item.time)
+            </td>
+        </tr>
+        <tr>
+            <td style ="font-size:small;text-align:left">
+                &nbsp;&nbsp;&nbsp;&nbsp;@Html.DisplayFor(modelItem => item.body)
+            </td>
+        </tr>
+        <tr>
+            <td style ="font-size:small;text-align:left; color:brown">
+                &nbsp;&nbsp;&nbsp;&nbsp;@Html.DisplayFor(modelItem => item.likes) people likes this &nbsp;&nbsp;&nbsp;&nbsp; @Html.ActionLink("Comments", "ShowComments", new {pid=item.pid})&nbsp;&nbsp;&nbsp;&nbsp; 
+                @if (Session["id"] != null && Session["id"].ToString().Equals(""+Html.DisplayFor(modelItem => item.p_creator)))
+                {
+                    <a href="#" id="@Html.DisplayFor(modelItem => item.pid)" style="visibility:visible" onclick="like(@Html.DisplayFor(modelItem => item.pid))">Delete</a>
+                }
+                
+            </td>
+            
+        </tr>
+    <tr>
+        <td>
+            <br />
+        </td>
+    </tr>
+}
+    
+</table>
+    <br><br><div style ="width:20%;position:relative; margin-left:90%; font-size:x-large;">
+             @Html.ActionLink("Back", "ViewGroups")
+     </div>   
+
+</div>
+
+<style scoped>
+        
+    .demo-section {
+            width: 600px;	
+        }
+                
+        .metrotable {
+            width: 100%;
+            border-collapse: collapse;
+            border:dashed;
+        }
+                
+        .metrotable > thead > tr > th 
+        {
+            font-size: 1.3em;
+            padding-top: 0;
+            padding-bottom: 5px;
+            text-align:center;
+        }
+
+</style>
+

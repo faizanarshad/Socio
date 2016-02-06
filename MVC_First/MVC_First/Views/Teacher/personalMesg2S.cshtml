@@ -1,0 +1,125 @@
+﻿@{
+    ViewBag.Title = "Announcement To degree and fall";
+    Layout = "~/Views/Shared/_LayoutAfterLogin.cshtml";
+}
+
+
+   <!--
+<link rel="stylesheet" href="~/Content/bootstrap.min.css">
+<link rel="stylesheet" href="~/Content/bootstrap-responsive.min.css">
+<link type= "text/css" href="~/Content/bootstrap.css" rel="stylesheet" />
+<script class="cssdeck" src="~/Scripts/jquery.min.js"></script>
+<script class="cssdeck" src="~/Scripts/bootstrap.min.js"></script>
+<script type="text/javascript" src="~/Scripts/bootstrap.js"></script>
+-->
+
+<script src="~/Scripts/jquery-1.9.1.js"></script>
+
+
+
+<script class="cssdeck" src="~/Scripts/jquery.min.js"></script>
+        <link href="~/Content/kendo/2013.3.1119/kendo.flat.min.css" rel="stylesheet" />
+        <link href="~/Content/kendo/2013.3.1119/kendo.common.min.css" rel="stylesheet" />
+        <script src="~/Scripts/kendo/2013.3.1119/jquery.min.js"></script>
+        <script src="~/Scripts/kendo/2013.3.1119/kendo.web.min.js"></script>
+<script>
+    $('document').ready(function () {
+
+
+        $(".k-primary").kendoButton();
+
+            
+                $("#falls").focusin(function () {
+
+                    $("#faslls ").remove();
+
+                    $.getJSON("/Teacher/getFall", function (data) {
+                       
+                        $.each(data, function (i, item) {
+                            $("#falls").append('<option value=' + item.i + '>' + item.i + '</option>');
+                            
+                        });
+
+                    });
+                });
+        });
+        </script>
+
+<br>
+
+     <div id="respond" class="k-content" style ="background-color:mintcream; height:10%; width:50%;margin-left:25%">
+         <h2 class="k-header">Send Message</h2>
+        <form class="forms" action= "/Teacher/personalMesg2S1" method="post" enctype="multipart/form-data" > 
+          <p>
+	    <label for="name"><small>Subject (required)</small></label>
+            <input type="text" name="sub" id="sub" value="" size="22" />
+            
+          </p>
+         
+          <p>
+	    <br><label for="name"><small>Description (required)</small></label>
+            <textarea name="mesg_text" id="mesg_text" cols="80%" rows="10"  ></textarea>
+            <label for="comment" style="display:none;"><small>Comment (required)</small></label>
+          </p>
+
+	 <p>
+         
+        <br><h2 class="k-header">UpLoad File:</h2><br><br>
+        <input type="file" name = "text"><br>
+         
+       <!-- <br><button class="btn btn-lg btn-primary btn-block" type="submit" style ="width:350px" id ="save">Add</button> -->
+	   <!-- <label for="attach"><small>Attach (optional)</small></label> -->
+            
+        
+          </p>
+          <!--  <p><input type="file" name="attachment" id ="attachment"/></p>   -->
+          <p>
+          <label for="audience"><small>Audience :- </small></label>
+        <table border ="0" cellspacing ="1" cellpadding ="2" width="100">
+
+            <tr>
+                
+                <td> 
+                    Enter Student RollNumber:
+                    <input type="text" name ="sid" id="sid" />
+                   
+                </td>
+                 
+         
+            </tr>
+            
+
+        </table>
+         
+          </p>
+          <br/>
+          <br />
+
+          <p>
+            <input name="submit" type="submit" id="submit" value="Send Message" class="k-primary"/>
+            &nbsp;
+            <input name="reset" type="reset" id="reset" tabindex="5" value="Clear Message" class="k-primary" />
+          </p>
+        </form>
+      </div>
+
+
+
+<style scoped>
+            .forms {
+                float: left;
+                
+            }
+
+            .forms li {
+                margin-bottom: 5px;
+                list-style: none;
+                
+            }
+
+            .forms li > * {
+                width: 200px;
+            }
+        </style>
+
+

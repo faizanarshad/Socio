@@ -1,0 +1,60 @@
+﻿@model List<MVC_First.Models.quizResult>
+
+@{
+    ViewBag.Title = "ViewQuizesResult";
+}
+
+<h2>ViewQuizesResult</h2>
+
+<div class ="container" style ="background-color:mintcream; height:100px; width:900px"> 
+<table class="table table-striped table-bordered table-condensed">
+    <tr>
+        <th style ="font-size:medium">
+            Quiz ID
+        </th>
+        <th style ="font-size:medium">
+            Student ID
+        </th>
+        <th style ="font-size:medium">
+            Course ID
+        </th>
+        <th style ="font-size:medium">
+            Teacher ID
+        </th>
+        
+        <th style ="font-size:medium">
+            Total Marks
+        </th>
+        <th style ="font-size:medium">
+            Obtained Marks
+        </th>
+        <th></th>
+    </tr>
+@foreach( var m in Model ){
+    <tr>
+        <td style ="font-size:small">
+            @Html.DisplayFor(modelItem => m.qid)
+        </td>
+        <td style ="font-size:small">
+            @Html.DisplayFor(modelItem => m.sid)
+        </td>
+        <td style ="font-size:small">
+            @Html.DisplayFor(modelItem => m.cid)
+        </td>
+        <td style ="font-size:small">
+            @Html.DisplayFor(modelItem => m.tid)
+        </td>
+         <td style ="font-size:small">
+            @Html.DisplayFor(modelItem => m.totalmarks)
+        </td>
+        <td style ="font-size:small">
+            @Html.DisplayFor(modelItem => m.obtainMarks)
+        </td>
+        
+    </tr>
+}
+</table>
+    <br><br><br><div style ="width:200px;position:relative;top:-30px; margin-left:800px; font-size:xx-large;">
+             @Html.ActionLink("Back", "TeacherHome")
+     </div>   
+    </div>

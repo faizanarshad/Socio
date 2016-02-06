@@ -1,0 +1,33 @@
+﻿@model MVC_First.Models.cours
+@{
+    ViewBag.Title = "EditCourse";
+    Layout = "~/Views/Shared/_LayoutAfterLogin.cshtml";
+
+}
+    
+
+<link rel="stylesheet" href="~/Content/bootstrap.min.css">
+<link rel="stylesheet" href="~/Content/bootstrap-responsive.min.css">
+<link type= "text/css" href="~/Content/bootstrap.css" rel="stylesheet" />
+<script class="cssdeck" src="~/Scripts/jquery.min.js"></script>
+<script class="cssdeck" src="~/Scripts/bootstrap.min.js"></script>
+<script type="text/javascript" src="~/Scripts/bootstrap.js"></script>
+<script src="~/Scripts/jquery-1.9.1.js"></script>
+
+<div class ="container" style ="background-color:mintcream; height:430px; width:550px">
+
+    <form class="form-signin" role="form" method ="post" action ="/Admin/EditCourse">
+
+        <h2 class="form-signin-heading">Edit Course:</h2><br><br>
+
+        <label for ="name" class ="control-label" >Course ID </label><br>
+        <input type="text" class="form-control" name ="cid" placeholder="Course ID" required id ="id" style ="width:350px">
+         
+        <br><button class="btn btn-lg btn-primary btn-block" type="submit" style ="width:350px" id ="save">Submit</button>
+        
+
+    </form>
+     
+</div>
+
+

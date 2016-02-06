@@ -1,0 +1,54 @@
+what is your name?
+Muavia
+Shaka
+Zeeshan
+Goshi
+Muavia
+1
+Because its me..
+Parser
+What is your proffession?
+Teacher
+Former
+Driver
+Businessman
+Teacher
+1
+I love teaching..
+Not Parser
+what1 is your name?
+Muavia
+Shaka
+Zeeshan
+Goshi
+Muavia
+1
+Because its me..
+Parser
+what2 is your name?
+Muavia
+Shaka
+Zeeshan
+Goshi
+Muavia
+1
+Because its me..
+Parser
+what3 is your name?
+Muavia
+Shaka
+Zeeshan
+Goshi
+Muavia
+1
+Because its me..
+Parser
+what4 is your name?
+Muavia
+Shaka
+Zeeshan
+Goshi
+Muavia
+1
+Because its me..
+Parser

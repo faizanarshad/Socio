@@ -1,0 +1,89 @@
+Which of the following is NOT true about modern computers?
+More powerful
+Smaller in size
+Consume less energy
+Costly 
+costly
+4
+becouse today computers are no expensive......
+Parser
+Currently the BlueRay DVD can store more than.......of data? 	
+10 GB
+100 GB
+50 GB
+150 GB
+50 GB
+3
+cocuse today limit is upto 50 gb....
+Parser
+JavaScript .............support drawing of graphics. 	
+Does
+Does not
+Always
+At times
+Does not
+2
+becouse it is not support the graphics...
+Parser
+Popular schemes used for reducing bytes for storage are:
+RGB and Color mapping
+RGB and Dithering
+RGB, Color mapping and Dithering
+Color mapping and Dithering
+Color mapping and Dithering
+4
+these are the two techniques
+Parser
+Which protocol is use to transfer a file over the network ?
+UDP
+FTP
+TCP
+OSI
+FTP
+2
+Because FTP is used for file transfer protocole...
+Flow control constructs in JavaScript includes:
+If-Else
+Loops and If -Else 
+Switch and If-Else
+All of the given choices
+Switch and If-Else
+3
+besause it is answer....
+Parser
+A truth table defines th..............of a logic function for all possible....... 	
+Input -- Outputs
+Output -- Inputs
+Process -- Inputs
+Input -- Processes
+Process -- Inputs
+3
+because it is proved due to the truth table..
+Parser
+the best known builder for supercomputers.
+Sun
+Cray Research	
+Microsoft
+Apple
+Cray Research
+2
+it is the compney which make this..
+Parser	
+Web is a unique invention by humans in terms that it is:
+accessible to only the owners who control it
+accessible from particular locations only
+accessible to all humans
+accessible to only the educational institutes
+accessible to all humans
+3
+it is define in the book page nine para two
+Parser
+is a client program that uses HTTP to make requests to Web servers throughout the internet on behalf of the user.
+Web Application
+Web Browser
+Internet Application
+HTML 
+Web Browser
+2
+it is define in the boook
+Parser

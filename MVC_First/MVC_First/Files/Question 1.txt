@@ -1,0 +1,48 @@
+Identify the problem in paging?
+Internal Fragmentation
+External
+Compaction
+Protection
+Internal Fragmentation
+1
+Because its me..
+What is your profession?
+Teacher
+Former
+Driver
+Businessman
+Teacher
+1
+I love teaching..
+Q4 what is your name?
+Muavia
+Shaka
+Zeeshan
+Goshi
+Muavia
+1
+Because its me..
+Q3 what is your name?
+Muavia
+Shaka
+Zeeshan
+Goshi
+Zeeshan
+1
+Because its me..
+Q2 what is your name?
+Muavia
+Shaka
+Zeeshan
+Goshi
+Goshi
+1
+Because its me..
+Q1 what is your name?
+Muavia
+Shaka
+Zeeshan
+Goshi
+Shaka
+1
+Because its me..

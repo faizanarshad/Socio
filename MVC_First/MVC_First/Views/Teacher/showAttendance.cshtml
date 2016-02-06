@@ -1,0 +1,71 @@
+﻿@model List<MVC_First.Models.attendance1>
+
+@{
+    ViewBag.Title = "showAttendance";
+}
+
+
+
+<script class="cssdeck" src="~/Scripts/jquery.min.js"></script>
+        <link href="~/Content/kendo/2013.3.1119/kendo.flat.min.css" rel="stylesheet" />
+        <link href="~/Content/kendo/2013.3.1119/kendo.common.min.css" rel="stylesheet" />
+        <script src="~/Scripts/kendo/2013.3.1119/jquery.min.js"></script>
+        <script src="~/Scripts/kendo/2013.3.1119/kendo.web.min.js"></script>
+<script>
+    $('document').ready(function () {
+
+
+        $(".k-primary").kendoButton();
+    });
+
+    </script>
+
+
+<div class ="k-content" style ="background-color:mintcream; height:auto; width:50%;margin-left:25%"> 
+<h2 class ="k-header">Attendence:</h2>
+
+    <form class="forms" name="input" action="~/Teacher/Attendance" method="post" >
+<table class="forms">
+               <tr>
+                   <td><h3> RollNum </h3></td>
+                    <td> <h3> Name     </h3></td>
+                    <td><h3> Attendance </h3></td>
+
+               </tr>
+              
+           
+            @if(Model.Count>0)
+            {
+            for(int i=0 ; i<Model.Count ; i++)
+            {
+                
+                   <tr>
+                      <td>   @Html.DisplayFor(model=>model[i].studentId)   </td>
+                      <td>   @Html.DisplayFor(model=>model[i].student.name)  </td>
+                       <td>  @Html.DisplayFor(model=>model[i].atnd )</td>                                                </td>
+                       
+                      <td>   <input type="checkbox" name="marked" value="@Model[i].studentId.ToString()" /> </td>
+
+                </tr>
+                
+            }
+            <tr>
+                <td>
+            <input type="hidden" name="tname" value="@Model[0].tName" />
+            <input type="hidden" name="course" value="@Model[0].courseId" />
+               </td>
+            </tr>
+            }
+            
+           </table> 
+          
+                
+     </form>
+
+    
+    <br><br><div style ="width:200px;position:relative; margin-left:500px; font-size:xx-large;">
+             @Html.ActionLink("Back", "TeacherHome")
+   
+
+    </div>
+    </div>

@@ -1,0 +1,67 @@
+﻿@model MVC_First.Models.cours
+@{
+    ViewBag.Title = "EditCourse";
+    Layout = "~/Views/Shared/_LayoutAfterLogin.cshtml";
+
+}
+    
+ <!--
+<link rel="stylesheet" href="~/Content/bootstrap.min.css">
+<link rel="stylesheet" href="~/Content/bootstrap-responsive.min.css">
+<link type= "text/css" href="~/Content/bootstrap.css" rel="stylesheet" />
+<script class="cssdeck" src="~/Scripts/jquery.min.js"></script>
+<script class="cssdeck" src="~/Scripts/bootstrap.min.js"></script>
+<script type="text/javascript" src="~/Scripts/bootstrap.js"></script>
+<script src="~/Scripts/jquery-1.9.1.js"></script>
+-->
+<script class="cssdeck" src="~/Scripts/jquery.min.js"></script>
+        <link href="~/Content/kendo/2013.3.1119/kendo.flat.min.css" rel="stylesheet" />
+        <link href="~/Content/kendo/2013.3.1119/kendo.common.min.css" rel="stylesheet" />
+        <script src="~/Scripts/kendo/2013.3.1119/jquery.min.js"></script>
+        <script src="~/Scripts/kendo/2013.3.1119/kendo.web.min.js"></script>
+<script>
+    $('document').ready(function () {
+
+
+        $(".k-primary").kendoButton();
+
+    });
+    </script>
+<script>
+$(document).ready(function () {
+            
+                $("#ccid").focusin(function () {
+
+                    $("#ccid option").remove();
+
+                    $.getJSON("/Admin/GetCourses", function (data) {
+                       
+                        $.each(data, function (i, item) {
+                            $("#ccid").append('<option value=' + item.cid + '>' + item.cid + '</option>');
+                            
+                        });
+
+                    });
+                });
+            });
+</script>
+
+
+<div class ="l-content" style="height:auto; width:40%; margin-left:25%">
+        <h2 class="k-header">Edit Course:</h2><br>
+
+    <form class="forms" role="form" method ="post" action ="/Admin/EditCourse">
+
+        <div>
+        <select  id ="ccid" name ="cid" style ="width:60%">
+          <option>-Course ID-</option>  
+        </select>
+            </div>
+         
+        <br><button class="k-primary" type="submit" style ="width:60%" id ="save">Submit</button>
+        
+
+    </form>
+     
+</div>
+

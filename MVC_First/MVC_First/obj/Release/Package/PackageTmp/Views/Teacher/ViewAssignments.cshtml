@@ -1,0 +1,61 @@
+﻿@model IEnumerable<MVC_First.Models.assignment>
+
+@{
+    ViewBag.Title = "ViewAssignments";
+}
+
+<h2>ViewAssignments</h2>
+
+<div class ="container" style ="background-color:mintcream; height:100px; width:900px"> 
+<table class="table table-striped table-bordered table-condensed">
+    <tr>
+        <th style ="font-size:medium">
+            Assignment ID
+        </th>
+        <th style ="font-size:medium">
+            Teacher ID
+        </th>
+        <th style ="font-size:medium">
+            Course ID
+        </th>
+        <th style ="font-size:medium">
+            Total Marks
+        </th>
+        
+        <th style ="font-size:medium">
+            Start Date
+        </th>
+        <th style ="font-size:medium">
+            End Date
+        </th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td style ="font-size:small">
+            @Html.DisplayFor(modelItem => item.aid)
+        </td>
+        <td style ="font-size:small">
+            @Html.DisplayFor(modelItem => item.tid)
+        </td>
+        <td style ="font-size:small">
+            @Html.DisplayFor(modelItem => item.cid)
+        </td>
+        <td style ="font-size:small">
+            @Html.DisplayFor(modelItem => item.totalMarks)
+        </td>
+        <td style ="font-size:small">
+            @Html.DisplayFor(modelItem => item.startDate)
+        </td>
+        <td style ="font-size:small">
+            @Html.DisplayFor(modelItem => item.endDate)
+        </td>
+     </tr>
+}
+
+</table>
+    <br><br><br><div style ="width:200px;position:relative;top:-30px; margin-left:800px; font-size:xx-large;">
+             @Html.ActionLink("Back", "TeacherHome")
+     </div>   
+
+</div>

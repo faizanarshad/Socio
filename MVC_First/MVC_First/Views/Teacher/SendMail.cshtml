@@ -1,0 +1,33 @@
+﻿@{
+    ViewBag.Title = "SendMail";
+    Layout = "~/Views/Shared/_LayoutAfterLogin.cshtml";
+}
+
+@model MVC_First.Models.MailModel
+@{
+    ViewBag.Title = "Send Mail";
+}
+
+<div style="padding-left:60px;padding-top:30px; padding-right:60px">
+
+<fieldset>
+    <legend style="color:#E3CEF6">
+    <h2>Send Email</h2>
+    </legend>
+    <div style="padding-left:400px">
+    @using (Html.BeginForm())
+    {
+        @Html.ValidationSummary()
+        
+        <p>To: </p>
+        <p>@Html.TextBoxFor(m=>m.To,new { style="width:400px;height:35px" })</p>
+        <p>Subject: </p>
+        <p>@Html.TextBoxFor(m => m.Subject, new { style = "width:400px;height:35px" })</p>
+        <p>Body: </p>
+        <p style="padding-bottom:20px">@Html.TextAreaFor(m=>m.Body,new { style="width:400px;height:150px" })</p>
+        <button class="btn btn-lg btn-success btn-block" type="submit" style ="width:100px; border-radius:5px" onclick="validate()">Send</button>
+    }  
+    </div>
+</fieldset>
+
+</div>

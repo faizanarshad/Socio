@@ -1,0 +1,85 @@
+﻿ @model List<MVC_First.Models.attendance1>
+
+@{
+    ViewBag.Title = "selectClassAndDate1";
+    Layout = "~/Views/Shared/_LayoutAfterLogin.cshtml";
+ 
+    }
+<html>
+    <head>
+        <title>selectClassAndDate</title>
+
+    <link href="~/Content/themes/jquery-ui.css" rel="stylesheet" />
+    <link href="~/Content/themes/jquery.ui.datepicker.css" rel="stylesheet" />
+    <script src="~/Scripts/jquery-ui.js"></script>
+    <script src="~/Scripts/jquery.ui.datepicker.js"></script>
+    
+    <link href="~/Content/kendo/2013.3.1119/kendo.flat.min.css" rel="stylesheet" />
+
+    <link href="~/Content/kendo/2013.3.1119/kendo.common.min.css" rel="stylesheet" />
+    <script src="~/Scripts/kendo/2013.3.1119/jquery.min.js"></script>
+    <script src="~/Scripts/kendo/2013.3.1119/kendo.web.min.js"></script>
+ </head>
+<script>
+    $('document').ready(function () {
+
+        $(".k-primary").kendoButton();
+
+        $("#datetimepicker").kendoDateTimePicker({
+            value: new Date()
+        });
+    });
+</script>
+   
+<body>
+<div class ="k-content" style ="background-color:mintcream; height:10%; width:30%;margin-left:25%">
+    <form class="forms" name="input" action="~/Teacher/showAttendance1">
+  <h2> @ViewBag.course</h2>
+  <h2 class="k-header">Select Date And Class :</h2>
+ 
+    <div class="editor-field"> 
+                    Select Fall:
+                    <select id = "fall" name ="fall" >
+                        <option value="140">140</option>
+                        <option value="141">141</option>
+                        <option value="142">142</option>
+                        <option value="143">143</option>
+                        <option value="144">144</option>
+                        <option value="145">145</option>
+                        <option value="146">146</option>
+                        <option value="147">147</option>
+                        <option value="148">148</option>
+                  </select>
+
+                   Select Degree:
+
+                        <select id = "degree" name ="degree" >
+          		        <option value="BCS">BCS</option>
+                        <option value="MCS">MCS</option>
+                        
+                  </select>
+                
+                     Select Section:
+                      <select id = "section" name ="section" >
+          		        <option value="M">Morning</option>
+                        <option value="A">Afternoon</option>
+                  </select>
+        </div>
+    
+        <input type="hidden" name="cid" value="@ViewBag.course"/>
+    
+    <br>
+        <button class="k-primary" type="submit" style ="width:50%" value ="attendance" >Show Attendance</button>
+
+    </form>
+     
+    <br /><br /><br><br><div style ="width:10%;position:relative;top:-85px; margin-left:250px; font-size:x-large;">
+             @Html.ActionLink("Back", "ViewCourse")
+    </div>
+    
+    </div>
+</body>
+</html>
+
+
+

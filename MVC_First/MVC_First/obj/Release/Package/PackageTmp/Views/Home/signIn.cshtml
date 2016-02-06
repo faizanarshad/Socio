@@ -1,0 +1,76 @@
+﻿@{
+    ViewBag.Title = "signIn";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<link rel="stylesheet" href="~/Content/bootstrap.min.css">
+<link rel="stylesheet" href="~/Content/bootstrap-responsive.min.css">
+<link type= "text/css" href="~/Content/bootstrap.css" rel="stylesheet" />
+<script class="cssdeck" src="~/Scripts/jquery.min.js"></script>
+<script class="cssdeck" src="~/Scripts/bootstrap.min.js"></script>
+<script type="text/javascript" src="~/Scripts/bootstrap.js"></script>
+
+@if (ViewBag.message != null)
+{
+    <script>
+        $(document).ready(function () {
+            alert("Please Login First");
+
+        });
+ </script>
+    ViewBag.message = null;
+}
+
+
+<script>
+    
+    $('document').ready(function () {
+       
+        $('#btn').click(function () {
+
+            if ($('#paswd').val() == "" || $('#login').val() == "") {
+                $('#error').text("Login did not work.Please check your LoginID and password and try again");
+                $('#error').css("color", "red");
+                $('#error').css("font-size", "small");
+            }
+                
+        });
+        $('#id').focusout(function () {
+            var id = $('#id').val();
+            
+
+            $.getJSON("/Home/CheckLoginID?uid=" + id , function (data) {
+                if (!data) {
+                    $('#u').text("Login ID does not exist");
+                    $('#id').css("color", "red");
+                    $('#id').css("border-color", "red");
+                    $('#u').css("color", "red");
+                    $('#u').css("font-size", "small");
+                    $('#id').val("");
+                }
+                else {
+                    $('#id').css("color", "black");
+                    $('#id').css("border-color", "green");
+                    $('#u').text("");
+                    $('#u').css("color", "green");
+                    $('#u').css("font-size", "small");
+                }
+
+            });
+        });
+    });
+</script>
+<div class ="container" style ="background-color:mintcream; height:350px; width:550px">
+     <form class="form-signin" role="form" method ="post" action ="/Home/checkInfo">
+        <h2 class="form-signin-heading">Please sign in</h2><br>
+         <div id ="error" style = "width:400px; position:relative"></div>
+         <label for ="name" class ="control-label" >Login ID </label>
+        <input type="text" name ="uid" class="form-control" placeholder="Login ID" id ="id" style ="width:350px" required>
+         <div id ="u" style = "width:400px; position:relative"></div>
+         <label for ="name" class ="control-label" >Password </label>
+        <input type="password" name="password" class="form-control" placeholder="Password" id ="paswd" style ="width:350px" required><br>
+        
+        <button class="btn btn-lg btn-primary btn-block" type="submit" style ="width:350px" id ="btn">Sign in</button>
+         </form>
+     
+    </div>

@@ -1,0 +1,62 @@
+﻿
+@model List<MVC_First.Models.Announcement>
+
+@{
+    ViewBag.Title = "All Notifications";
+    Layout = "~/Views/Shared/_LayoutAfterLogin.cshtml";
+}
+
+
+<script src="~/Scripts/jquery-1.9.1.js"></script>
+
+
+        <link href="~/Content/kendo/2013.3.1119/kendo.flat.min.css" rel="stylesheet" />
+        <link href="~/Content/kendo/2013.3.1119/kendo.common.min.css" rel="stylesheet" />
+        <script src="~/Scripts/kendo/2013.3.1119/jquery.min.js"></script>
+        <script src="~/Scripts/kendo/2013.3.1119/kendo.web.min.js"></script>
+
+<script>
+  $('document').ready(function () {
+
+
+        $(".k-primary").kendoButton();
+
+  });
+    </script>
+
+<div class ="k-content" style ="background-color:mintcream; height:auto; width:50%;margin-left:25%"> 
+  
+
+    <form class="forms" role="form" method ="post" action ="/Home/saveSittingPlan" enctype="multipart/form-data">
+
+  
+         <br><h2 class="k-header">UpLoad Sitting Plan File:</h2><br><br>
+        <input type="file" name = "text" /><br>
+         <br><button class="k-primary" type="submit" style ="width:350px" id ="save">Upload Sitting Plan</button>
+   
+        </form>
+        <div style ="width:20%;position:relative; margin-left:20%; font-size:x-large;">
+             @Html.ActionLink("Back", "ExamBranchHome")
+               </div>
+     </div>
+
+<style scoped>
+                .demo-section {
+                    width: 600px;	
+                }
+                
+                .metrotable {
+                	width: 100%;
+                	border-collapse: collapse;
+                    border:dashed;
+                }
+                
+                .metrotable > thead > tr > th 
+                {
+                	font-size: 1.3em;
+                	padding-top: 0;
+                	padding-bottom: 5px;
+                    text-align:center;
+                }
+                
+            </style>

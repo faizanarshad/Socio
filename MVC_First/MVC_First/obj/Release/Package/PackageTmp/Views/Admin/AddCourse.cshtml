@@ -1,0 +1,26 @@
+﻿@{
+    ViewBag.Title = "AddCourse";
+    Layout = "~/Views/Shared/_LayoutAfterLogin.cshtml";
+}
+
+<link rel="stylesheet" href="~/Content/bootstrap.min.css">
+<link rel="stylesheet" href="~/Content/bootstrap-responsive.min.css">
+<link type= "text/css" href="~/Content/bootstrap.css" rel="stylesheet" />
+<script class="cssdeck" src="~/Scripts/jquery.min.js"></script>
+<script class="cssdeck" src="~/Scripts/bootstrap.min.js"></script>
+<script type="text/javascript" src="~/Scripts/bootstrap.js"></script>
+
+<div class ="container" style ="background-color:mintcream; height:350px; width:450px">
+     <form class="form-signin" role="form" method ="post" action ="/Admin/SaveCourse">
+        <h2 class="form-signin-heading">Course Information:</h2><br>
+         <label for ="name" class ="control-label" >Course ID </label>
+        <input type="text" name ="cid" class="form-control" placeholder="Course ID" id ="id" style ="width:350px" required> <br>
+         <label for ="name" class ="control-label" >Course Name </label>
+        <input type="text" name="name" class="form-control" placeholder="Course Name" id ="cname" style ="width:350px" required><br>
+         <label for ="name" class ="control-label" >Credit Hour </label>
+        <input type="text" name="creditHours" class="form-control" placeholder="Credit Hour" id ="credit" style ="width:350px" required><br>
+      
+        <button class="btn btn-lg btn-primary btn-block" type="submit" style ="width:350px" id ="btn">Save</button>
+         </form>
+     
+    </div>

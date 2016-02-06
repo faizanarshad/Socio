@@ -1,0 +1,58 @@
+﻿@model IEnumerable<MVC_First.Models.LogTeacher>
+
+@{
+    ViewBag.Title = "ViewLog";
+    Layout = "~/Views/Shared/_LayoutAfterLogin.cshtml";
+}
+
+<div class ="k-content" style ="background-color:mintcream; height:auto; width:50%;margin-left:25%">
+<h2 class ="k-header">View Log</h2>
+
+<table>
+    <tr>
+        <th>
+            Course ID
+        </th>
+        <th>
+            TeacherName
+        </th>
+        <th>
+            Type
+        </th>
+        <th>
+            Total marks
+        </th>
+        <th>
+            Date
+        </th>
+        <th>
+            Discription
+        </th>
+        
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.courseId)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.tName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.type)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.totalMarks)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.date)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.discription)
+        </td>
+    </tr>
+}
+
+</table>
+    </div>

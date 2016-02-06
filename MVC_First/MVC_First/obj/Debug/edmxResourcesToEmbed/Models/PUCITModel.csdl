@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="PUCITModel" Alias="Self" p1:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="PUCITEntities1" p1:LazyLoadingEnabled="true">
+    <EntitySet Name="Admins" EntityType="PUCITModel.Admin" />
+    <EntitySet Name="students" EntityType="PUCITModel.student" />
+    <EntitySet Name="teachers" EntityType="PUCITModel.teacher" />
+  </EntityContainer>
+  <EntityType Name="Admin">
+    <Key>
+      <PropertyRef Name="aid" />
+    </Key>
+    <Property Name="aid" Type="Int32" Nullable="false" />
+    <Property Name="name" Type="String" Nullable="false" MaxLength="10" Unicode="true" FixedLength="true" />
+    <Property Name="password" Type="String" MaxLength="10" Unicode="true" FixedLength="true" />
+    <Property Name="email" Type="String" MaxLength="10" Unicode="true" FixedLength="true" />
+  </EntityType>
+  <EntityType Name="student">
+    <Key>
+      <PropertyRef Name="sid" />
+    </Key>
+    <Property Name="sid" Type="Int32" Nullable="false" />
+    <Property Name="name" Type="String" MaxLength="10" Unicode="true" FixedLength="true" />
+    <Property Name="rollno" Type="String" Nullable="false" MaxLength="10" Unicode="true" FixedLength="true" />
+    <Property Name="degree" Type="String" MaxLength="10" Unicode="true" FixedLength="true" />
+    <Property Name="password" Type="String" MaxLength="10" Unicode="true" FixedLength="true" />
+    <Property Name="email" Type="String" MaxLength="10" Unicode="true" FixedLength="true" />
+  </EntityType>
+  <EntityType Name="teacher">
+    <Key>
+      <PropertyRef Name="tid" />
+    </Key>
+    <Property Name="tid" Type="Int32" Nullable="false" />
+    <Property Name="name" Type="String" Nullable="false" MaxLength="10" Unicode="true" FixedLength="true" />
+    <Property Name="password" Type="String" MaxLength="10" Unicode="true" FixedLength="true" />
+    <Property Name="email" Type="String" MaxLength="10" Unicode="true" FixedLength="true" />
+  </EntityType>
+</Schema>

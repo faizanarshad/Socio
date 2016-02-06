@@ -1,0 +1,9 @@
+algorithem
+operating system
+database(Trigger,stored Procedures)
+networking
+OOP
+DSA(AVL,PreOrder)
+OOAD
+IP
+Software Engineering(Process Models)

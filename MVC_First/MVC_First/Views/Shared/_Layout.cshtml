@@ -1,0 +1,44 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>@ViewBag.Title</title>
+
+    <link href="~/Content/bootstrap.css" rel="stylesheet" type="text/css" />
+    <script src="~/Scripts/bootstrap.js" type="text/javascript"></script>
+    <script src="~/Scripts/carousel.js" type="text/javascript"></script>
+    <script src="~/Scripts/jquery-1.9.1.js" type="text/javascript"></script>
+    <script src="~/Scripts/jquery-1.9.1.min.js" type="text/javascript"></script>
+    <link href="~/themes/8/js-image-slider.css" rel="stylesheet" type="text/css" />
+    <script src="~/themes/8/js-image-slider.js" type="text/javascript"></script>
+    <link href="~/themes/8/tooltip.css" rel="stylesheet" type="text/css" />
+    <script src="~/themes/8/tooltip.js" type="text/javascript"></script>
+    <link href="~/generic.css" rel="stylesheet" type="text/css" />
+    
+    </head>
+<body style ="background-color:#ffd800">
+    
+    <div class="well-sm" style ="background-color:blue">
+        <div class ="container">
+        <b style ="color:white; font-size:medium">Faculty of Engineering and Information Technology Northern University Nowshera</b>
+        </div>
+    </div>
+    <div class ="jumbotron" style ="background-color:#0099CC; height:175px; padding-left:0px">
+        <img src="~/images/logo.jpg" class ="img-circle" style ="box-sizing:border-box; margin-left:200px; margin-top:-30px"/> <b style ="color:black; font-size:x-large">NU-FEIT</b> | <small> Online </small>                  
+        <br><br>
+        <div style ="position:relative; top:-20px; background-color:#006699; border-radius:7px; width:1366px">
+            <ul class ="nav nav-pills" style="background-color:#006699; height:55px">
+                  <li><a href ="/Home/index"><b style ="text-align:center">Home</b></a><li>
+                  <li><a href ="/Home/Courses">Courses</a><li>
+                  <li><a href ="/Home/Faculty">Faculty</a><li>
+                  <li><a href ="#">About Us</a><li>
+                
+
+            </ul>
+
+        </div>
+     </div>         
+    @RenderBody();
+    <div class ="footer" style ="background-color:#006699; height:200px; width:100%; margin-top:50px">
+        </div>
+    </body>
+</html>

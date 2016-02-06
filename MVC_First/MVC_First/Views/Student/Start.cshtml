@@ -1,0 +1,127 @@
+﻿@model IEnumerable<MVC_First.Models.question>
+
+@{
+    ViewBag.Title = "Start";
+}
+
+
+     <link href="~/Content/kendo/2013.3.1119/kendo.flat.min.css" rel="stylesheet" />
+        <link href="~/Content/kendo/2013.3.1119/kendo.common.min.css" rel="stylesheet" />
+        <script src="~/Scripts/kendo/2013.3.1119/jquery.min.js"></script>
+        <script src="~/Scripts/kendo/2013.3.1119/kendo.web.min.js"></script>
+<script>
+    $(document).ready(function () {
+
+
+        $(".k-primary").kendoButton();
+        var clock;
+        var sec = 0;
+        var min = 0;
+        var flag = true;
+        clock = setInterval(stopWatch, 1000);
+ 
+        function stopWatch() {
+            sec++;
+            var time1;
+            
+            if (flag == true) {
+                if (sec == 60) {
+                    min = min + 1;
+                    var t = parseInt(@ViewBag.totalTime);
+                    if (t == min) {
+                        var allChildNodes = document.getElementById("big").getElementsByTagName('*');
+
+                        for (var i = 0; i < allChildNodes.length - 1; i++) {
+                            allChildNodes[i].disabled = true;
+                        }
+                        //min = 0;
+                        flag = false;
+                    }
+                    sec = 0;
+                }
+                if (sec < 10 && min < 10) {
+                    time1 = "0" + min + " : 0" + sec;
+                }
+                else if (sec < 10) {
+                    time1 = min + " : 0" + sec;
+                }
+                else if (min < 10) {
+                    time1 = "0" + min + " : " + sec;
+                }
+                else {
+                    time1 = min + " : " + sec;
+                }
+                document.getElementById("timer").innerHTML = time1;
+            }
+        }
+    });
+    function myFunction() {
+        var allChildNodes = document.getElementById("big").getElementsByTagName('*');
+
+        for (var i = 0; i < allChildNodes.length - 1; i++) {
+            allChildNodes[i].disabled = false;
+        }
+    }
+</script>
+<div id="timer">00 : 00</div>
+
+<div class ="k-content" id ="big" style ="background-color:mintcream; height:auto; width:50%;margin-left:25%"> 
+    <div id="u">
+        @{
+                string str = "";
+                int i = 0;
+        <form  class="forms" method="post" action="/Student/GenerateResult">
+            
+
+        @foreach (var item in Model) {
+            str = str + "," + item.quid;
+            i = i + 1;
+              <div style ="font-size:medium;border:solid;border-color:darkgray;width:400%;background-color:#e5e0e0" >
+                  <h2 class="k-header" style ="margin-top:-0.2%">Question @i</h2>          
+                    <div style = "margin-left:10px">@Html.DisplayFor(modelItem => item.statement)</div><br>
+            
+                    <input name="@item.quid" type="radio" value="@item.option_A" style ="font-size:small"/>
+                    @item.option_A <br><br>
+    
+                    <input name="@item.quid" type="radio" value="@item.option_B" style ="font-size:small"/>
+                    @item.option_B <br><br>
+    
+                    <input name="@item.quid" type="radio" value="@item.Option_C" style ="font-size:small"/>
+                    @item.Option_C <br><br>
+   
+                    <input name="@item.quid" type="radio" value="@item.option_D" style ="font-size:small"/>
+                    @item.option_D <br><br>
+               </div><br><br>
+         }
+         <input type="hidden" name="QID" value="@str" />
+         <input type="hidden" name="QuizID" value="@ViewBag.qid" />
+         <input type="hidden" name="TID" value="@ViewBag.tid" />
+         <input type="hidden" name="CID" value="@ViewBag.cid" />
+         <input type="hidden" name="TotalAttempts" value="@ViewBag.attempts" />
+         <input type="hidden" name="quizNo" value="@ViewBag.quizNum" />
+            
+        <button class="k-primary" type="submit" id ="btn3" onclick="myFunction()">Submit Quiz</button>
+        </form>   
+            }
+        </div>
+         
+</div>
+
+
+
+<style scoped>
+            .forms {
+                float: left;
+                
+            }
+
+            .forms li {
+                margin-bottom: 5px;
+                list-style: none;
+                
+            }
+
+            .forms li > * {
+                width: 200px;
+            }
+        </style>

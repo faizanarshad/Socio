@@ -1,0 +1,4 @@
+141-NUN-0120,Faizan Arshad,Student,faizanarshad124@gmail.com
+141-NUN-0044,Khurrum Shahzad,Student,spacyhoney@gmail.com
+141-NUN-0042,Farhat Shahzad,Student,frhtshahzad@gmail.com
+bilal,Bilal Khan,Teacher,bilalsoft63@gmail.com

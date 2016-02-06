@@ -1,0 +1,80 @@
+﻿@model MVC_First.Models.group
+
+@{
+    ViewBag.Title = "CreateGroup";
+    Layout = "~/Views/Shared/_LayoutAfterLogin.cshtml";
+}
+
+<link href="~/Content/kendo/2013.3.1119/kendo.flat.min.css" rel="stylesheet" />
+<link href="~/Content/kendo/2013.3.1119/kendo.common.min.css" rel="stylesheet" />
+<script src="~/Scripts/kendo/2013.3.1119/jquery.min.js"></script>
+<script src="~/Scripts/kendo/2013.3.1119/kendo.web.min.js"></script>
+
+<script>
+  $('document').ready(function () {
+
+
+        $(".k-primary").kendoButton();
+
+  });
+</script>
+<div class ="k-content" style ="background-color:mintcream; height:auto; width:50%;margin-left:25%"> 
+    <h2 class ="k-header">New Group:</h2>
+
+@using (Html.BeginForm()) {
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>New Group</legend>
+
+        <div style ="font-size:medium" class="editor-label">
+            Group Name:
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.name)
+            @Html.ValidationMessageFor(model => model.name)
+        </div>
+
+        <div style ="font-size:medium" class="editor-label">
+            Class:
+        </div>
+        <div class="editor-field"> 
+                    Select Fall:
+                    <select id = "fall" name ="fall" >
+          		        <option value="F05">F05</option>
+                        <option value="F06">F06</option>
+          		        <option value="F07">F07</option>
+                        <option value="F08">F08</option>
+                        <option value="F09">F09</option>
+                        <option value="F10">F10</option>
+                        <option value="F11">F11</option>
+                        <option value="F12">F12</option>
+                        <option value="F13">F13</option>
+                  </select>
+
+                   Select Degree:
+
+                        <select id = "degree" name ="degree" >
+          		        <option value="BCS">BCS</option>
+                        <option value="BIT">BIT</option>
+          		        <option value="BSE">BSE</option>
+                        <option value="MIT">MIT</option>
+                  </select>
+                
+                     Select Section:
+                      <select id = "section" name ="section" >
+          		        <option value="M">Morning</option>
+                        <option value="A">Afternoon</option>
+                  </select>
+        </div>
+
+        <p>
+            <!--<input type="submit" value="Create" />-->
+            <button class="k-primary" type="submit" id ="btn2" style="width:25%;height:auto; margin-bottom:3%">Create</button>
+        </p>
+    </fieldset>
+}
+    <div>
+    @Html.ActionLink("Back", "ViewGroups")
+    </div>
+</div>

@@ -1,0 +1,62 @@
+﻿@using MVC_First.Models
+@model MVC_First.Models.cours
+
+@{
+    ViewBag.Title = "EditCourse";
+    Layout = "~/Views/Shared/_LayoutAfterLogin.cshtml";
+}
+ <!--
+<link rel="stylesheet" href="~/Content/bootstrap.min.css">
+<link rel="stylesheet" href="~/Content/bootstrap-responsive.min.css">
+<link type= "text/css" href="~/Content/bootstrap.css" rel="stylesheet" />
+<script class="cssdeck" src="~/Scripts/jquery.min.js"></script>
+<script class="cssdeck" src="~/Scripts/bootstrap.min.js"></script>
+<script type="text/javascript" src="~/Scripts/bootstrap.js"></script>
+<script src="~/Scripts/jquery-1.9.1.js"></script>
+-->
+<script class="cssdeck" src="~/Scripts/jquery.min.js"></script>
+        <link href="~/Content/kendo/2013.3.1119/kendo.flat.min.css" rel="stylesheet" />
+        <link href="~/Content/kendo/2013.3.1119/kendo.common.min.css" rel="stylesheet" />
+        <script src="~/Scripts/kendo/2013.3.1119/jquery.min.js"></script>
+        <script src="~/Scripts/kendo/2013.3.1119/kendo.web.min.js"></script>
+<script>
+    $('document').ready(function () {
+
+
+        $(".k-primary").kendoButton();
+
+    });
+    </script>
+<div class ="l-content" style="height:auto; width:40%; margin-left:25%">
+
+ <form class="forms" id ="form1" method="post" action ="/Admin/SaveCourseInfo">    
+   
+  <fieldset>
+        <legend style ="font-size:xx-large">Edit Course:</legend>
+
+        @Html.HiddenFor(model => model.cid)
+
+        <div class="editor-label" style ="font-size:large">
+           Name
+        </div>
+        <div class="editor-field" style ="font-size:small">
+            @Html.TextBoxFor(model => model.name)
+           
+        </div><br>
+         <div class="editor-label" style ="font-size:large">
+            CreditHours
+        </div>
+
+        <div class="editor-field" style ="font-size:small">
+            @Html.TextBoxFor(model => model.creditHours)
+           
+        </div><br>
+
+        <button class="k-primary" type="submit" style ="width:40%" id ="btn1" name ="SaveCourseInfo" value="SaveCourseInfo" >SaveCourseInfo</button>
+        
+     <br><br><div style ="margin-top:-9%; margin-left:60%; font-size:x-large;">
+             @Html.ActionLink("Back", "CourseConfiguration")
+     </div>   
+    </fieldset>
+     </form>
+</div>

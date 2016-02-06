@@ -1,0 +1,59 @@
+﻿@model List<MVC_First.Models.cours>
+@{
+    ViewBag.Title = "CourseDetails";
+}
+
+<script src="~/Scripts/jquery-1.9.1.js"></script>
+
+
+        <link href="~/Content/kendo/2013.3.1119/kendo.flat.min.css" rel="stylesheet" />
+        <link href="~/Content/kendo/2013.3.1119/kendo.common.min.css" rel="stylesheet" />
+        <script src="~/Scripts/kendo/2013.3.1119/jquery.min.js"></script>
+        <script src="~/Scripts/kendo/2013.3.1119/kendo.web.min.js"></script>
+
+<script>
+    $('document').ready(function () {
+
+
+        $(".k-primary").kendoButton();
+
+    });
+    </script>
+
+<div class ="k-content" style ="background-color:mintcream; height:auto; width:50%;margin-left:25%"> 
+    <h2 class ="k-header">View Courses:</h2>
+
+@foreach (var item in Model) {
+    
+        <div style ="font-size:medium;border:solid;border-color:darkgray;width:100%;background-color:#e5e0e0" >  
+                   &nbsp <h2 class ="k-header" style ="margin-top:-3%">@item.name</h2><br>        
+                   &nbsp Course ID : @item.cid<br><br>
+                   &nbsp Credit Hours:@item.creditHours<br><br>
+
+                   &nbsp <button class="k-primary" type="submit" style ="width:30%" onclick="location.href='@Url.Action("selectClassAndDate", "Teacher" , new {c = item.cid})'">Mark Attendence</button>
+                   &nbsp <button class="k-primary" type="submit" style ="width:30%" onclick="location.href='@Url.Action("selectClassAndDate1", "Teacher" , new {c = item.cid})'">Show Attendence</button><br><br>
+                  </div><br> 
+
+    
+}
+</div>
+<style scoped>
+                .demo-section {
+                    width: 600px;	
+                }
+                
+                .metrotable {
+                	width: 100%;
+                	border-collapse: collapse;
+                    border:dashed;
+                }
+                
+                .metrotable > thead > tr > th 
+                {
+                	font-size: 1.3em;
+                	padding-top: 0;
+                	padding-bottom: 5px;
+                    text-align:center;
+                }
+                
+            </style>
