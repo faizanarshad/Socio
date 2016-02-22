@@ -16,7 +16,6 @@ namespace MVC_First.Controllers
     {
         ITeacherDAL teacher;
         private PucitDBEntities db = new PucitDBEntities();
-        //private puEntities db1 = new puEntities();
 
         int id;//= 1;
         String a_id;
@@ -1150,6 +1149,60 @@ namespace MVC_First.Controllers
             else
             {
                 return RedirectToAction("signIn" , "Home");
+            }
+        }
+
+        public ActionResult ViewStudentLog()
+        {
+            if (Session["id"] != null && db.users.Find(Session["id"]).type.Equals("Teacher"))
+            {
+
+                return View();
+            }
+            else
+            {
+                return RedirectToAction("signIn", "Home");
+            }
+        }
+
+        public ActionResult ShowStudentLogs()
+        {
+            if (Session["id"] != null && db.users.Find(Session["id"]).type.Equals("Teacher"))
+            {
+                try
+                {
+                    string tid = Session["id"].ToString();
+                    string cid = Request["cid"];
+                    string studentID = Request["studentID"];
+
+                    List<StudentLog> data = new List<StudentLog>();
+
+                    data = teacher.getStudentLogs(tid, cid, studentID);
+                    int all_obtained_marks = teacher.getStudentObtainedMarks(data);
+                    int all_total_marks = teacher.getStudentTotalMarks(data);
+                    if (data.Count > 0)
+                    {
+                        ViewBag.ObtainedMarks = all_obtained_marks;
+                        ViewBag.TotalMarks = all_total_marks;
+                        return View(data);
+                    }
+                    else
+                    {
+                        ViewBag.ErrorType = "View Student Logs";
+                        ViewBag.message = "There is no result available yet";
+                        return View("ErrorPage");
+                    }
+                }
+                catch (Exception e)
+                {
+                    ViewBag.ErrorType = "Exception";
+                    ViewBag.message = e.Message;
+                    return View("ErrorPage");
+                }
+            }
+            else
+            {
+                return RedirectToAction("signIn", "Home");
             }
         }
         public ActionResult ShowAssignmentsResult()

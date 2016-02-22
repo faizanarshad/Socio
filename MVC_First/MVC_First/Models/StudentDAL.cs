@@ -98,6 +98,8 @@ namespace MVC_First.Models
                 ass.aid = q.aid;
                 ass.aNumber = q.aNumber;
                 ass.cid = q.cid;
+                ass.startDate = q.startDate;
+                ass.endDate = q.endDate;
                 ass.solutionFilePath = q.solutionFilePath;
                 ass.totalMarks = q.totalMarks;
                 
@@ -110,7 +112,8 @@ namespace MVC_First.Models
             var query = from x in db.assignmentResults
                         where x.cid == ass.cid && x.sid == ass.sid && x.aid == ass.aid
                         select x;
-            if (query == null)
+            
+            if (query.Count() <= 0)
             {
                 db.assignmentResults.Add(ass);
                 db.SaveChanges();

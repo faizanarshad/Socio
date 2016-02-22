@@ -373,6 +373,7 @@
     <Compile Include="Models\LogTeacher.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\StudentLog.cs" />
     <Compile Include="Models\MailModel.cs" />
     <Compile Include="Models\Model1.Context.cs">
       <AutoGen>True</AutoGen>
@@ -1858,6 +1859,8 @@
     <Content Include="Views\Student\MessageToUser.cshtml" />
     <Content Include="Views\Teacher\MessageToUser.cshtml" />
     <Content Include="Views\Teacher\editAttendance.cshtml" />
+    <Content Include="Views\Teacher\ViewStudentLog.cshtml" />
+    <Content Include="Views\Teacher\ShowStudentLogs.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />

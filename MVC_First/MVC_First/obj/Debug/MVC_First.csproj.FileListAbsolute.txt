@@ -805,3 +805,41 @@ C:\Users\Faizan\Desktop\Final Year Project\Updated\MVC_First\MVC_First\bin\Syste
 C:\Users\Faizan\Desktop\Final Year Project\Updated\MVC_First\MVC_First\obj\Debug\MVC_First.csprojResolveAssemblyReference.cache
 C:\Users\Faizan\Desktop\Final Year Project\Updated\MVC_First\MVC_First\obj\Debug\MVC_First.dll
 C:\Users\Faizan\Desktop\Final Year Project\Updated\MVC_First\MVC_First\obj\Debug\MVC_First.pdb
+D:\FYP\Socio\MVC_First\MVC_First\bin\MVC_First.dll.config
+D:\FYP\Socio\MVC_First\MVC_First\bin\MVC_First.dll
+D:\FYP\Socio\MVC_First\MVC_First\bin\MVC_First.pdb
+D:\FYP\Socio\MVC_First\MVC_First\bin\Antlr3.Runtime.dll
+D:\FYP\Socio\MVC_First\MVC_First\bin\EntityFramework.dll
+D:\FYP\Socio\MVC_First\MVC_First\bin\EntityFramework.SqlServer.dll
+D:\FYP\Socio\MVC_First\MVC_First\bin\Microsoft.Web.Infrastructure.dll
+D:\FYP\Socio\MVC_First\MVC_First\bin\Newtonsoft.Json.dll
+D:\FYP\Socio\MVC_First\MVC_First\bin\Ninject.dll
+D:\FYP\Socio\MVC_First\MVC_First\bin\Ninject.Web.Common.dll
+D:\FYP\Socio\MVC_First\MVC_First\bin\Ninject.Web.Mvc.dll
+D:\FYP\Socio\MVC_First\MVC_First\bin\System.Web.Mvc.dll
+D:\FYP\Socio\MVC_First\MVC_First\bin\System.Web.Optimization.dll
+D:\FYP\Socio\MVC_First\MVC_First\bin\System.Web.Providers.dll
+D:\FYP\Socio\MVC_First\MVC_First\bin\System.Web.Razor.dll
+D:\FYP\Socio\MVC_First\MVC_First\bin\System.Web.WebPages.Deployment.dll
+D:\FYP\Socio\MVC_First\MVC_First\bin\System.Web.WebPages.dll
+D:\FYP\Socio\MVC_First\MVC_First\bin\System.Web.WebPages.Razor.dll
+D:\FYP\Socio\MVC_First\MVC_First\bin\Telerik.Web.Mvc.dll
+D:\FYP\Socio\MVC_First\MVC_First\bin\WebActivator.dll
+D:\FYP\Socio\MVC_First\MVC_First\bin\WebGrease.dll
+D:\FYP\Socio\MVC_First\MVC_First\bin\EntityFramework.xml
+D:\FYP\Socio\MVC_First\MVC_First\bin\EntityFramework.SqlServer.xml
+D:\FYP\Socio\MVC_First\MVC_First\bin\Ninject.pdb
+D:\FYP\Socio\MVC_First\MVC_First\bin\Ninject.xml
+D:\FYP\Socio\MVC_First\MVC_First\bin\Ninject.Web.Common.pdb
+D:\FYP\Socio\MVC_First\MVC_First\bin\Ninject.Web.Common.xml
+D:\FYP\Socio\MVC_First\MVC_First\bin\Ninject.Web.Mvc.pdb
+D:\FYP\Socio\MVC_First\MVC_First\bin\Ninject.Web.Mvc.xml
+D:\FYP\Socio\MVC_First\MVC_First\bin\Newtonsoft.Json.xml
+D:\FYP\Socio\MVC_First\MVC_First\bin\System.Web.Mvc.xml
+D:\FYP\Socio\MVC_First\MVC_First\bin\System.Web.Razor.xml
+D:\FYP\Socio\MVC_First\MVC_First\bin\System.Web.WebPages.xml
+D:\FYP\Socio\MVC_First\MVC_First\bin\System.Web.WebPages.Deployment.xml
+D:\FYP\Socio\MVC_First\MVC_First\bin\System.Web.WebPages.Razor.xml
+D:\FYP\Socio\MVC_First\MVC_First\obj\Debug\MVC_First.csprojResolveAssemblyReference.cache
+D:\FYP\Socio\MVC_First\MVC_First\obj\Debug\MVC_First.dll
+D:\FYP\Socio\MVC_First\MVC_First\obj\Debug\MVC_First.pdb

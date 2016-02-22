@@ -942,7 +942,7 @@ namespace MVC_First.Controllers
                     fin.Close();
                     return View("ErrorPage");
                 }
-                return View("ExamBranch");
+                return View("ExamBranchHome");
             }
             return RedirectToAction("signIn", "Home");
 

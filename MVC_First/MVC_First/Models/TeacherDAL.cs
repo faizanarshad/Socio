@@ -31,6 +31,9 @@ namespace MVC_First.Models
         List<assignment> getAssignments( string id , string cid);
         int verifyAssignmentNumber(string cid , int aNo,string tid);
         List<assignmentResult> getAssignmentsResult( string tid , string cid , int aNo );
+        List<StudentLog> getStudentLogs(string tid, string cid, string studentID);
+        int getStudentObtainedMarks(List<StudentLog> data);
+        int getStudentTotalMarks(List<StudentLog> data);
         List<MVC_First.Models.attendance1> getAttendanceView(string n, string c, string class1);
         int markAttendance(string list, string tName, string cName, string date,string classN);
         assignment GetAssignmentForUpdation(int aid);
@@ -318,6 +321,59 @@ namespace MVC_First.Models
                 //}
             }
             return data;
+        }
+
+        public List<StudentLog> getStudentLogs(string tid, string cid, string studentID)
+        {
+            var query = from x in db.assignmentResults
+                        where x.cid.Equals(cid) && x.sid == studentID
+                        select x;
+
+            List<StudentLog> data = new List<StudentLog>();
+
+            foreach (var a in query)
+            {
+                StudentLog log = new StudentLog();
+                log.Type = "Assignment";
+                log.Obtained_marks = a.marksObtained;
+                log.Total_marks = a.totalMarks;
+                log.ID = a.aNumber.Value;
+                data.Add(log);
+            }
+
+            var quiz_query = from x in db.quizResults
+                        where x.tid == tid && x.cid == cid && x.sid == studentID
+                        select x;
+
+            foreach (var q in quiz_query)
+            {
+                StudentLog quizLog = new StudentLog();
+                quizLog.Type = "Quiz";
+                quizLog.Obtained_marks = Convert.ToInt32(q.obtainMarks);
+                quizLog.Total_marks = Convert.ToInt32(q.totalmarks);
+                quizLog.ID = q.quizNum.Value;
+                data.Add(quizLog);
+            }
+            return data;
+        }
+
+        public int getStudentObtainedMarks(List<StudentLog> data)
+        {
+            int obtainedMarks = 0;
+            foreach (var marks in data)
+            {
+                obtainedMarks += marks.Obtained_marks;
+            }
+            return obtainedMarks;
+        }
+        public int getStudentTotalMarks(List<StudentLog> data)
+        {
+            int totalMarks = 0;
+            foreach (var marks in data)
+            {
+                totalMarks += marks.Total_marks;
+            }
+            return totalMarks;
         }
         public void SaveAssignment(assignment ass, string id)
         {

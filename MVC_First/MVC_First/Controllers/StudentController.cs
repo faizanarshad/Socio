@@ -688,6 +688,7 @@ namespace MVC_First.Controllers
                     a.cid = cid;
                     a.sid = Session["id"].ToString();
                     a.marksObtained = marks;
+                    a.aNumber = ass.aNumber;
                     a.totalMarks = ass.totalMarks;
                     a.codeFilePath = dataFile;
                     a.outPutFilePath = dataFile1;
@@ -789,7 +790,7 @@ namespace MVC_First.Controllers
                                where f.className.Equals(cname)
                                select f;
 
-            string filename = "";
+            string filename = "result";
 
             foreach (var q in query)
                 filename = q.filePath;

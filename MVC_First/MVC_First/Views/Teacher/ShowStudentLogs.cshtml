@@ -1,0 +1,86 @@
+﻿@model IEnumerable<MVC_First.Models.StudentLog>
+
+@{
+    ViewBag.Title = "ShowStudentLogs";
+}
+
+<script class="cssdeck" src="~/Scripts/jquery.min.js"></script>
+        <link href="~/Content/kendo/2013.3.1119/kendo.flat.min.css" rel="stylesheet" />
+        <link href="~/Content/kendo/2013.3.1119/kendo.common.min.css" rel="stylesheet" />
+        <script src="~/Scripts/kendo/2013.3.1119/jquery.min.js"></script>
+        <script src="~/Scripts/kendo/2013.3.1119/kendo.web.min.js"></script>
+<script>
+    $('document').ready(function () {
+        $(".k-primary").kendoButton();
+    });
+</script>
+
+<div class ="k-content" style ="background-color:mintcream; height:auto; width:50%;margin-left:25%">
+<h2 class ="k-header">Student Log:</h2>
+<table class="metrotable">
+    <tr>
+        <th style ="font-size:medium">
+            ID
+        </th>
+        <th style ="font-size:medium">
+            Type
+        </th>
+        <th style ="font-size:medium">
+            Total Marks
+        </th>
+        <th style ="font-size:medium">
+            Obtained Marks
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model)
+{
+    <tr>
+        <td style ="font-size:small;text-align:center">
+            @Html.DisplayFor(modelItem => item.ID)
+        </td>
+        <td style ="font-size:small;text-align:center">
+            @Html.DisplayFor(modelItem => item.Type)
+        </td>
+         <td style ="font-size:small;text-align:center">
+            @Html.DisplayFor(modelItem => item.Total_marks)
+        </td>
+        <td style ="font-size:small;text-align:center">
+            @Html.DisplayFor(modelItem => item.Obtained_marks)
+        </td>
+    </tr>
+}
+    <tr>
+        <td><br /></td>
+    </tr>
+    <tr>
+        <td><b>Obtained Marks: </b>@ViewBag.ObtainedMarks</td>
+    </tr>
+    <tr>
+        <td><b>Total Marks: </b>@ViewBag.TotalMarks</td>
+    </tr>
+</table>
+     
+</div>
+
+<style scoped>
+                .demo-section {
+                    width: 600px;	
+                }
+                
+                .metrotable {
+                	width: 100%;
+                	border-collapse: collapse;
+                    border:dashed;
+                }
+                
+                .metrotable > thead > tr > th 
+                {
+                	font-size: 1.3em;
+                	padding-top: 0;
+                	padding-bottom: 5px;
+                    text-align:center;
+                }
+                
+            </style>
