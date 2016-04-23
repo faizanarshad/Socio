@@ -14,7 +14,7 @@ namespace MVC_First.Controllers
 {
     public class HomeController : Controller
     {
-        PucitDBEntities db = new PucitDBEntities();
+        NudbEntities db = new NudbEntities();
               
         public ActionResult index()
         {
@@ -185,10 +185,7 @@ namespace MVC_First.Controllers
         public JsonResult checkInfo1(string username, string password, string account)
         {
 
-            /*user u = new user();
-            u.uid=username;
-            u.password=password;
-            u.type = account;*/
+            
             string u = Request["username"];
             string p = Request["password"];
 
@@ -482,25 +479,11 @@ namespace MVC_First.Controllers
             if (Session["id"] != null && db.users.Find(Session["id"]).type.Equals("CustomUser") || Session["id"] != null && db.users.Find(Session["id"]).type.Equals("ExamBranch"))
             {
                 ViewBag.ttid = Session["id"];
-                /*  if (Request.Files[0].ToString().Equals(""))
-                  {
-                      HttpPostedFileBase file = Request.Files[0];
-
-
-                      file.SaveAs(Server.MapPath(@"~\Files\" + file.FileName));
-
-                      var dataFile = Server.MapPath(@"~\Files\" + file.FileName);
-
-                  }*/
-
-                //  id = db.Announcements.Max(p => p.announcement_id);
+                
 
                 String subject = Request["sub"];
                 String mesg = Request["mesg_text"];
-                // String attachment = Request["attachment"];
-                //String audience = Request["a"]; // check on this if audience == "fall" then which fall, populate Student list acc.
-                //if audience == "degree" then which degree, populate Student list acc. 
-
+                
 
 
 
@@ -515,15 +498,13 @@ namespace MVC_First.Controllers
                 foreach (var i in q)
                 {
 
-                    //   id = db.Announcements.Max(p => p.announcement_id);
-                    //     id = Convert.ToInt32(a_id);
-                    // id = id + 1;
+                    
                     var a = new Announcement();
                     a.destination = i.sid;
-                    // a.announcement_id = id;
+                    
                     a.audience = fall;
                     a.mesg_text = mesg;
-                    //   a.attachment = attachment;
+                   
                     a.Sender_u_id = Session["id"].ToString();
                     a.dateTime = DateTime.Now;
                     a.status = "0";
@@ -531,8 +512,7 @@ namespace MVC_First.Controllers
                     db.Announcements.Add(a);
 
 
-                    //id.ToString();
-                    //ViewBag.annID = id;
+                   
                 }
 
                 try
@@ -572,25 +552,14 @@ namespace MVC_First.Controllers
                 {
                     ViewBag.ttid = Session["id"];
 
-                    /*   if (Request.Files[0].ToString().Equals(""))
-                       {
-
-                           HttpPostedFileBase file = Request.Files[0];
-                           file.SaveAs(Server.MapPath(@"~\Files\" + file.FileName));
-
-                           var dataFile = Server.MapPath(@"~\Files\" + file.FileName);
-                       }*/
+                   
 
 
 
 
                     String subject = Request["sub"];
                     String mesg = Request["mesg_text"];
-                    // String attachment = Request["attachment"];
-                    //String audience = Request["a"]; // check on this if audience == "fall" then which fall, populate Student list acc.
-                    //if audience == "degree" then which degree, populate Student list acc. 
-
-                    //int id = -1;
+                    
 
 
                     var dateAsString = DateTime.Now.ToString("yyyy-MM-dd");
@@ -605,15 +574,13 @@ namespace MVC_First.Controllers
                     foreach (var i in q)
                     {
 
-                        //id = Int32.Parse(a_id);
-                        //   id = Convert.ToInt32(a_id);
-                        //   id = id + 1;
+                       
                         var a = new Announcement();
                         a.destination = i.sid;
-                        // a.announcement_id = id;
+                        
                         a.audience = i.batch;
                         a.mesg_text = mesg;
-                        //   a.attachment = attachment;
+                       
                         a.Sender_u_id = Session["id"].ToString();
                         a.dateTime = DateTime.Now;
                         a.status = "0";
@@ -621,8 +588,7 @@ namespace MVC_First.Controllers
                         db.Announcements.Add(a);
 
 
-                        // id.ToString();
-                        //ViewBag.annID = id;
+                       
                     }
 
                     try
@@ -647,7 +613,7 @@ namespace MVC_First.Controllers
                         throw new DbEntityValidationException(
                             "Entity Validation Failed - errors follow:\n" +
                             sb.ToString(), ex
-                        ); // Add the original exception as the innerException
+                        ); 
                     }
                     return View("CustomUserHome");
                 }
@@ -665,30 +631,14 @@ namespace MVC_First.Controllers
             {
                 ViewBag.ttid = Session["id"];
 
-                /*  if (Request.Files[0].ToString().Equals(""))
-                  {
-                      HttpPostedFileBase file = Request.Files[0];
-                      file.SaveAs(Server.MapPath(@"~\Files\" + file.FileName));
-
-                      var dataFile = Server.MapPath(@"~\Files\" + file.FileName);
-                  }*/
+               
 
 
 
 
                 String subject = Request["sub"];
                 String mesg = Request["mesg_text"];
-                // String attachment = Request["attachment"];
-                //String audience = Request["a"]; // check on this if audience == "fall" then which fall, populate Student list acc.
-                //if audience == "degree" then which degree, populate Student list acc. 
-
-                //int id = -1;
-                // String a_id;
-
-                //a_id = ViewBag.annID;
-                //int ann;
-
-                //a_id = db.Announcements.Max(p => p.announcement_id);
+                
 
 
                 var dateAsString = DateTime.Now.ToString("yyyy-MM-dd");
@@ -706,15 +656,13 @@ namespace MVC_First.Controllers
                 foreach (var i in q)
                 {
 
-                    //id = Int32.Parse(a_id);
-                    //id = Convert.ToInt32(a_id);
-                    //id = id + 1;
+                   
                     var a = new Announcement();
                     a.destination = i.sid;
-                    //a.announcement_id = id;
+                    
                     a.audience = fall + " " + degree;
                     a.mesg_text = mesg;
-                    //   a.attachment = attachment;
+                    
                     a.Sender_u_id = Session["id"].ToString();
                     a.dateTime = DateTime.Now;
                     a.status = "0";
@@ -722,8 +670,7 @@ namespace MVC_First.Controllers
                     db.Announcements.Add(a);
 
 
-                    //   id.ToString();
-                    // ViewBag.annID = id;
+                   
                 }
 
                 try
@@ -748,7 +695,7 @@ namespace MVC_First.Controllers
                     throw new DbEntityValidationException(
                         "Entity Validation Failed - errors follow:\n" +
                         sb.ToString(), ex
-                    ); // Add the original exception as the innerException
+                    ); 
                 }
                 return View("CustomUserHome");
             }
@@ -763,30 +710,12 @@ namespace MVC_First.Controllers
                 {
                     ViewBag.ttid = Session["id"];
 
-                    /*    if (Request.Files[0].ToString().Equals(""))
-                        {
-                            HttpPostedFileBase file = Request.Files[0];
-                            file.SaveAs(Server.MapPath(@"~\Files\" + file.FileName));
-
-                            var dataFile = Server.MapPath(@"~\Files\" + file.FileName);
-
-                        }
-                        */
+                 
 
 
                     String subject = Request["sub"];
                     String mesg = Request["mesg_text"];
-                    // String attachment = Request["attachment"];
-                    //String audience = Request["a"]; // check on this if audience == "fall" then which fall, populate Student list acc.
-                    //if audience == "degree" then which degree, populate Student list acc. 
-
-                    //int id = -1;
-                    //  String a_id;
-
-                    //a_id = ViewBag.annID;
-                    //int ann;
-
-                    //a_id = db.Announcements.Max(p => p.announcement_id);
+                   
 
 
                     var dateAsString = DateTime.Now.ToString("yyyy-MM-dd");
@@ -820,8 +749,7 @@ namespace MVC_First.Controllers
                         db.Announcements.Add(a);
 
 
-                        //id.ToString();
-                        //ViewBag.annID = id;
+                       
                     }
 
                     try
@@ -846,7 +774,7 @@ namespace MVC_First.Controllers
                         throw new DbEntityValidationException(
                             "Entity Validation Failed - errors follow:\n" +
                             sb.ToString(), ex
-                        ); // Add the original exception as the innerException
+                        ); 
                     }
                     return View("CustomUserHome");
                 }
@@ -884,7 +812,7 @@ namespace MVC_First.Controllers
                 a.attachment = dataFile;
                 a.Sender_u_id = "ExamBranch";
 
-                //   db.Announcements.Add(a);
+                
 
                 char[] delimiterChar = { ',' };
                 string[] data = null;
@@ -919,7 +847,7 @@ namespace MVC_First.Controllers
                             a1.dateTime = dt;
                         }
 
-                        // string seat = data[4];
+                        
                         a1.mesg_text = data[2].ToString() + " " + data[3].ToString() + " " + data[4].ToString();
                         db.Announcements.Add(a1);
 
@@ -967,19 +895,20 @@ namespace MVC_First.Controllers
                 string degree = Request["degree"];
                 string tid = Session["id"].ToString();
 
-                DateSheet d1 = new DateSheet();
+                FileData d1 = new FileData();
                 d1.className = degree + fall;
-                DateSheet d2  = db.DateSheets.Find(d1.className);
+                d1.type = "DateSheet";
+                FileData d2  = db.FileDatas.Find(d1.className);
                 
                 if (d2 != null)
                 {
-                    db.DateSheets.Remove(d2);
+                    db.FileDatas.Remove(d2);
                     db.SaveChanges();
                 }
 
                 d1.filePath = dataFile;
 
-                db.DateSheets.Add(d1);
+                db.FileDatas.Add(d1);
                 db.SaveChanges();
 
                 return RedirectToAction("ExamBranchHome");

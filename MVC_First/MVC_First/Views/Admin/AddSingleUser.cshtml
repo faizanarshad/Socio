@@ -40,11 +40,11 @@
     </script>
 
 
-@if (ViewBag.message == 0)
+@if (ViewBag.message == 1)
 {
     <script>
         $(document).ready(function () {
-                alert("User ID Already exist");
+                alert("User Added Successfully");
 
         });
  </script>
@@ -76,10 +76,15 @@
                 <option>MCS</option>
                 <option>BCS</option>
             </select><br><br>
-        </div>      
+        </div> 
+        <label for="name">Department </label><br>
+        <input type="text" name="dept" placeholder="Department" required id="dept" style="width:70%">  
+        <br > <br>  
 
         <label for ="name"  >Email </label><br>
-        <input type="email"  name ="email" placeholder="Email address" required id = "email" style ="width:70%">
+        <input type="email"  name ="email" placeholder="Email address" required id = "email" style ="width:70%"><br><br>
+
+        
 
         <br><br><button class="k-primary" type="submit" style ="width:70%" id ="save">Save</button>
         

@@ -14,10 +14,10 @@
 <script src="~/Scripts/jquery-1.9.1.js"></script>
 -->
 <script class="cssdeck" src="~/Scripts/jquery.min.js"></script>
-        <link href="~/Content/kendo/2013.3.1119/kendo.flat.min.css" rel="stylesheet" />
-        <link href="~/Content/kendo/2013.3.1119/kendo.common.min.css" rel="stylesheet" />
-        <script src="~/Scripts/kendo/2013.3.1119/jquery.min.js"></script>
-        <script src="~/Scripts/kendo/2013.3.1119/kendo.web.min.js"></script>
+<link href="~/Content/kendo/2013.3.1119/kendo.flat.min.css" rel="stylesheet" />
+<link href="~/Content/kendo/2013.3.1119/kendo.common.min.css" rel="stylesheet" />
+<script src="~/Scripts/kendo/2013.3.1119/jquery.min.js"></script>
+<script src="~/Scripts/kendo/2013.3.1119/kendo.web.min.js"></script>
 <script>
     $('document').ready(function () {
 
@@ -25,18 +25,31 @@
         $(".k-primary").kendoButton();
 
     });
+</script>
+@if (ViewBag.delete == 0)
+{
+    <script>
+        $(document).ready(function () {
+            alert("User Deleted Successfully");
+        });
     </script>
+    ViewBag.delete = -1;
+}
 
-    <div class ="k-content" style="height:60%; width:50%; margin-left:25%">
-        <h2 class="k-header">User Setup:</h2><br>
-        <button class="k-primary" type="submit" style="width:25%;height:auto;margin-left:15%" id ="btn1" onclick = "location.href='@Url.Action("AddUser", "Admin" )'">Add User</button>
-        <button class="k-primary" type="submit" style="width:25%;height:auto;margin-left:15%" id ="btn2" onclick = "location.href='@Url.Action("EditUser", "Admin" )'">Edit User</button>
-        <br><br><br>
-        <button class="k-primary" type="submit" style="width:25%;height:auto;margin-left:35%" id ="btn3" onclick = "location.href='@Url.Action("DeleteUser", "Admin" )'">Delete User</button>
 
-        <br><br><br><br><div style = "margin-left:45%; font-size:x-large;">
-                 @Html.ActionLink("Back", "AdminHome")
-            </div>   
+
+
+
+<div class="k-content" style="height:60%; width:50%; margin-left:25%">
+    <h2 class="k-header">User Setup:</h2><br>
+    <button class="k-primary" type="submit" style="width:25%;height:auto;margin-left:15%" id="btn1" onclick="location.href='@Url.Action("AddUser", "Admin" )'">Add User</button>
+    <button class="k-primary" type="submit" style="width:25%;height:auto;margin-left:15%" id="btn2" onclick="location.href='@Url.Action("EditUser", "Admin" )'">Edit User</button>
+    <br><br><br>
+    <button class="k-primary" type="submit" style="width:25%;height:auto;margin-left:35%" id="btn3" onclick="location.href='@Url.Action("DeleteUser", "Admin" )'">Delete User</button>
+
+    <br><br><br><br><div style="margin-left:45%; font-size:x-large;">
+        @Html.ActionLink("Back", "AdminHome")
+    </div>
 
 </div>
 

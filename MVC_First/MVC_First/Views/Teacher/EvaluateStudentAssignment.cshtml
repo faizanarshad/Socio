@@ -1,0 +1,47 @@
+﻿@{
+    ViewBag.Title = "Evaluate Student Result";
+    Layout = "~/Views/Shared/_LayoutAfterLogin.cshtml";
+}
+
+
+<script src="~/Scripts/jquery-1.9.1.js"></script>
+
+<script class="cssdeck" src="~/Scripts/jquery.min.js"></script>
+<link href="~/Content/kendo/2013.3.1119/kendo.flat.min.css" rel="stylesheet" />
+<link href="~/Content/kendo/2013.3.1119/kendo.common.min.css" rel="stylesheet" />
+<script src="~/Scripts/kendo/2013.3.1119/jquery.min.js"></script>
+<script src="~/Scripts/kendo/2013.3.1119/kendo.web.min.js"></script>
+<script>
+    $('document').ready(function () {
+
+
+        $(".k-primary").kendoButton();
+
+    });
+</script>
+<br>
+
+<iframe src="HtmlPage1.html">
+    <p>Your browser does not support iframes.</p>
+</iframe>
+
+<div id="respond" class="k-content" style="background-color:mintcream; height:10%; width:50%;margin-left:25%">
+    <h2 class="k-header" style="text-align:left">Evaluate Student Result:</h2>
+    <form class="forms" action="/Teacher/SetAssignmentMarks" method="post" enctype="multipart/form-data">
+        <p>
+            <label for="name"><small>Marks (required)</small></label>
+            <input type="text" name="marks" id="marks" value="" size="22" />
+
+        </p>
+        <p>
+            <br><label for="name"><small>Comment (required)</small></label>
+            <textarea name="mesg_text" id="mesg_text" cols="80" rows="8"></textarea>
+        </p>
+        <br />
+        <p>
+            <input name="submit" type="submit" id="submit" value="Submit Result" class="k-primary" />
+            &nbsp;
+            <input name="reset" type="reset" id="reset" tabindex="5" value="Clear Comment" class="k-primary" />
+        </p>
+    </form>
+</div>

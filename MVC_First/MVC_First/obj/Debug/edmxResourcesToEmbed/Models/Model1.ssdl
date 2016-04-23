@@ -1,201 +1,14 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Schema Namespace="pucitdbModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
-  <EntityContainer Name="pucitdbModelStoreContainer">
-    <EntitySet Name="Announcement" EntityType="pucitdbModel.Store.Announcement" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="assignment" EntityType="pucitdbModel.Store.assignment" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="assignmentResult" EntityType="pucitdbModel.Store.assignmentResult" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="attendance" EntityType="pucitdbModel.Store.attendance" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="attendance1" EntityType="pucitdbModel.Store.attendance1" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="comments" EntityType="pucitdbModel.Store.comments" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="courses" EntityType="pucitdbModel.Store.courses" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="coursesInSemester" EntityType="pucitdbModel.Store.coursesInSemester" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="DateSheet" EntityType="pucitdbModel.Store.DateSheet" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="groups" EntityType="pucitdbModel.Store.groups" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="Log" EntityType="pucitdbModel.Store.Log" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="LogStudent" EntityType="pucitdbModel.Store.LogStudent" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="LogTeacher" EntityType="pucitdbModel.Store.LogTeacher" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="postLike" EntityType="pucitdbModel.Store.postLike" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="posts" EntityType="pucitdbModel.Store.posts" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="question" EntityType="pucitdbModel.Store.question" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="quiz" EntityType="pucitdbModel.Store.quiz" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="quizResult" EntityType="pucitdbModel.Store.quizResult" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="semester" EntityType="pucitdbModel.Store.semester" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="student" EntityType="pucitdbModel.Store.student" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="studentToCourses" EntityType="pucitdbModel.Store.studentToCourses" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="teacher" EntityType="pucitdbModel.Store.teacher" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="teacherClass" EntityType="pucitdbModel.Store.teacherClass" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="teacherToCourses" EntityType="pucitdbModel.Store.teacherToCourses" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="user" EntityType="pucitdbModel.Store.user" store:Type="Tables" Schema="dbo" />
-    <AssociationSet Name="FK_Announcement_ToTable" Association="pucitdbModel.Store.FK_Announcement_ToTable">
-      <End Role="user" EntitySet="user" />
-      <End Role="Announcement" EntitySet="Announcement" />
-    </AssociationSet>
-    <AssociationSet Name="FK_assignment_ToTable" Association="pucitdbModel.Store.FK_assignment_ToTable">
-      <End Role="teacher" EntitySet="teacher" />
-      <End Role="assignment" EntitySet="assignment" />
-    </AssociationSet>
-    <AssociationSet Name="FK_assignment_ToTable_1" Association="pucitdbModel.Store.FK_assignment_ToTable_1">
-      <End Role="courses" EntitySet="courses" />
-      <End Role="assignment" EntitySet="assignment" />
-    </AssociationSet>
-    <AssociationSet Name="FK_assignmentResult_ToTable" Association="pucitdbModel.Store.FK_assignmentResult_ToTable">
-      <End Role="assignment" EntitySet="assignment" />
-      <End Role="assignmentResult" EntitySet="assignmentResult" />
-    </AssociationSet>
-    <AssociationSet Name="FK_assignmentResult_ToTable_1" Association="pucitdbModel.Store.FK_assignmentResult_ToTable_1">
-      <End Role="student" EntitySet="student" />
-      <End Role="assignmentResult" EntitySet="assignmentResult" />
-    </AssociationSet>
-    <AssociationSet Name="FK_assignmentResult_ToTable_2" Association="pucitdbModel.Store.FK_assignmentResult_ToTable_2">
-      <End Role="courses" EntitySet="courses" />
-      <End Role="assignmentResult" EntitySet="assignmentResult" />
-    </AssociationSet>
-    <AssociationSet Name="FK_attendance_ToTable" Association="pucitdbModel.Store.FK_attendance_ToTable">
-      <End Role="student" EntitySet="student" />
-      <End Role="attendance" EntitySet="attendance" />
-    </AssociationSet>
-    <AssociationSet Name="FK_attendance_ToTable_1" Association="pucitdbModel.Store.FK_attendance_ToTable_1">
-      <End Role="courses" EntitySet="courses" />
-      <End Role="attendance" EntitySet="attendance" />
-    </AssociationSet>
-    <AssociationSet Name="FK_attendance_ToTable_2" Association="pucitdbModel.Store.FK_attendance_ToTable_2">
-      <End Role="teacher" EntitySet="teacher" />
-      <End Role="attendance" EntitySet="attendance" />
-    </AssociationSet>
-    <AssociationSet Name="FK_attendance1_ToTable" Association="pucitdbModel.Store.FK_attendance1_ToTable">
-      <End Role="student" EntitySet="student" />
-      <End Role="attendance1" EntitySet="attendance1" />
-    </AssociationSet>
-    <AssociationSet Name="FK_attendance1_ToTable_1" Association="pucitdbModel.Store.FK_attendance1_ToTable_1">
-      <End Role="courses" EntitySet="courses" />
-      <End Role="attendance1" EntitySet="attendance1" />
-    </AssociationSet>
-    <AssociationSet Name="FK_attendance1_ToTable_2" Association="pucitdbModel.Store.FK_attendance1_ToTable_2">
-      <End Role="teacher" EntitySet="teacher" />
-      <End Role="attendance1" EntitySet="attendance1" />
-    </AssociationSet>
-    <AssociationSet Name="FK_comments_ToTable" Association="pucitdbModel.Store.FK_comments_ToTable">
-      <End Role="user" EntitySet="user" />
-      <End Role="comments" EntitySet="comments" />
-    </AssociationSet>
-    <AssociationSet Name="FK_comments_ToTable_1" Association="pucitdbModel.Store.FK_comments_ToTable_1">
-      <End Role="posts" EntitySet="posts" />
-      <End Role="comments" EntitySet="comments" />
-    </AssociationSet>
-    <AssociationSet Name="FK_coursesInSemester_ToTable" Association="pucitdbModel.Store.FK_coursesInSemester_ToTable">
-      <End Role="semester" EntitySet="semester" />
-      <End Role="coursesInSemester" EntitySet="coursesInSemester" />
-    </AssociationSet>
-    <AssociationSet Name="FK_coursesInSemester_ToTable_1" Association="pucitdbModel.Store.FK_coursesInSemester_ToTable_1">
-      <End Role="courses" EntitySet="courses" />
-      <End Role="coursesInSemester" EntitySet="coursesInSemester" />
-    </AssociationSet>
-    <AssociationSet Name="FK_groups_ToTable" Association="pucitdbModel.Store.FK_groups_ToTable">
-      <End Role="user" EntitySet="user" />
-      <End Role="groups" EntitySet="groups" />
-    </AssociationSet>
-    <AssociationSet Name="FK_log_ToTable" Association="pucitdbModel.Store.FK_log_ToTable">
-      <End Role="student" EntitySet="student" />
-      <End Role="Log" EntitySet="Log" />
-    </AssociationSet>
-    <AssociationSet Name="FK_log_ToTable_1" Association="pucitdbModel.Store.FK_log_ToTable_1">
-      <End Role="courses" EntitySet="courses" />
-      <End Role="Log" EntitySet="Log" />
-    </AssociationSet>
-    <AssociationSet Name="FK_log_ToTable_2" Association="pucitdbModel.Store.FK_log_ToTable_2">
-      <End Role="teacher" EntitySet="teacher" />
-      <End Role="Log" EntitySet="Log" />
-    </AssociationSet>
-    <AssociationSet Name="FK_logTeacher_ToTable_1" Association="pucitdbModel.Store.FK_logTeacher_ToTable_1">
-      <End Role="courses" EntitySet="courses" />
-      <End Role="LogTeacher" EntitySet="LogTeacher" />
-    </AssociationSet>
-    <AssociationSet Name="FK_logTeacher_ToTable_2" Association="pucitdbModel.Store.FK_logTeacher_ToTable_2">
-      <End Role="teacher" EntitySet="teacher" />
-      <End Role="LogTeacher" EntitySet="LogTeacher" />
-    </AssociationSet>
-    <AssociationSet Name="FK_postLike_ToPost" Association="pucitdbModel.Store.FK_postLike_ToPost">
-      <End Role="posts" EntitySet="posts" />
-      <End Role="postLike" EntitySet="postLike" />
-    </AssociationSet>
-    <AssociationSet Name="FK_postLike_ToPost1" Association="pucitdbModel.Store.FK_postLike_ToPost1">
-      <End Role="user" EntitySet="user" />
-      <End Role="postLike" EntitySet="postLike" />
-    </AssociationSet>
-    <AssociationSet Name="FK_posts_ToTable" Association="pucitdbModel.Store.FK_posts_ToTable">
-      <End Role="user" EntitySet="user" />
-      <End Role="posts" EntitySet="posts" />
-    </AssociationSet>
-    <AssociationSet Name="FK_posts_ToTable_1" Association="pucitdbModel.Store.FK_posts_ToTable_1">
-      <End Role="groups" EntitySet="groups" />
-      <End Role="posts" EntitySet="posts" />
-    </AssociationSet>
-    <AssociationSet Name="FK_question_ToTable" Association="pucitdbModel.Store.FK_question_ToTable">
-      <End Role="courses" EntitySet="courses" />
-      <End Role="question" EntitySet="question" />
-    </AssociationSet>
-    <AssociationSet Name="FK_quiz_ToTable" Association="pucitdbModel.Store.FK_quiz_ToTable">
-      <End Role="teacher" EntitySet="teacher" />
-      <End Role="quiz" EntitySet="quiz" />
-    </AssociationSet>
-    <AssociationSet Name="FK_quiz_ToTable_1" Association="pucitdbModel.Store.FK_quiz_ToTable_1">
-      <End Role="courses" EntitySet="courses" />
-      <End Role="quiz" EntitySet="quiz" />
-    </AssociationSet>
-    <AssociationSet Name="FK_quizResult_ToTable" Association="pucitdbModel.Store.FK_quizResult_ToTable">
-      <End Role="quiz" EntitySet="quiz" />
-      <End Role="quizResult" EntitySet="quizResult" />
-    </AssociationSet>
-    <AssociationSet Name="FK_quizResult_ToTable_1" Association="pucitdbModel.Store.FK_quizResult_ToTable_1">
-      <End Role="student" EntitySet="student" />
-      <End Role="quizResult" EntitySet="quizResult" />
-    </AssociationSet>
-    <AssociationSet Name="FK_quizResult_ToTable_2" Association="pucitdbModel.Store.FK_quizResult_ToTable_2">
-      <End Role="courses" EntitySet="courses" />
-      <End Role="quizResult" EntitySet="quizResult" />
-    </AssociationSet>
-    <AssociationSet Name="FK_quizResult_ToTable_3" Association="pucitdbModel.Store.FK_quizResult_ToTable_3">
-      <End Role="teacher" EntitySet="teacher" />
-      <End Role="quizResult" EntitySet="quizResult" />
-    </AssociationSet>
-    <AssociationSet Name="FK_student_ToTable" Association="pucitdbModel.Store.FK_student_ToTable">
-      <End Role="semester" EntitySet="semester" />
-      <End Role="student" EntitySet="student" />
-    </AssociationSet>
-    <AssociationSet Name="FK_studentToCourses_ToTable" Association="pucitdbModel.Store.FK_studentToCourses_ToTable">
-      <End Role="student" EntitySet="student" />
-      <End Role="studentToCourses" EntitySet="studentToCourses" />
-    </AssociationSet>
-    <AssociationSet Name="FK_studentToCourses_ToTable_1" Association="pucitdbModel.Store.FK_studentToCourses_ToTable_1">
-      <End Role="courses" EntitySet="courses" />
-      <End Role="studentToCourses" EntitySet="studentToCourses" />
-    </AssociationSet>
-    <AssociationSet Name="FK_teacherClass_ToTable" Association="pucitdbModel.Store.FK_teacherClass_ToTable">
-      <End Role="teacher" EntitySet="teacher" />
-      <End Role="teacherClass" EntitySet="teacherClass" />
-    </AssociationSet>
-    <AssociationSet Name="FK_teacherClass_ToTable_1" Association="pucitdbModel.Store.FK_teacherClass_ToTable_1">
-      <End Role="courses" EntitySet="courses" />
-      <End Role="teacherClass" EntitySet="teacherClass" />
-    </AssociationSet>
-    <AssociationSet Name="FK_teacherToCourses_ToTable" Association="pucitdbModel.Store.FK_teacherToCourses_ToTable">
-      <End Role="teacher" EntitySet="teacher" />
-      <End Role="teacherToCourses" EntitySet="teacherToCourses" />
-    </AssociationSet>
-    <AssociationSet Name="FK_teacherToCourses_ToTable_1" Association="pucitdbModel.Store.FK_teacherToCourses_ToTable_1">
-      <End Role="courses" EntitySet="courses" />
-      <End Role="teacherToCourses" EntitySet="teacherToCourses" />
-    </AssociationSet>
-  </EntityContainer>
+<Schema Namespace="NudbModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
   <EntityType Name="Announcement">
     <Key>
       <PropertyRef Name="announcement_id" />
     </Key>
-    <Property Name="announcement_id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="announcement_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="audience" Type="varchar" MaxLength="50" />
     <Property Name="status" Type="varchar" MaxLength="50" />
     <Property Name="Sender_u_id" Type="varchar" MaxLength="50" />
-    <Property Name="dateTime" Type="datetime2" />
+    <Property Name="dateTime" Type="datetime2" Precision="7" />
     <Property Name="attachment" Type="varchar" MaxLength="100" />
     <Property Name="destination" Type="nvarchar" MaxLength="50" />
     <Property Name="title" Type="varchar" MaxLength="100" />
@@ -205,13 +18,13 @@
     <Key>
       <PropertyRef Name="aid" />
     </Key>
-    <Property Name="aid" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
-    <Property Name="tid" Type="nvarchar" Nullable="false" MaxLength="50" />
-    <Property Name="cid" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="aid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="tid" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="cid" Type="nvarchar" MaxLength="50" Nullable="false" />
     <Property Name="totalMarks" Type="int" Nullable="false" />
     <Property Name="questionFilePath" Type="varchar(max)" Nullable="false" />
-    <Property Name="startDate" Type="datetime2" Nullable="false" />
-    <Property Name="endDate" Type="datetime2" Nullable="false" />
+    <Property Name="startDate" Type="datetime2" Precision="7" Nullable="false" />
+    <Property Name="endDate" Type="datetime2" Precision="7" Nullable="false" />
     <Property Name="solutionFilePath" Type="varchar(max)" Nullable="false" />
     <Property Name="aNumber" Type="int" Nullable="false" />
   </EntityType>
@@ -222,12 +35,13 @@
       <PropertyRef Name="cid" />
     </Key>
     <Property Name="aid" Type="int" Nullable="false" />
-    <Property Name="sid" Type="nvarchar" Nullable="false" MaxLength="50" />
-    <Property Name="cid" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="sid" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="cid" Type="nvarchar" MaxLength="50" Nullable="false" />
     <Property Name="totalMarks" Type="int" Nullable="false" />
     <Property Name="marksObtained" Type="int" Nullable="false" />
     <Property Name="outPutFilePath" Type="varchar(max)" Nullable="false" />
     <Property Name="codeFilePath" Type="varchar(max)" Nullable="false" />
+    <Property Name="comment" Type="varchar(max)" />
     <Property Name="aNumber" Type="int" />
   </EntityType>
   <EntityType Name="attendance">
@@ -236,11 +50,11 @@
       <PropertyRef Name="courseId" />
       <PropertyRef Name="tName" />
     </Key>
-    <Property Name="studentId" Type="nvarchar" Nullable="false" MaxLength="50" />
-    <Property Name="courseId" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="studentId" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="courseId" Type="nvarchar" MaxLength="50" Nullable="false" />
     <Property Name="presents" Type="int" Nullable="false" />
     <Property Name="absents" Type="int" Nullable="false" />
-    <Property Name="tName" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="tName" Type="nvarchar" MaxLength="50" Nullable="false" />
   </EntityType>
   <EntityType Name="attendance1">
     <Key>
@@ -249,29 +63,37 @@
       <PropertyRef Name="tName" />
       <PropertyRef Name="date" />
     </Key>
-    <Property Name="studentId" Type="nvarchar" Nullable="false" MaxLength="50" />
-    <Property Name="courseId" Type="nvarchar" Nullable="false" MaxLength="50" />
-    <Property Name="atnd" Type="char" Nullable="false" MaxLength="10" />
-    <Property Name="tName" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="studentId" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="courseId" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="atnd" Type="char" MaxLength="10" Nullable="false" />
+    <Property Name="tName" Type="nvarchar" MaxLength="50" Nullable="false" />
     <Property Name="class" Type="varchar" MaxLength="50" />
     <Property Name="date" Type="date" Nullable="false" />
+  </EntityType>
+  <EntityType Name="commentLike">
+    <Key>
+      <PropertyRef Name="comID" />
+      <PropertyRef Name="username" />
+    </Key>
+    <Property Name="comID" Type="int" Nullable="false" />
+    <Property Name="username" Type="nvarchar" MaxLength="50" Nullable="false" />
   </EntityType>
   <EntityType Name="comments">
     <Key>
       <PropertyRef Name="comID" />
     </Key>
-    <Property Name="comID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="comID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="pid" Type="int" Nullable="false" />
     <Property Name="body" Type="varchar(max)" Nullable="false" />
-    <Property Name="time" Type="datetime2" Nullable="false" />
+    <Property Name="time" Type="datetime2" Precision="7" Nullable="false" />
     <Property Name="likes" Type="int" Nullable="false" />
-    <Property Name="c_creator" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="c_creator" Type="nvarchar" MaxLength="50" Nullable="false" />
   </EntityType>
   <EntityType Name="courses">
     <Key>
       <PropertyRef Name="cid" />
     </Key>
-    <Property Name="cid" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="cid" Type="nvarchar" MaxLength="50" Nullable="false" />
     <Property Name="name" Type="nvarchar" MaxLength="50" />
     <Property Name="creditHours" Type="int" Nullable="false" />
   </EntityType>
@@ -280,36 +102,38 @@
       <PropertyRef Name="cid" />
       <PropertyRef Name="smid" />
     </Key>
-    <Property Name="cid" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="cid" Type="nvarchar" MaxLength="50" Nullable="false" />
     <Property Name="smid" Type="int" Nullable="false" />
   </EntityType>
-  <EntityType Name="DateSheet">
+  <EntityType Name="FileData">
     <Key>
       <PropertyRef Name="className" />
+      <PropertyRef Name="type" />
     </Key>
-    <Property Name="className" Type="varchar" Nullable="false" MaxLength="50" />
+    <Property Name="className" Type="varchar" MaxLength="50" Nullable="false" />
     <Property Name="filePath" Type="varchar(max)" />
+    <Property Name="type" Type="varchar" MaxLength="50" Nullable="false" />
   </EntityType>
   <EntityType Name="groups">
     <Key>
       <PropertyRef Name="gid" />
     </Key>
-    <Property Name="gid" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
-    <Property Name="name" Type="varchar" Nullable="false" MaxLength="50" />
-    <Property Name="g_creator" Type="nvarchar" Nullable="false" MaxLength="50" />
-    <Property Name="time" Type="datetime2" Nullable="false" />
-    <Property Name="class" Type="varchar" Nullable="false" MaxLength="50" />
+    <Property Name="gid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="name" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="g_creator" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="time" Type="datetime2" Precision="7" Nullable="false" />
+    <Property Name="class" Type="varchar" MaxLength="50" Nullable="false" />
   </EntityType>
   <EntityType Name="Log">
     <Key>
       <PropertyRef Name="Id" />
     </Key>
-    <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
-    <Property Name="studentId" Type="nvarchar" Nullable="false" MaxLength="50" />
-    <Property Name="courseId" Type="nvarchar" Nullable="false" MaxLength="50" />
-    <Property Name="tName" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="studentId" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="courseId" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="tName" Type="nvarchar" MaxLength="50" Nullable="false" />
     <Property Name="date" Type="date" Nullable="false" />
-    <Property Name="type" Type="varchar" Nullable="false" MaxLength="50" />
+    <Property Name="type" Type="varchar" MaxLength="50" Nullable="false" />
     <Property Name="obtainedMarks" Type="int" Nullable="false" />
     <Property Name="totalMarks" Type="int" Nullable="false" />
     <Property Name="discription" Type="varchar" MaxLength="50" />
@@ -318,11 +142,11 @@
     <Key>
       <PropertyRef Name="Id" />
     </Key>
-    <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
-    <Property Name="courseId" Type="nvarchar" Nullable="false" MaxLength="50" />
-    <Property Name="tName" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="courseId" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="tName" Type="nvarchar" MaxLength="50" Nullable="false" />
     <Property Name="date" Type="date" Nullable="false" />
-    <Property Name="type" Type="varchar" Nullable="false" MaxLength="50" />
+    <Property Name="type" Type="varchar" MaxLength="50" Nullable="false" />
     <Property Name="totalMarks" Type="int" Nullable="false" />
     <Property Name="discription" Type="varchar" MaxLength="50" />
   </EntityType>
@@ -330,11 +154,11 @@
     <Key>
       <PropertyRef Name="Id" />
     </Key>
-    <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
-    <Property Name="courseId" Type="nvarchar" Nullable="false" MaxLength="50" />
-    <Property Name="tName" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="courseId" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="tName" Type="nvarchar" MaxLength="50" Nullable="false" />
     <Property Name="date" Type="date" Nullable="false" />
-    <Property Name="type" Type="varchar" Nullable="false" MaxLength="50" />
+    <Property Name="type" Type="varchar" MaxLength="50" Nullable="false" />
     <Property Name="totalMarks" Type="int" Nullable="false" />
     <Property Name="discription" Type="varchar" MaxLength="50" />
   </EntityType>
@@ -344,48 +168,48 @@
       <PropertyRef Name="username" />
     </Key>
     <Property Name="pid" Type="int" Nullable="false" />
-    <Property Name="username" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="username" Type="nvarchar" MaxLength="50" Nullable="false" />
   </EntityType>
   <EntityType Name="posts">
     <Key>
       <PropertyRef Name="pid" />
     </Key>
-    <Property Name="pid" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="pid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="grpID" Type="int" Nullable="false" />
     <Property Name="body" Type="varchar(max)" Nullable="false" />
-    <Property Name="p_creator" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="p_creator" Type="nvarchar" MaxLength="50" Nullable="false" />
     <Property Name="likes" Type="int" Nullable="false" />
-    <Property Name="time" Type="datetime2" Nullable="false" />
+    <Property Name="time" Type="datetime2" Precision="7" Nullable="false" />
   </EntityType>
   <EntityType Name="question">
     <Key>
       <PropertyRef Name="quid" />
     </Key>
-    <Property Name="quid" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="quid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="statement" Type="nvarchar(max)" Nullable="false" />
     <Property Name="option_A" Type="nvarchar(max)" Nullable="false" />
     <Property Name="option_B" Type="nvarchar(max)" Nullable="false" />
     <Property Name="Option_C" Type="nvarchar(max)" Nullable="false" />
     <Property Name="option_D" Type="nvarchar(max)" Nullable="false" />
-    <Property Name="correctOption" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="correctOption" Type="nvarchar" MaxLength="50" Nullable="false" />
     <Property Name="marks" Type="int" Nullable="false" />
     <Property Name="solution" Type="nvarchar(max)" />
-    <Property Name="cid" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="cid" Type="nvarchar" MaxLength="50" Nullable="false" />
     <Property Name="topic" Type="nvarchar(max)" Nullable="false" />
   </EntityType>
   <EntityType Name="quiz">
     <Key>
       <PropertyRef Name="qid" />
     </Key>
-    <Property Name="qid" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
-    <Property Name="cid" Type="nvarchar" Nullable="false" MaxLength="50" />
-    <Property Name="tid" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="qid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="cid" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="tid" Type="nvarchar" MaxLength="50" Nullable="false" />
     <Property Name="totalQuestion" Type="int" Nullable="false" />
     <Property Name="TotalMarks" Type="int" Nullable="false" />
-    <Property Name="startDate" Type="datetime2" Nullable="false" />
-    <Property Name="endDate" Type="datetime2" Nullable="false" />
+    <Property Name="startDate" Type="datetime2" Precision="7" Nullable="false" />
+    <Property Name="endDate" Type="datetime2" Precision="7" Nullable="false" />
     <Property Name="TotalTime" Type="int" Nullable="false" />
-    <Property Name="topic" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="topic" Type="nvarchar" MaxLength="50" Nullable="false" />
     <Property Name="totalAttempts" Type="int" />
     <Property Name="quizNum" Type="int" />
   </EntityType>
@@ -397,11 +221,11 @@
       <PropertyRef Name="tid" />
     </Key>
     <Property Name="qid" Type="int" Nullable="false" />
-    <Property Name="sid" Type="nvarchar" Nullable="false" MaxLength="50" />
-    <Property Name="cid" Type="nvarchar" Nullable="false" MaxLength="50" />
-    <Property Name="tid" Type="nvarchar" Nullable="false" MaxLength="50" />
-    <Property Name="totalmarks" Type="nchar" Nullable="false" MaxLength="10" />
-    <Property Name="obtainMarks" Type="nchar" Nullable="false" MaxLength="10" />
+    <Property Name="sid" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="cid" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="tid" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="totalmarks" Type="nchar" MaxLength="10" Nullable="false" />
+    <Property Name="obtainMarks" Type="nchar" MaxLength="10" Nullable="false" />
     <Property Name="attempts" Type="int" />
     <Property Name="quizNum" Type="int" />
   </EntityType>
@@ -417,10 +241,10 @@
     <Key>
       <PropertyRef Name="sid" />
     </Key>
-    <Property Name="sid" Type="nvarchar" Nullable="false" MaxLength="50" />
-    <Property Name="name" Type="nvarchar" Nullable="false" MaxLength="50" />
-    <Property Name="password" Type="nvarchar" Nullable="false" MaxLength="50" />
-    <Property Name="email" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="sid" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="name" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="password" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="email" Type="nvarchar" MaxLength="50" Nullable="false" />
     <Property Name="degree" Type="nvarchar" MaxLength="50" />
     <Property Name="session" Type="nvarchar" MaxLength="50" />
     <Property Name="batch" Type="nvarchar" MaxLength="50" />
@@ -429,59 +253,62 @@
     <Property Name="address" Type="nvarchar" MaxLength="50" />
     <Property Name="section" Type="varchar" MaxLength="50" />
     <Property Name="semester" Type="varchar" MaxLength="50" />
+    <Property Name="dept" Type="varchar" MaxLength="50" />
   </EntityType>
   <EntityType Name="studentToCourses">
     <Key>
       <PropertyRef Name="sid" />
       <PropertyRef Name="cid" />
     </Key>
-    <Property Name="sid" Type="nvarchar" Nullable="false" MaxLength="50" />
-    <Property Name="cid" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="sid" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="cid" Type="nvarchar" MaxLength="50" Nullable="false" />
   </EntityType>
   <EntityType Name="teacher">
     <Key>
       <PropertyRef Name="tid" />
     </Key>
-    <Property Name="tid" Type="nvarchar" Nullable="false" MaxLength="50" />
-    <Property Name="name" Type="nvarchar" Nullable="false" MaxLength="50" />
-    <Property Name="password" Type="nvarchar" Nullable="false" MaxLength="50" />
-    <Property Name="email" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="tid" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="name" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="password" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="email" Type="nvarchar" MaxLength="50" Nullable="false" />
     <Property Name="designation" Type="nvarchar" MaxLength="50" />
     <Property Name="status" Type="nvarchar" MaxLength="50" />
     <Property Name="qualification" Type="nvarchar" MaxLength="50" />
+    <Property Name="dept" Type="varchar" MaxLength="50" />
   </EntityType>
   <EntityType Name="teacherClass">
     <Key>
       <PropertyRef Name="tid" />
       <PropertyRef Name="cid" />
     </Key>
-    <Property Name="tid" Type="nvarchar" Nullable="false" MaxLength="50" />
-    <Property Name="cid" Type="nvarchar" Nullable="false" MaxLength="50" />
-    <Property Name="className" Type="varchar" Nullable="false" MaxLength="50" />
+    <Property Name="tid" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="cid" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="className" Type="varchar" MaxLength="50" Nullable="false" />
   </EntityType>
   <EntityType Name="teacherToCourses">
     <Key>
       <PropertyRef Name="tid" />
       <PropertyRef Name="cid" />
     </Key>
-    <Property Name="tid" Type="nvarchar" Nullable="false" MaxLength="50" />
-    <Property Name="cid" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="tid" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="cid" Type="nvarchar" MaxLength="50" Nullable="false" />
   </EntityType>
   <EntityType Name="user">
     <Key>
       <PropertyRef Name="uid" />
     </Key>
-    <Property Name="uid" Type="nvarchar" Nullable="false" MaxLength="50" />
-    <Property Name="name" Type="nvarchar" Nullable="false" MaxLength="50" />
-    <Property Name="type" Type="nvarchar" Nullable="false" MaxLength="50" />
-    <Property Name="password" Type="nvarchar" Nullable="false" MaxLength="50" />
-    <Property Name="email" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="uid" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="name" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="type" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="password" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="email" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="dept" Type="varchar" MaxLength="50" />
   </EntityType>
   <Association Name="FK_Announcement_ToTable">
-    <End Role="user" Type="pucitdbModel.Store.user" Multiplicity="0..1">
+    <End Role="user" Type="Self.user" Multiplicity="0..1">
       <OnDelete Action="Cascade" />
     </End>
-    <End Role="Announcement" Type="pucitdbModel.Store.Announcement" Multiplicity="*" />
+    <End Role="Announcement" Type="Self.Announcement" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="user">
         <PropertyRef Name="uid" />
@@ -492,10 +319,10 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_assignment_ToTable">
-    <End Role="teacher" Type="pucitdbModel.Store.teacher" Multiplicity="1">
+    <End Role="teacher" Type="Self.teacher" Multiplicity="1">
       <OnDelete Action="Cascade" />
     </End>
-    <End Role="assignment" Type="pucitdbModel.Store.assignment" Multiplicity="*" />
+    <End Role="assignment" Type="Self.assignment" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="teacher">
         <PropertyRef Name="tid" />
@@ -506,10 +333,10 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_assignment_ToTable_1">
-    <End Role="courses" Type="pucitdbModel.Store.courses" Multiplicity="1">
+    <End Role="courses" Type="Self.courses" Multiplicity="1">
       <OnDelete Action="Cascade" />
     </End>
-    <End Role="assignment" Type="pucitdbModel.Store.assignment" Multiplicity="*" />
+    <End Role="assignment" Type="Self.assignment" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="courses">
         <PropertyRef Name="cid" />
@@ -520,8 +347,8 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_assignmentResult_ToTable">
-    <End Role="assignment" Type="pucitdbModel.Store.assignment" Multiplicity="1" />
-    <End Role="assignmentResult" Type="pucitdbModel.Store.assignmentResult" Multiplicity="*" />
+    <End Role="assignment" Type="Self.assignment" Multiplicity="1" />
+    <End Role="assignmentResult" Type="Self.assignmentResult" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="assignment">
         <PropertyRef Name="aid" />
@@ -532,8 +359,8 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_assignmentResult_ToTable_1">
-    <End Role="student" Type="pucitdbModel.Store.student" Multiplicity="1" />
-    <End Role="assignmentResult" Type="pucitdbModel.Store.assignmentResult" Multiplicity="*" />
+    <End Role="student" Type="Self.student" Multiplicity="1" />
+    <End Role="assignmentResult" Type="Self.assignmentResult" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="student">
         <PropertyRef Name="sid" />
@@ -544,8 +371,8 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_assignmentResult_ToTable_2">
-    <End Role="courses" Type="pucitdbModel.Store.courses" Multiplicity="1" />
-    <End Role="assignmentResult" Type="pucitdbModel.Store.assignmentResult" Multiplicity="*" />
+    <End Role="courses" Type="Self.courses" Multiplicity="1" />
+    <End Role="assignmentResult" Type="Self.assignmentResult" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="courses">
         <PropertyRef Name="cid" />
@@ -556,8 +383,8 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_attendance_ToTable">
-    <End Role="student" Type="pucitdbModel.Store.student" Multiplicity="1" />
-    <End Role="attendance" Type="pucitdbModel.Store.attendance" Multiplicity="*" />
+    <End Role="student" Type="Self.student" Multiplicity="1" />
+    <End Role="attendance" Type="Self.attendance" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="student">
         <PropertyRef Name="sid" />
@@ -568,8 +395,8 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_attendance_ToTable_1">
-    <End Role="courses" Type="pucitdbModel.Store.courses" Multiplicity="1" />
-    <End Role="attendance" Type="pucitdbModel.Store.attendance" Multiplicity="*" />
+    <End Role="courses" Type="Self.courses" Multiplicity="1" />
+    <End Role="attendance" Type="Self.attendance" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="courses">
         <PropertyRef Name="cid" />
@@ -580,8 +407,8 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_attendance_ToTable_2">
-    <End Role="teacher" Type="pucitdbModel.Store.teacher" Multiplicity="1" />
-    <End Role="attendance" Type="pucitdbModel.Store.attendance" Multiplicity="*" />
+    <End Role="teacher" Type="Self.teacher" Multiplicity="1" />
+    <End Role="attendance" Type="Self.attendance" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="teacher">
         <PropertyRef Name="tid" />
@@ -592,10 +419,10 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_attendance1_ToTable">
-    <End Role="student" Type="pucitdbModel.Store.student" Multiplicity="1">
+    <End Role="student" Type="Self.student" Multiplicity="1">
       <OnDelete Action="Cascade" />
     </End>
-    <End Role="attendance1" Type="pucitdbModel.Store.attendance1" Multiplicity="*" />
+    <End Role="attendance1" Type="Self.attendance1" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="student">
         <PropertyRef Name="sid" />
@@ -606,10 +433,10 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_attendance1_ToTable_1">
-    <End Role="courses" Type="pucitdbModel.Store.courses" Multiplicity="1">
+    <End Role="courses" Type="Self.courses" Multiplicity="1">
       <OnDelete Action="Cascade" />
     </End>
-    <End Role="attendance1" Type="pucitdbModel.Store.attendance1" Multiplicity="*" />
+    <End Role="attendance1" Type="Self.attendance1" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="courses">
         <PropertyRef Name="cid" />
@@ -620,10 +447,10 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_attendance1_ToTable_2">
-    <End Role="teacher" Type="pucitdbModel.Store.teacher" Multiplicity="1">
+    <End Role="teacher" Type="Self.teacher" Multiplicity="1">
       <OnDelete Action="Cascade" />
     </End>
-    <End Role="attendance1" Type="pucitdbModel.Store.attendance1" Multiplicity="*" />
+    <End Role="attendance1" Type="Self.attendance1" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="teacher">
         <PropertyRef Name="tid" />
@@ -633,9 +460,37 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="FK_commentLike_ToTable">
+    <End Role="comments" Type="Self.comments" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="commentLike" Type="Self.commentLike" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="comments">
+        <PropertyRef Name="comID" />
+      </Principal>
+      <Dependent Role="commentLike">
+        <PropertyRef Name="comID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_commentLike_ToTable_1">
+    <End Role="user" Type="Self.user" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="commentLike" Type="Self.commentLike" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="user">
+        <PropertyRef Name="uid" />
+      </Principal>
+      <Dependent Role="commentLike">
+        <PropertyRef Name="username" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="FK_comments_ToTable">
-    <End Role="user" Type="pucitdbModel.Store.user" Multiplicity="1" />
-    <End Role="comments" Type="pucitdbModel.Store.comments" Multiplicity="*" />
+    <End Role="user" Type="Self.user" Multiplicity="1" />
+    <End Role="comments" Type="Self.comments" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="user">
         <PropertyRef Name="uid" />
@@ -646,8 +501,10 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_comments_ToTable_1">
-    <End Role="posts" Type="pucitdbModel.Store.posts" Multiplicity="1" />
-    <End Role="comments" Type="pucitdbModel.Store.comments" Multiplicity="*" />
+    <End Role="posts" Type="Self.posts" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="comments" Type="Self.comments" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="posts">
         <PropertyRef Name="pid" />
@@ -658,8 +515,8 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_coursesInSemester_ToTable">
-    <End Role="semester" Type="pucitdbModel.Store.semester" Multiplicity="1" />
-    <End Role="coursesInSemester" Type="pucitdbModel.Store.coursesInSemester" Multiplicity="*" />
+    <End Role="semester" Type="Self.semester" Multiplicity="1" />
+    <End Role="coursesInSemester" Type="Self.coursesInSemester" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="semester">
         <PropertyRef Name="smid" />
@@ -670,8 +527,8 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_coursesInSemester_ToTable_1">
-    <End Role="courses" Type="pucitdbModel.Store.courses" Multiplicity="1" />
-    <End Role="coursesInSemester" Type="pucitdbModel.Store.coursesInSemester" Multiplicity="*" />
+    <End Role="courses" Type="Self.courses" Multiplicity="1" />
+    <End Role="coursesInSemester" Type="Self.coursesInSemester" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="courses">
         <PropertyRef Name="cid" />
@@ -682,10 +539,10 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_groups_ToTable">
-    <End Role="user" Type="pucitdbModel.Store.user" Multiplicity="1">
+    <End Role="user" Type="Self.user" Multiplicity="1">
       <OnDelete Action="Cascade" />
     </End>
-    <End Role="groups" Type="pucitdbModel.Store.groups" Multiplicity="*" />
+    <End Role="groups" Type="Self.groups" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="user">
         <PropertyRef Name="uid" />
@@ -696,10 +553,10 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_log_ToTable">
-    <End Role="student" Type="pucitdbModel.Store.student" Multiplicity="1">
+    <End Role="student" Type="Self.student" Multiplicity="1">
       <OnDelete Action="Cascade" />
     </End>
-    <End Role="Log" Type="pucitdbModel.Store.Log" Multiplicity="*" />
+    <End Role="Log" Type="Self.Log" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="student">
         <PropertyRef Name="sid" />
@@ -710,10 +567,10 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_log_ToTable_1">
-    <End Role="courses" Type="pucitdbModel.Store.courses" Multiplicity="1">
+    <End Role="courses" Type="Self.courses" Multiplicity="1">
       <OnDelete Action="Cascade" />
     </End>
-    <End Role="Log" Type="pucitdbModel.Store.Log" Multiplicity="*" />
+    <End Role="Log" Type="Self.Log" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="courses">
         <PropertyRef Name="cid" />
@@ -724,10 +581,10 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_log_ToTable_2">
-    <End Role="teacher" Type="pucitdbModel.Store.teacher" Multiplicity="1">
+    <End Role="teacher" Type="Self.teacher" Multiplicity="1">
       <OnDelete Action="Cascade" />
     </End>
-    <End Role="Log" Type="pucitdbModel.Store.Log" Multiplicity="*" />
+    <End Role="Log" Type="Self.Log" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="teacher">
         <PropertyRef Name="tid" />
@@ -738,10 +595,10 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_logTeacher_ToTable_1">
-    <End Role="courses" Type="pucitdbModel.Store.courses" Multiplicity="1">
+    <End Role="courses" Type="Self.courses" Multiplicity="1">
       <OnDelete Action="Cascade" />
     </End>
-    <End Role="LogTeacher" Type="pucitdbModel.Store.LogTeacher" Multiplicity="*" />
+    <End Role="LogTeacher" Type="Self.LogTeacher" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="courses">
         <PropertyRef Name="cid" />
@@ -752,10 +609,10 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_logTeacher_ToTable_2">
-    <End Role="teacher" Type="pucitdbModel.Store.teacher" Multiplicity="1">
+    <End Role="teacher" Type="Self.teacher" Multiplicity="1">
       <OnDelete Action="Cascade" />
     </End>
-    <End Role="LogTeacher" Type="pucitdbModel.Store.LogTeacher" Multiplicity="*" />
+    <End Role="LogTeacher" Type="Self.LogTeacher" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="teacher">
         <PropertyRef Name="tid" />
@@ -766,8 +623,8 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_postLike_ToPost">
-    <End Role="posts" Type="pucitdbModel.Store.posts" Multiplicity="1" />
-    <End Role="postLike" Type="pucitdbModel.Store.postLike" Multiplicity="*" />
+    <End Role="posts" Type="Self.posts" Multiplicity="1" />
+    <End Role="postLike" Type="Self.postLike" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="posts">
         <PropertyRef Name="pid" />
@@ -778,8 +635,8 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_postLike_ToPost1">
-    <End Role="user" Type="pucitdbModel.Store.user" Multiplicity="1" />
-    <End Role="postLike" Type="pucitdbModel.Store.postLike" Multiplicity="*" />
+    <End Role="user" Type="Self.user" Multiplicity="1" />
+    <End Role="postLike" Type="Self.postLike" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="user">
         <PropertyRef Name="uid" />
@@ -790,8 +647,8 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_posts_ToTable">
-    <End Role="user" Type="pucitdbModel.Store.user" Multiplicity="1" />
-    <End Role="posts" Type="pucitdbModel.Store.posts" Multiplicity="*" />
+    <End Role="user" Type="Self.user" Multiplicity="1" />
+    <End Role="posts" Type="Self.posts" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="user">
         <PropertyRef Name="uid" />
@@ -802,8 +659,8 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_posts_ToTable_1">
-    <End Role="groups" Type="pucitdbModel.Store.groups" Multiplicity="1" />
-    <End Role="posts" Type="pucitdbModel.Store.posts" Multiplicity="*" />
+    <End Role="groups" Type="Self.groups" Multiplicity="1" />
+    <End Role="posts" Type="Self.posts" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="groups">
         <PropertyRef Name="gid" />
@@ -814,8 +671,8 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_question_ToTable">
-    <End Role="courses" Type="pucitdbModel.Store.courses" Multiplicity="1" />
-    <End Role="question" Type="pucitdbModel.Store.question" Multiplicity="*" />
+    <End Role="courses" Type="Self.courses" Multiplicity="1" />
+    <End Role="question" Type="Self.question" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="courses">
         <PropertyRef Name="cid" />
@@ -826,10 +683,10 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_quiz_ToTable">
-    <End Role="teacher" Type="pucitdbModel.Store.teacher" Multiplicity="1">
+    <End Role="teacher" Type="Self.teacher" Multiplicity="1">
       <OnDelete Action="Cascade" />
     </End>
-    <End Role="quiz" Type="pucitdbModel.Store.quiz" Multiplicity="*" />
+    <End Role="quiz" Type="Self.quiz" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="teacher">
         <PropertyRef Name="tid" />
@@ -840,10 +697,10 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_quiz_ToTable_1">
-    <End Role="courses" Type="pucitdbModel.Store.courses" Multiplicity="1">
+    <End Role="courses" Type="Self.courses" Multiplicity="1">
       <OnDelete Action="Cascade" />
     </End>
-    <End Role="quiz" Type="pucitdbModel.Store.quiz" Multiplicity="*" />
+    <End Role="quiz" Type="Self.quiz" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="courses">
         <PropertyRef Name="cid" />
@@ -854,8 +711,8 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_quizResult_ToTable">
-    <End Role="quiz" Type="pucitdbModel.Store.quiz" Multiplicity="1" />
-    <End Role="quizResult" Type="pucitdbModel.Store.quizResult" Multiplicity="*" />
+    <End Role="quiz" Type="Self.quiz" Multiplicity="1" />
+    <End Role="quizResult" Type="Self.quizResult" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="quiz">
         <PropertyRef Name="qid" />
@@ -866,8 +723,8 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_quizResult_ToTable_1">
-    <End Role="student" Type="pucitdbModel.Store.student" Multiplicity="1" />
-    <End Role="quizResult" Type="pucitdbModel.Store.quizResult" Multiplicity="*" />
+    <End Role="student" Type="Self.student" Multiplicity="1" />
+    <End Role="quizResult" Type="Self.quizResult" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="student">
         <PropertyRef Name="sid" />
@@ -878,8 +735,8 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_quizResult_ToTable_2">
-    <End Role="courses" Type="pucitdbModel.Store.courses" Multiplicity="1" />
-    <End Role="quizResult" Type="pucitdbModel.Store.quizResult" Multiplicity="*" />
+    <End Role="courses" Type="Self.courses" Multiplicity="1" />
+    <End Role="quizResult" Type="Self.quizResult" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="courses">
         <PropertyRef Name="cid" />
@@ -890,8 +747,8 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_quizResult_ToTable_3">
-    <End Role="teacher" Type="pucitdbModel.Store.teacher" Multiplicity="1" />
-    <End Role="quizResult" Type="pucitdbModel.Store.quizResult" Multiplicity="*" />
+    <End Role="teacher" Type="Self.teacher" Multiplicity="1" />
+    <End Role="quizResult" Type="Self.quizResult" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="teacher">
         <PropertyRef Name="tid" />
@@ -902,10 +759,10 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_student_ToTable">
-    <End Role="semester" Type="pucitdbModel.Store.semester" Multiplicity="0..1">
+    <End Role="semester" Type="Self.semester" Multiplicity="0..1">
       <OnDelete Action="Cascade" />
     </End>
-    <End Role="student" Type="pucitdbModel.Store.student" Multiplicity="*" />
+    <End Role="student" Type="Self.student" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="semester">
         <PropertyRef Name="smid" />
@@ -916,10 +773,10 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_studentToCourses_ToTable">
-    <End Role="student" Type="pucitdbModel.Store.student" Multiplicity="1">
+    <End Role="student" Type="Self.student" Multiplicity="1">
       <OnDelete Action="Cascade" />
     </End>
-    <End Role="studentToCourses" Type="pucitdbModel.Store.studentToCourses" Multiplicity="*" />
+    <End Role="studentToCourses" Type="Self.studentToCourses" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="student">
         <PropertyRef Name="sid" />
@@ -930,10 +787,10 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_studentToCourses_ToTable_1">
-    <End Role="courses" Type="pucitdbModel.Store.courses" Multiplicity="1">
+    <End Role="courses" Type="Self.courses" Multiplicity="1">
       <OnDelete Action="Cascade" />
     </End>
-    <End Role="studentToCourses" Type="pucitdbModel.Store.studentToCourses" Multiplicity="*" />
+    <End Role="studentToCourses" Type="Self.studentToCourses" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="courses">
         <PropertyRef Name="cid" />
@@ -944,10 +801,10 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_teacherClass_ToTable">
-    <End Role="teacher" Type="pucitdbModel.Store.teacher" Multiplicity="1">
+    <End Role="teacher" Type="Self.teacher" Multiplicity="1">
       <OnDelete Action="Cascade" />
     </End>
-    <End Role="teacherClass" Type="pucitdbModel.Store.teacherClass" Multiplicity="*" />
+    <End Role="teacherClass" Type="Self.teacherClass" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="teacher">
         <PropertyRef Name="tid" />
@@ -958,10 +815,10 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_teacherClass_ToTable_1">
-    <End Role="courses" Type="pucitdbModel.Store.courses" Multiplicity="1">
+    <End Role="courses" Type="Self.courses" Multiplicity="1">
       <OnDelete Action="Cascade" />
     </End>
-    <End Role="teacherClass" Type="pucitdbModel.Store.teacherClass" Multiplicity="*" />
+    <End Role="teacherClass" Type="Self.teacherClass" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="courses">
         <PropertyRef Name="cid" />
@@ -972,10 +829,10 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_teacherToCourses_ToTable">
-    <End Role="teacher" Type="pucitdbModel.Store.teacher" Multiplicity="1">
+    <End Role="teacher" Type="Self.teacher" Multiplicity="1">
       <OnDelete Action="Cascade" />
     </End>
-    <End Role="teacherToCourses" Type="pucitdbModel.Store.teacherToCourses" Multiplicity="*" />
+    <End Role="teacherToCourses" Type="Self.teacherToCourses" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="teacher">
         <PropertyRef Name="tid" />
@@ -986,10 +843,10 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_teacherToCourses_ToTable_1">
-    <End Role="courses" Type="pucitdbModel.Store.courses" Multiplicity="1">
+    <End Role="courses" Type="Self.courses" Multiplicity="1">
       <OnDelete Action="Cascade" />
     </End>
-    <End Role="teacherToCourses" Type="pucitdbModel.Store.teacherToCourses" Multiplicity="*" />
+    <End Role="teacherToCourses" Type="Self.teacherToCourses" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="courses">
         <PropertyRef Name="cid" />
@@ -999,4 +856,200 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <EntityContainer Name="NudbModelStoreContainer">
+    <EntitySet Name="Announcement" EntityType="Self.Announcement" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="assignment" EntityType="Self.assignment" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="assignmentResult" EntityType="Self.assignmentResult" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="attendance" EntityType="Self.attendance" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="attendance1" EntityType="Self.attendance1" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="commentLike" EntityType="Self.commentLike" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="comments" EntityType="Self.comments" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="courses" EntityType="Self.courses" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="coursesInSemester" EntityType="Self.coursesInSemester" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="FileData" EntityType="Self.FileData" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="groups" EntityType="Self.groups" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Log" EntityType="Self.Log" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="LogStudent" EntityType="Self.LogStudent" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="LogTeacher" EntityType="Self.LogTeacher" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="postLike" EntityType="Self.postLike" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="posts" EntityType="Self.posts" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="question" EntityType="Self.question" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="quiz" EntityType="Self.quiz" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="quizResult" EntityType="Self.quizResult" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="semester" EntityType="Self.semester" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="student" EntityType="Self.student" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="studentToCourses" EntityType="Self.studentToCourses" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="teacher" EntityType="Self.teacher" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="teacherClass" EntityType="Self.teacherClass" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="teacherToCourses" EntityType="Self.teacherToCourses" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="user" EntityType="Self.user" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_Announcement_ToTable" Association="Self.FK_Announcement_ToTable">
+      <End Role="user" EntitySet="user" />
+      <End Role="Announcement" EntitySet="Announcement" />
+    </AssociationSet>
+    <AssociationSet Name="FK_assignment_ToTable" Association="Self.FK_assignment_ToTable">
+      <End Role="teacher" EntitySet="teacher" />
+      <End Role="assignment" EntitySet="assignment" />
+    </AssociationSet>
+    <AssociationSet Name="FK_assignment_ToTable_1" Association="Self.FK_assignment_ToTable_1">
+      <End Role="courses" EntitySet="courses" />
+      <End Role="assignment" EntitySet="assignment" />
+    </AssociationSet>
+    <AssociationSet Name="FK_assignmentResult_ToTable" Association="Self.FK_assignmentResult_ToTable">
+      <End Role="assignment" EntitySet="assignment" />
+      <End Role="assignmentResult" EntitySet="assignmentResult" />
+    </AssociationSet>
+    <AssociationSet Name="FK_assignmentResult_ToTable_1" Association="Self.FK_assignmentResult_ToTable_1">
+      <End Role="student" EntitySet="student" />
+      <End Role="assignmentResult" EntitySet="assignmentResult" />
+    </AssociationSet>
+    <AssociationSet Name="FK_assignmentResult_ToTable_2" Association="Self.FK_assignmentResult_ToTable_2">
+      <End Role="courses" EntitySet="courses" />
+      <End Role="assignmentResult" EntitySet="assignmentResult" />
+    </AssociationSet>
+    <AssociationSet Name="FK_attendance_ToTable" Association="Self.FK_attendance_ToTable">
+      <End Role="student" EntitySet="student" />
+      <End Role="attendance" EntitySet="attendance" />
+    </AssociationSet>
+    <AssociationSet Name="FK_attendance_ToTable_1" Association="Self.FK_attendance_ToTable_1">
+      <End Role="courses" EntitySet="courses" />
+      <End Role="attendance" EntitySet="attendance" />
+    </AssociationSet>
+    <AssociationSet Name="FK_attendance_ToTable_2" Association="Self.FK_attendance_ToTable_2">
+      <End Role="teacher" EntitySet="teacher" />
+      <End Role="attendance" EntitySet="attendance" />
+    </AssociationSet>
+    <AssociationSet Name="FK_attendance1_ToTable" Association="Self.FK_attendance1_ToTable">
+      <End Role="student" EntitySet="student" />
+      <End Role="attendance1" EntitySet="attendance1" />
+    </AssociationSet>
+    <AssociationSet Name="FK_attendance1_ToTable_1" Association="Self.FK_attendance1_ToTable_1">
+      <End Role="courses" EntitySet="courses" />
+      <End Role="attendance1" EntitySet="attendance1" />
+    </AssociationSet>
+    <AssociationSet Name="FK_attendance1_ToTable_2" Association="Self.FK_attendance1_ToTable_2">
+      <End Role="teacher" EntitySet="teacher" />
+      <End Role="attendance1" EntitySet="attendance1" />
+    </AssociationSet>
+    <AssociationSet Name="FK_commentLike_ToTable" Association="Self.FK_commentLike_ToTable">
+      <End Role="comments" EntitySet="comments" />
+      <End Role="commentLike" EntitySet="commentLike" />
+    </AssociationSet>
+    <AssociationSet Name="FK_commentLike_ToTable_1" Association="Self.FK_commentLike_ToTable_1">
+      <End Role="user" EntitySet="user" />
+      <End Role="commentLike" EntitySet="commentLike" />
+    </AssociationSet>
+    <AssociationSet Name="FK_comments_ToTable" Association="Self.FK_comments_ToTable">
+      <End Role="user" EntitySet="user" />
+      <End Role="comments" EntitySet="comments" />
+    </AssociationSet>
+    <AssociationSet Name="FK_comments_ToTable_1" Association="Self.FK_comments_ToTable_1">
+      <End Role="posts" EntitySet="posts" />
+      <End Role="comments" EntitySet="comments" />
+    </AssociationSet>
+    <AssociationSet Name="FK_coursesInSemester_ToTable" Association="Self.FK_coursesInSemester_ToTable">
+      <End Role="semester" EntitySet="semester" />
+      <End Role="coursesInSemester" EntitySet="coursesInSemester" />
+    </AssociationSet>
+    <AssociationSet Name="FK_coursesInSemester_ToTable_1" Association="Self.FK_coursesInSemester_ToTable_1">
+      <End Role="courses" EntitySet="courses" />
+      <End Role="coursesInSemester" EntitySet="coursesInSemester" />
+    </AssociationSet>
+    <AssociationSet Name="FK_groups_ToTable" Association="Self.FK_groups_ToTable">
+      <End Role="user" EntitySet="user" />
+      <End Role="groups" EntitySet="groups" />
+    </AssociationSet>
+    <AssociationSet Name="FK_log_ToTable" Association="Self.FK_log_ToTable">
+      <End Role="student" EntitySet="student" />
+      <End Role="Log" EntitySet="Log" />
+    </AssociationSet>
+    <AssociationSet Name="FK_log_ToTable_1" Association="Self.FK_log_ToTable_1">
+      <End Role="courses" EntitySet="courses" />
+      <End Role="Log" EntitySet="Log" />
+    </AssociationSet>
+    <AssociationSet Name="FK_log_ToTable_2" Association="Self.FK_log_ToTable_2">
+      <End Role="teacher" EntitySet="teacher" />
+      <End Role="Log" EntitySet="Log" />
+    </AssociationSet>
+    <AssociationSet Name="FK_logTeacher_ToTable_1" Association="Self.FK_logTeacher_ToTable_1">
+      <End Role="courses" EntitySet="courses" />
+      <End Role="LogTeacher" EntitySet="LogTeacher" />
+    </AssociationSet>
+    <AssociationSet Name="FK_logTeacher_ToTable_2" Association="Self.FK_logTeacher_ToTable_2">
+      <End Role="teacher" EntitySet="teacher" />
+      <End Role="LogTeacher" EntitySet="LogTeacher" />
+    </AssociationSet>
+    <AssociationSet Name="FK_postLike_ToPost" Association="Self.FK_postLike_ToPost">
+      <End Role="posts" EntitySet="posts" />
+      <End Role="postLike" EntitySet="postLike" />
+    </AssociationSet>
+    <AssociationSet Name="FK_postLike_ToPost1" Association="Self.FK_postLike_ToPost1">
+      <End Role="user" EntitySet="user" />
+      <End Role="postLike" EntitySet="postLike" />
+    </AssociationSet>
+    <AssociationSet Name="FK_posts_ToTable" Association="Self.FK_posts_ToTable">
+      <End Role="user" EntitySet="user" />
+      <End Role="posts" EntitySet="posts" />
+    </AssociationSet>
+    <AssociationSet Name="FK_posts_ToTable_1" Association="Self.FK_posts_ToTable_1">
+      <End Role="groups" EntitySet="groups" />
+      <End Role="posts" EntitySet="posts" />
+    </AssociationSet>
+    <AssociationSet Name="FK_question_ToTable" Association="Self.FK_question_ToTable">
+      <End Role="courses" EntitySet="courses" />
+      <End Role="question" EntitySet="question" />
+    </AssociationSet>
+    <AssociationSet Name="FK_quiz_ToTable" Association="Self.FK_quiz_ToTable">
+      <End Role="teacher" EntitySet="teacher" />
+      <End Role="quiz" EntitySet="quiz" />
+    </AssociationSet>
+    <AssociationSet Name="FK_quiz_ToTable_1" Association="Self.FK_quiz_ToTable_1">
+      <End Role="courses" EntitySet="courses" />
+      <End Role="quiz" EntitySet="quiz" />
+    </AssociationSet>
+    <AssociationSet Name="FK_quizResult_ToTable" Association="Self.FK_quizResult_ToTable">
+      <End Role="quiz" EntitySet="quiz" />
+      <End Role="quizResult" EntitySet="quizResult" />
+    </AssociationSet>
+    <AssociationSet Name="FK_quizResult_ToTable_1" Association="Self.FK_quizResult_ToTable_1">
+      <End Role="student" EntitySet="student" />
+      <End Role="quizResult" EntitySet="quizResult" />
+    </AssociationSet>
+    <AssociationSet Name="FK_quizResult_ToTable_2" Association="Self.FK_quizResult_ToTable_2">
+      <End Role="courses" EntitySet="courses" />
+      <End Role="quizResult" EntitySet="quizResult" />
+    </AssociationSet>
+    <AssociationSet Name="FK_quizResult_ToTable_3" Association="Self.FK_quizResult_ToTable_3">
+      <End Role="teacher" EntitySet="teacher" />
+      <End Role="quizResult" EntitySet="quizResult" />
+    </AssociationSet>
+    <AssociationSet Name="FK_student_ToTable" Association="Self.FK_student_ToTable">
+      <End Role="semester" EntitySet="semester" />
+      <End Role="student" EntitySet="student" />
+    </AssociationSet>
+    <AssociationSet Name="FK_studentToCourses_ToTable" Association="Self.FK_studentToCourses_ToTable">
+      <End Role="student" EntitySet="student" />
+      <End Role="studentToCourses" EntitySet="studentToCourses" />
+    </AssociationSet>
+    <AssociationSet Name="FK_studentToCourses_ToTable_1" Association="Self.FK_studentToCourses_ToTable_1">
+      <End Role="courses" EntitySet="courses" />
+      <End Role="studentToCourses" EntitySet="studentToCourses" />
+    </AssociationSet>
+    <AssociationSet Name="FK_teacherClass_ToTable" Association="Self.FK_teacherClass_ToTable">
+      <End Role="teacher" EntitySet="teacher" />
+      <End Role="teacherClass" EntitySet="teacherClass" />
+    </AssociationSet>
+    <AssociationSet Name="FK_teacherClass_ToTable_1" Association="Self.FK_teacherClass_ToTable_1">
+      <End Role="courses" EntitySet="courses" />
+      <End Role="teacherClass" EntitySet="teacherClass" />
+    </AssociationSet>
+    <AssociationSet Name="FK_teacherToCourses_ToTable" Association="Self.FK_teacherToCourses_ToTable">
+      <End Role="teacher" EntitySet="teacher" />
+      <End Role="teacherToCourses" EntitySet="teacherToCourses" />
+    </AssociationSet>
+    <AssociationSet Name="FK_teacherToCourses_ToTable_1" Association="Self.FK_teacherToCourses_ToTable_1">
+      <End Role="courses" EntitySet="courses" />
+      <End Role="teacherToCourses" EntitySet="teacherToCourses" />
+    </AssociationSet>
+  </EntityContainer>
 </Schema>

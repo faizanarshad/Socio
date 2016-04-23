@@ -1,0 +1,44 @@
+﻿@{
+    ViewBag.Title = "FinalResult";
+}
+
+<script>
+  $('document').ready(function () {
+
+
+        $(".k-primary").kendoButton();
+
+  });
+</script>
+
+
+<div class ="k-content" style ="background-color:mintcream; height:auto; width:40%;margin-left:25%"> 
+  
+    <br><h2 class="k-header">Show Final Term Result:</h2><br><br>
+   
+         <form class="forms" role="form" method ="post" action ="/Student/DownLoadFinalResult" enctype="multipart/form-data">
+
+             <div style ="font-size:medium" class="editor-label">
+            Class:
+        </div>
+        <div class="editor-field"> 
+                    Select Fall:
+                    <select id = "fall" name ="fall" >
+                        <option value="140">140</option>
+                        <option value="141">141</option>
+                        <option value="142">142</option>
+                         
+                  </select>
+
+                   Select Degree:
+
+                        <select id = "degree" name ="degree" >
+          		        <option value="BCS">BCS</option>
+                        <option value="MCS">MCS</option>
+          		        
+                        
+                  </select>
+        </div>
+             <br><br><button class="k-primary" type="submit" id ="btn2" style="width:25%;height:auto; margin-bottom:3%">View Final Result</button>
+    </form>
+</div>

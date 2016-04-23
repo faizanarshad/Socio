@@ -16,8 +16,7 @@ namespace MVC_First.Controllers
     {
         IStudentDAL student;
 
-        PucitDBEntities db = new PucitDBEntities();
-        puEntities db1 = new puEntities();
+        NudbEntities db = new NudbEntities();
 
         public StudentController ( IStudentDAL IS )
         {
@@ -80,177 +79,6 @@ namespace MVC_First.Controllers
         }
 
 
-        public ActionResult SendMail()
-        {
-            return View();
-        }
-        [HttpPost]
-        public ViewResult SendMail(MailModel _objModelMail)
-        {
-            if (ModelState.IsValid)
-            {
-                MailMessage mail = new MailMessage();
-                mail.To.Add(_objModelMail.To);
-                mail.From = new MailAddress("faizanarshad124@gmail.com");
-                mail.Subject = _objModelMail.Subject;
-                string Body = _objModelMail.Body;
-                mail.Body = Body;
-                mail.IsBodyHtml = true;
-                SmtpClient smtp = new SmtpClient();
-                smtp.Host = "smtp.gmail.com";
-                smtp.Port = 587;
-                smtp.UseDefaultCredentials = false;
-                smtp.Credentials = new System.Net.NetworkCredential
-                ("nufeit@gmail.com", "skyfighter");
-                smtp.EnableSsl = true;
-                smtp.Send(mail);
-                return View("TeacherHome");
-            }
-            else
-            {
-                return View();
-            }
-        }
-
-        public JsonResult AddComment()
-        {
-            string body = Request["id"];
-            string pid = Request["pid"];
-            string sid = Session["id"].ToString();
-
-            comment c = new comment();
-            c.body = body;
-            c.c_creator = sid;
-            c.likes = 0;
-            c.time = DateTime.Now;
-            c.pid = Convert.ToInt32(pid);
-
-            db.comments.Add(c);
-            db.SaveChanges();
-
-            
-            return this.Json(c, JsonRequestBehavior.AllowGet);
-        }
-
-        public JsonResult AddPost()
-        {
-            string body = Request["id"];
-            string gid = Request["gid"];
-            string sid = Session["id"].ToString();
-
-            post p = new post();
-            p.body = body;
-            p.p_creator = sid;
-            p.likes = 0;
-            p.time = DateTime.Now;
-            p.grpID = Convert.ToInt32(gid);
-
-            db.posts.Add(p);
-            db.SaveChanges();
-
-            return this.Json(p, JsonRequestBehavior.AllowGet);
-        }
-
-        public ActionResult ShowGroupData(string gid)
-        {
-            if (Session["id"] != null && db.users.Find(Session["id"]).type.Equals("Student"))
-            {
-                int grp = Convert.ToInt32(gid);
-                var data = from x in db.posts
-                           where x.grpID == grp
-                           select x;
-
-                ViewBag.grpID = grp;
-                ViewBag.grpNam = db.groups.Find(grp).name;
-                return View(data.ToList());
-            }
-            else
-            {
-                return RedirectToAction("signIn", "Home");
-            }
-        }
-
-        public ActionResult ShowComments(string pid)
-        {
-            if (Session["id"] != null && db.users.Find(Session["id"]).type.Equals("Student"))
-            {
-                int post = Convert.ToInt32(pid);
-                var data = from x in db.comments
-                           where x.pid == post
-                           select x;
-
-                var posts = db.posts.Find(post);
-
-                ViewBag.grpName = db.groups.Find(posts.grpID).name;
-                ViewBag.pCreator = posts.p_creator;
-                ViewBag.time = posts.time;
-                ViewBag.body = posts.body;
-                ViewBag.likes = posts.likes;
-                ViewBag.postID = post;
-
-                return View(data.ToList());
-            }
-            else
-            {
-                return RedirectToAction("signIn", "Home");
-            }
-        }
-
-        public ActionResult DiscussionForum()
-        {
-            if (Session["id"] != null && db.users.Find(Session["id"]).type.Equals("Student"))
-            {
-                return View();
-            }
-            else
-            {
-                return RedirectToAction("signIn", "Home");
-            }
-        }
-
-        public ActionResult ViewGroups()
-        {
-            if (Session["id"] != null && db.users.Find(Session["id"]).type.Equals("Student"))
-            {
-                var s1 = db.students.Find(Session["id"]);
-                if (s1 != null)
-                {
-                    string classname = s1.session;
-                    var data = db.groups.Where(x => x.@class.Equals(classname));
-                    return View(data.ToList());
-                }
-                else
-                {
-                    ViewBag.message = "No Group Exist For user";
-                    return View("MessageToUser");
-                }
-            }
-            else
-            {
-                return RedirectToAction("signIn", "Home");
-            }
-        }
-
-        public ActionResult Attendance(string c)
-        {
-
-            if (Session["id"] != null && db.users.Find(Session["id"]).type.Equals("Student"))
-            {
-                var a1 = Session["id"];
-                string n = a1.ToString();
-                List<attendance1> ar = (from x in db.attendance1.Where(f => f.courseId.Equals(c) && f.studentId.Equals(n)) 
-                                        select x).ToList();
-                if (ar.Count == 0)
-                {
-                    return RedirectToAction("notEnrolled","Student");
-                }
-
-                return View(ar);
-            }
-            else
-                return RedirectToAction("signIn", "Home");
-
-        }
 
         public ActionResult TakeQuiz()
         {
@@ -546,6 +374,7 @@ namespace MVC_First.Controllers
                 a.sid = q.sid;
                 a.marksObtained = q.marksObtained;
                 a.totalMarks = q.totalMarks;
+                a.comment = q.comment;
 
                 data.Add(a);
             }
@@ -608,6 +437,7 @@ namespace MVC_First.Controllers
         {
             HttpPostedFileBase file = Request.Files[0];
             
+            
                 file.SaveAs(Server.MapPath(@"~\Files\" + file.FileName));
 
                 var dataFile = Server.MapPath(@"~\Files\" + file.FileName);
@@ -625,69 +455,13 @@ namespace MVC_First.Controllers
 
                     assignment ass = student.getAssignmentData(cid, aNo);
 
-                    FileStream fin = new FileStream(dataFile1, FileMode.Open);
-                    StreamReader sr = new StreamReader(fin);
-                    string result = sr.ReadLine();
-
-                    List<string> OutFile = new List<string>();
-
-                    char[] delimiterChar = { ' ' };
-                    string[] data = null;
-                    int i = 0;
-                    while (result != null)
-                    {
-                        data = result.Split(delimiterChar);
-                        i = 0;
-                        while (i < data.Length)
-                        {
-                            OutFile.Add(data[i]);
-                            i++;
-                        }
-                        result = sr.ReadLine();
-                    }
-                    sr.Close();
-                    fin.Close();
-
                     var dataFile2 = ass.solutionFilePath;
-
-                    FileStream fin1 = new FileStream(dataFile2, FileMode.Open);
-                    StreamReader sr1 = new StreamReader(fin1);
-                    result = sr1.ReadLine();
-
-                    List<string> SolFile = new List<string>();
-
-                    while (result != null)
-                    {
-                        data = result.Split(delimiterChar);
-                        int j = 0;
-                        while (j < data.Length)
-                        {
-                            SolFile.Add(data[j]);
-                            j++;
-                        }
-                        result = sr1.ReadLine();
-                    }
-                    sr1.Close();
-                    fin1.Close();
-
-                    i = 0;
-                    double count = 0;
-                    while (i < OutFile.Count && i < SolFile.Count)
-                    {
-                        if (OutFile[i].Equals(SolFile[i]))
-                            count = count + 1;
-                        i = i + 1;
-                    }
-                    int marks = 0;
-                    if (count == SolFile.Count)
-                        marks = ass.totalMarks;
 
                     assignmentResult a = new assignmentResult();
 
                     a.aid = ass.aid;
                     a.cid = cid;
                     a.sid = Session["id"].ToString();
-                    a.marksObtained = marks;
                     a.aNumber = ass.aNumber;
                     a.totalMarks = ass.totalMarks;
                     a.codeFilePath = dataFile;
@@ -740,7 +514,7 @@ namespace MVC_First.Controllers
             string name = Session["id"].ToString();
 
 
-            // var a = cx.Announcements.Where(x => x.audience.Equals(name) ORDER BY (date) DESC );
+            
             var a = from x in db.Announcements
                     where x.destination.Equals(name) && (!(x.title.Equals("message")) && !(x.Sender_u_id.Equals("ExamBranch"))) //&& x.status.Equals("0")
                     select x;
@@ -751,23 +525,12 @@ namespace MVC_First.Controllers
             return View(a.ToList());
         }
 
-        public ActionResult inbox()
+      
+        public ActionResult showMidResult()
         {
-
-            string name = Session["id"].ToString();
-
-
-            // var a = cx.Announcements.Where(x => x.audience.Equals(name) ORDER BY (date) DESC );
-            var a = from x in db.Announcements
-                    where x.destination.Equals(name) && (x.title.Equals("message") && (!(x.Sender_u_id.Equals("ExamBranch"))))//&& x.status.Equals("0")
-                    select x;
-
-
-
-
-            return View(a.ToList());
+            return View();
         }
-        public ActionResult showDatesheet()
+        public ActionResult showFinalResult()
         {
             return View();
         }
@@ -780,15 +543,35 @@ namespace MVC_First.Controllers
             string contentType = "application/pdf";
             return File(filename, contentType);
         }
-        public FileResult DownLoadDatesheet()
+        public FileResult DownLoadMidResult()
         {
             string fall = Request["fall"];
             string degree = Request["degree"];
             string cname = degree + fall;
 
-            var query = from f in db.DateSheets
-                               where f.className.Equals(cname)
-                               select f;
+            var query = from f in db.FileDatas
+                        where f.className.Equals(cname) && f.type.Equals("Mid")
+                        select f;
+
+            string filename = "result";
+
+            foreach (var q in query)
+                filename = q.filePath;
+
+            string contentType = "application/pdf";
+            return File(filename, contentType);
+            
+        }
+        public FileResult DownLoadFinalResult()
+        {
+            string fall = Request["fall"];
+            string degree = Request["degree"];
+            string cname = degree + fall;
+
+            var query = from f in db.FileDatas
+                        where f.className.Equals(cname) && f.type.Equals("Final")
+                        select f;
+
 
             string filename = "result";
 
@@ -798,17 +581,12 @@ namespace MVC_First.Controllers
             string contentType = "application/pdf";
             return File(filename, contentType);
         }
-        /// <summary>
-        /// JSon functions for all buttons at student side starts here 
-        /// </summary>
-        /// <returns></returns>
+        
 
         [HttpPost]
         public JsonResult Notification1(string uid)
         {
-            // string name = Session["id"].ToString();
            
-           // string name = Request["uid"];r
             string name = Request["uid"];
             Response.AppendHeader("Access-Control-Allow-Origin", "null");
 
@@ -829,17 +607,14 @@ namespace MVC_First.Controllers
                 anno.Add(an);
             }
             
-            //var data = student.GetCourses(name);
-
-            //Response.AppendHeader("Access-Control-Allow-Origin", "null");
-
+            
             return this.Json(anno, JsonRequestBehavior.AllowGet);
         }
         public JsonResult ViewCourseJson(string uid)
         {
             string sid = Request["uid"];
             Response.AppendHeader("Access-Control-Allow-Origin", "null");
-            //.string sid = Session["id"].ToString();
+            
 
             var query = (from x in db.students.Where(f => f.sid.Equals(sid))
                          from p in db.courses.Where(g => g.students.Contains(x))
@@ -944,180 +719,51 @@ namespace MVC_First.Controllers
            return Json(ar, JsonRequestBehavior.AllowGet);
 
         }
+        public ActionResult Attendance(string c)
+        {
 
+            if (Session["id"] != null && db.users.Find(Session["id"]).type.Equals("Student"))
+            {
+                var a1 = Session["id"];
+                string n = a1.ToString();
+                List<attendance1> ar = (from x in db.attendance1.Where(f => f.courseId.Equals(c) && f.studentId.Equals(n))
+                                        select x).ToList();
+                if (ar.Count == 0)
+                {
+                    return RedirectToAction("notEnrolled", "Student");
+                }
 
-        public ActionResult viewDatesheet()
+                return View(ar);
+            }
+            else
+                return RedirectToAction("signIn", "Home");
+
+        }
+
+        public ActionResult viewMidResult()
         {
 
             string name = Session["id"].ToString();
             var a = from x in db.Announcements
-                    where x.destination.Equals(name) && (!(x.title.Equals("message")) && (x.Sender_u_id.Equals("ExamBranch"))) //&& x.status.Equals("0")
+                    where x.destination.Equals(name) && (!(x.title.Equals("message")) && (x.Sender_u_id.Equals("Teacher"))) //&& x.status.Equals("0")
                     select x;
 
 
 
             return View(a.ToList());
         }
-        public ActionResult personalMesgS2S()
-        {
-            if (Session["id"] != null && db.users.Find(Session["id"]).type.Equals("Student"))
-            {
-                return View();
-
-            }
-            return RedirectToAction("signIn", "Home");
-
-        }
-        public ActionResult personalMesgS2T()
-        {
-            if (Session["id"] != null && db.users.Find(Session["id"]).type.Equals("Student"))
-            {
-                return View();
-
-            }
-            return RedirectToAction("signIn", "Home");
-
-        }
-
-        public ActionResult personalMesg2S()
+        public ActionResult viewFinalResult()
         {
 
-            if (Session["id"] != null && db.users.Find(Session["id"]).type.Equals("Student"))
-            {
-                ViewBag.ttid = Session["id"];
+            string name = Session["id"].ToString();
+            var a = from x in db.Announcements
+                    where x.destination.Equals(name) && (!(x.title.Equals("message")) && (x.Sender_u_id.Equals("Teacher"))) //&& x.status.Equals("0")
+                    select x;
 
 
 
-
-                String subject = Request["sub"];
-                String mesg = Request["mesg_text"];
-
-
-
-                var dateAsString = DateTime.Now.ToString("yyyy-MM-dd");
-
-                String stid = Request["sid"];
-                var q = from x in db.students
-                        where x.sid.Equals(stid)
-                        select x;
-
-                foreach (var i in q)
-                {
-
-                    var a = new Announcement();
-                    a.destination = i.sid;
-
-                    a.audience = i.batch;
-                    a.title = "message";
-                    a.mesg_text = mesg;
-
-                    a.Sender_u_id = Session["id"].ToString();
-                    a.dateTime = DateTime.Now;
-                    a.status = "0";
-
-                    db.Announcements.Add(a);
-
-
-
-                }
-
-                try
-                {
-
-                    db.SaveChanges();
-                }
-                catch (DbEntityValidationException ex)
-                {
-                    StringBuilder sb = new StringBuilder();
-
-                    foreach (var failure in ex.EntityValidationErrors)
-                    {
-                        sb.AppendFormat("{0} failed validation\n", failure.Entry.Entity.GetType());
-                        foreach (var error in failure.ValidationErrors)
-                        {
-                            sb.AppendFormat("- {0} : {1}", error.PropertyName, error.ErrorMessage);
-                            sb.AppendLine();
-                        }
-                    }
-
-                    throw new DbEntityValidationException(
-                        "Entity Validation Failed - errors follow:\n" +
-                        sb.ToString(), ex
-                    ); // Add the original exception as the innerException
-                }
-                return View("StudentHome");
-            }
-
-            return RedirectToAction("signIn", "Home");
-
+            return View(a.ToList());
         }
-
-        public ActionResult personalMesg2T()
-        {
-
-            if (Session["id"] != null && db.users.Find(Session["id"]).type.Equals("Student"))
-            {
-                ViewBag.ttid = Session["id"];
-
-                String subject = Request["sub"];
-                String mesg = Request["mesg_text"];
-
-                var dateAsString = DateTime.Now.ToString("yyyy-MM-dd");
-
-                String ttid = Request["tid"];
-                var q = from x in db.teachers
-                        where x.tid.Equals(ttid)
-                        select x;
-
-                foreach (var i in q)
-                {
-
-
-                    var a = new Announcement();
-                    a.destination = i.tid;
-
-                    a.audience = i.name;
-                    a.title = "message";
-                    a.mesg_text = mesg;
-
-                    a.Sender_u_id = Session["id"].ToString();
-                    a.dateTime = DateTime.Now;
-                    a.status = "0";
-
-                    db.Announcements.Add(a);
-
-
-                }
-
-                try
-                {
-
-                    db.SaveChanges();
-                }
-                catch (DbEntityValidationException ex)
-                {
-                    StringBuilder sb = new StringBuilder();
-
-                    foreach (var failure in ex.EntityValidationErrors)
-                    {
-                        sb.AppendFormat("{0} failed validation\n", failure.Entry.Entity.GetType());
-                        foreach (var error in failure.ValidationErrors)
-                        {
-                            sb.AppendFormat("- {0} : {1}", error.PropertyName, error.ErrorMessage);
-                            sb.AppendLine();
-                        }
-                    }
-
-                    throw new DbEntityValidationException(
-                        "Entity Validation Failed - errors follow:\n" +
-                        sb.ToString(), ex
-                    ); // Add the original exception as the innerException
-                }
-                return View("StudentHome");
-            }
-
-            return RedirectToAction("signIn", "Home");
-
-        }
+       
     }
 }

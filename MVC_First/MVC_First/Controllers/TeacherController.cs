@@ -15,9 +15,9 @@ namespace MVC_First.Controllers
     public class TeacherController : Controller
     {
         ITeacherDAL teacher;
-        private PucitDBEntities db = new PucitDBEntities();
+        private NudbEntities db = new NudbEntities();
 
-        int id;//= 1;
+        
         String a_id;
 
         public TeacherController(ITeacherDAL it)
@@ -201,182 +201,7 @@ namespace MVC_First.Controllers
             return this.Json(true, JsonRequestBehavior.AllowGet);
         }
 
-        public ActionResult SendMail()
-        {
-            if (Session["id"] != null && db.users.Find(Session["id"]).type.Equals("Teacher"))
-            {
-                return View();
-            }
-            else
-                return RedirectToAction("signIn" , "Home");
-        }
-        [HttpPost]
-        public ActionResult SendMail(MailModel _objModelMail)
-        {
-            if (Session["id"] != null && db.users.Find(Session["id"]).type.Equals("Teacher"))
-            {
-                if (ModelState.IsValid)
-                {
-                    try
-                    {
-                        MailMessage mail = new MailMessage();
-                        mail.To.Add(_objModelMail.To);
-                        mail.From = new MailAddress("faizanarshad124@gmail.com");
-                        mail.Subject = _objModelMail.Subject;
-                        string Body = _objModelMail.Body;
-                        mail.Body = Body;
-                        mail.IsBodyHtml = true;
-                        SmtpClient smtp = new SmtpClient();
-                        smtp.Host = "smtp.gmail.com";
-                        smtp.Port = 587;
-                        smtp.UseDefaultCredentials = false;
-                        smtp.Credentials = new System.Net.NetworkCredential
-                        ("nufeit@gmail.com", "skyfighter");
-                        smtp.EnableSsl = true;
-                        smtp.Send(mail);
-                        return View("TeacherHome");
-                    }
-                    catch (Exception e)
-                    {
-                        ViewBag.ErrorType = "Exception";
-                        ViewBag.message = e.Message;
-                        return View("ErrorPage");
-                    }
-                }
-                else
-                {
-                    return View();
-                }
-            }
-            else
-                return RedirectToAction("signIn" , "Home");
-        }
-
-        public JsonResult AddComment()
-        {
-            string body = Request["id"];
-            string pid = Request["pid"];
-            string tid = Session["id"].ToString();
-
-            comment c = new comment();
-            c.body = body;
-            c.c_creator = tid;
-            c.likes = 0;
-            c.time = DateTime.Now;
-            c.pid = Convert.ToInt32(pid);
-
-            db.comments.Add(c);
-            db.SaveChanges();
-
-
-            return this.Json(c, JsonRequestBehavior.AllowGet);
-        }
-
-        public JsonResult AddPost()
-        {
-            string body = Request["id"];
-            string gid = Request["gid"];
-            string tid = Session["id"].ToString();
-
-            post p = new post();
-            p.body = body;
-            p.p_creator = tid;
-            p.likes = 0;
-            p.time = DateTime.Now;
-            p.grpID = Convert.ToInt32(gid);
-
-            db.posts.Add(p);
-            db.SaveChanges();
-
-            return this.Json(p, JsonRequestBehavior.AllowGet);
-        }
-
-        public ActionResult ShowGroupData(string gid)
-        {
-            if (Session["id"] != null && db.users.Find(Session["id"]).type.Equals("Teacher"))
-            {
-                try
-                {
-                    int grp = Convert.ToInt32(gid);
-                    var data = from x in db.posts
-                               where x.grpID == grp
-                               select x;
-
-                    ViewBag.grpID = grp;
-                    ViewBag.grpNam = db.groups.Find(grp).name;
-                    return View(data.ToList());
-                }
-                catch (Exception e)
-                {
-                    ViewBag.ErrorType = "Exception";
-                    ViewBag.message = e.Message;
-                    return View("ErrorPage");
-                }
-            }
-            else
-            {
-                return RedirectToAction("signIn", "Home");
-            }
-        }
-
-        public ActionResult ShowComments(string pid)
-        {
-            if (Session["id"] != null && db.users.Find(Session["id"]).type.Equals("Teacher"))
-            {
-                try
-                {
-                    int post = Convert.ToInt32(pid);
-                    var data = from x in db.comments
-                               where x.pid == post
-                               select x;
-
-                    var posts = db.posts.Find(post);
-
-                    ViewBag.grpName = db.groups.Find(posts.grpID).name;
-                    ViewBag.pCreator = posts.p_creator;
-                    ViewBag.time = posts.time;
-                    ViewBag.body = posts.body;
-                    ViewBag.likes = posts.likes;
-                    ViewBag.postID = post;
-
-                    return View(data.ToList());
-                }
-                catch (Exception e)
-                {
-                    ViewBag.ErrorType = "Exception";
-                    ViewBag.message = e.Message;
-                    return View("ErrorPage");
-                }
-            }
-            else
-            {
-                return RedirectToAction("signIn", "Home");
-            }
-        }
-
-        public ActionResult DiscussionForum()
-        {
-            if (Session["id"] != null && db.users.Find(Session["id"]).type.Equals("Teacher"))
-            {
-                return View();
-            }
-            else
-            {
-                return RedirectToAction("signIn", "Home");
-            }
-        }
-
-        public ActionResult ViewGroups()
-        {
-            if (Session["id"] != null && db.users.Find(Session["id"]).type.Equals("Teacher"))
-            {
-                return View(db.groups.ToList());
-            }
-            else
-            {
-                return RedirectToAction("signIn", "Home");
-            }
-        }
+        
 		
         public ActionResult ConductQuiz()
         {
@@ -1217,7 +1042,7 @@ namespace MVC_First.Controllers
 
                     List<assignmentResult> data = new List<assignmentResult>();
 
-                    data = teacher.getAssignmentsResult(tid, cid, aNo);
+                    data = teacher.getAssignmentsResult(cid, aNo);
 
                     var q = from x in db.courses where x.cid == cid select x;
                     string cname = "";
@@ -1600,7 +1425,48 @@ namespace MVC_First.Controllers
 
         }
 
+        public void SaveUpdatedAssignmentResult(assignmentResult result)
+        {
+            db.Entry(result).State = EntityState.Modified;
 
+            db.SaveChanges();
+        }
+
+        public ActionResult SetAssignmentMarks()
+        {
+            if (Session["id"] != null && db.users.Find(Session["id"]).type.Equals("Teacher"))
+            {
+                try
+                {
+                    string cid = Session["cid"].ToString();
+                    string sid = Session["sid"].ToString();
+                    int aid = Convert.ToInt32(Session["aid"].ToString());
+
+                    ViewBag.ttid = Session["id"];
+                    int marks = Convert.ToInt32(Request["marks"]);
+                    String mesg = Request["mesg_text"];
+
+                    assignmentResult ass = db.assignmentResults.Where(f => (f.aid.Equals(aid) && f.sid.Equals(sid) && f.cid.Equals(cid))).FirstOrDefault<assignmentResult>();
+                    
+                    ass.marksObtained = marks;
+                    ass.comment = mesg;
+
+                    db.Entry(ass).State = EntityState.Modified;
+
+                    db.SaveChanges();
+
+                    return View("TeacherHome");
+                }
+                catch (Exception e)
+                {
+                    ViewBag.ErrorType = "Exception";
+                    ViewBag.message = e.Message;
+                    return View("ErrorPage");
+                }
+            }
+            else
+                return RedirectToAction("signIn", "Home");
+        }
 
         public ActionResult AnnouncementAll()
         {
@@ -2146,32 +2012,76 @@ namespace MVC_First.Controllers
         }
 
 
-        public ActionResult inbox()
+        //public ActionResult inbox()
+        //{
+        //        if (Session["id"] != null && db.users.Find(Session["id"]).type.Equals("Teacher"))
+        //        {
+        //            try
+        //            {
+        //                string name = Session["id"].ToString();
+
+
+        //                // var a = cx.Announcements.Where(x => x.audience.Equals(name) ORDER BY (date) DESC );
+        //                var a = from x in db.Announcements
+        //                        where x.destination.Equals(name) && (x.title.Equals("message") && (!(x.Sender_u_id.Equals("ExamBranch")))) //&& x.status.Equals("0")
+        //                        select x;
+
+        //                return View(a.ToList());
+        //            }
+        //            catch (Exception e)
+        //            {
+        //                ViewBag.ErrorType = "Exception";
+        //                ViewBag.message = e.Message;
+        //                return View("ErrorPage");
+        //            }
+        //    }
+        //    else
+        //    {
+        //        return RedirectToAction("signIn" , "Home");
+        //    }
+        //}
+        public ActionResult UploadMidResult()
         {
-                if (Session["id"] != null && db.users.Find(Session["id"]).type.Equals("Teacher"))
+
+            return View();
+        }
+        public ActionResult saveMidResult()
+        {
+
+            if (Session["id"] != null && db.users.Find(Session["id"]).type.Equals("Teacher"))
+            {
+                HttpPostedFileBase file = Request.Files[0];
+
+                file.SaveAs(Server.MapPath(@"~\Files\" + file.FileName));
+
+                var dataFile = Server.MapPath(@"~\Files\" + file.FileName);
+
+                string fall = Request["fall"];
+                string degree = Request["degree"];
+                string tid = Session["id"].ToString();
+
+                FileData d1 = new FileData();
+                d1.className = degree + fall;
+                d1.type = "Mid";
+                String[] primaryKey = new String[] {d1.className, d1.type};
+                FileData d2 = db.FileDatas.Find(primaryKey);
+
+                if (d2 != null)
                 {
-                    try
-                    {
-                        string name = Session["id"].ToString();
+                    db.FileDatas.Remove(d2);
+                    db.SaveChanges();
+                }
 
+                d1.filePath = dataFile;
 
-                        // var a = cx.Announcements.Where(x => x.audience.Equals(name) ORDER BY (date) DESC );
-                        var a = from x in db.Announcements
-                                where x.destination.Equals(name) && (x.title.Equals("message") && (!(x.Sender_u_id.Equals("ExamBranch")))) //&& x.status.Equals("0")
-                                select x;
+                db.FileDatas.Add(d1);
+                db.SaveChanges();
 
-                        return View(a.ToList());
-                    }
-                    catch (Exception e)
-                    {
-                        ViewBag.ErrorType = "Exception";
-                        ViewBag.message = e.Message;
-                        return View("ErrorPage");
-                    }
+                return RedirectToAction("TeacherHome");
             }
             else
             {
-                return RedirectToAction("signIn" , "Home");
+                return RedirectToAction("TeacherHome", "Home");
             }
         }
 
@@ -2203,5 +2113,110 @@ namespace MVC_First.Controllers
             db.Dispose();
             base.Dispose(disposing);
         }
+        public ActionResult UploadFinalResult()
+        {
+            if (Session["id"] != null && db.users.Find(Session["id"]).type.Equals("Teacher"))
+            {
+                return View();
+            }
+            else
+                return RedirectToAction("signIn", "Home");
+        }
+        public ActionResult SaveFinalResult()
+        {
+
+            if (Session["id"] != null && db.users.Find(Session["id"]).type.Equals("Teacher"))
+            {
+                HttpPostedFileBase file = Request.Files[0];
+
+                file.SaveAs(Server.MapPath(@"~\Files\" + file.FileName));
+
+                var dataFile = Server.MapPath(@"~\Files\" + file.FileName);
+
+                string fall = Request["fall"];
+                string degree = Request["degree"];
+                string tid = Session["id"].ToString();
+
+                FileData d1 = new FileData();
+                d1.className = degree + fall;
+                d1.type = "Final";
+                String[] primaryKey = new String[] { d1.className, d1.type };
+                FileData d2 = db.FileDatas.Find(primaryKey);
+
+                if (d2 != null)
+                {
+                    db.FileDatas.Remove(d2);
+                    db.SaveChanges();
+                }
+
+                d1.filePath = dataFile;
+
+                db.FileDatas.Add(d1);
+                db.SaveChanges();
+
+                return RedirectToAction("TeacherHome");
+            }
+            else
+            {
+                return RedirectToAction("signIn", "Home");
+            }
+        }
+
+        public ActionResult EvaluateAssignment()
+        {
+            if (Session["id"] != null && db.users.Find(Session["id"]).type.Equals("Teacher"))
+            {
+                return View();
+            }
+            else
+                return RedirectToAction("signIn", "Home");
+        }
+
+        public ActionResult EvaluateStudentAssignment()
+        {
+            if (Session["id"] != null && db.users.Find(Session["id"]).type.Equals("Teacher"))
+            {
+                Session["cid"] = Request["cid"];
+                Session["sid"] = Request["sid"];
+                Session["aid"] = Request["aid"];
+                return View();
+            }
+            else
+                return RedirectToAction("signIn", "Home");
+        }
+        public ActionResult CheckAssignment()
+        {
+            if (Session["id"] != null && db.users.Find(Session["id"]).type.Equals("Teacher"))
+            {
+                try
+                {
+                    string tid = Session["id"].ToString();
+                    string cid = Request["cid"];
+                    int aNo = Convert.ToInt32(Request["aNumber"].ToString());
+
+                    List<assignmentResult> data = new List<assignmentResult>();
+
+                    data = teacher.getAssignmentsResult(cid, aNo);
+
+                    if (data.Count > 0)
+                        return View(data);
+                    else
+                    {
+                        ViewBag.ErrorType = "Show Assignment";
+                        ViewBag.message = "There is no Assignment uploaded";
+                        return View("ErrorPage");
+                    }
+                }
+                catch (Exception e)
+                {
+                    ViewBag.ErrorType = "Exception";
+                    ViewBag.message = e.Message;
+                    return View("ErrorPage");
+                }
+            }
+            else
+                return RedirectToAction("signIn", "Home");
+        }
+
     }
 }

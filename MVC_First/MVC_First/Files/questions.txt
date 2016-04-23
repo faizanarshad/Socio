@@ -1,0 +1,80 @@
+What Are The Different Views To Display A Table
+Datasheet View 
+Design View 
+Pivote Table & Pivot Chart View 
+All Of Above
+All Of Above 
+4 
+this is the ans.....
+Which Of The Following Creates A Drop Down List Of Values To Choose From?
+Ole Object 
+Hyperlink 
+Memo 
+Lookup Wizard 
+Lookup Wizard 
+4
+this is the ans.....
+The Command Center Of Access File That Appears When You Create Or Open The Ms Access Database File.
+Database Window 
+Query Window 
+Design View Window 
+Switchboard 
+Database Window
+1
+this is the ans.....
+The Third Stage In Designing A Database Is When We Analyze Our Tables More Closely And Create A ___________ Between Tables
+Relationship 
+Join 
+Query 
+None Of These
+Relationship
+1 
+this is the ans.....
+In A Database Table, The Category Of Information Is Called __________
+Tuple 
+Field 
+Record 
+All Of Above
+Field 
+2
+this is the ans.....
+This Key Uniquely Identifies Each Record
+Primary Key 
+Key Record 
+Unique Key 
+Field Name
+Primary Key
+1
+this is the ans.....
+It Is An Association Established Between Common
+Line 
+Relationship 
+Primary Key 
+Records 
+Relationship
+2
+this is the ans.....
+This Is The Stage In Database Design Where One Gathers And List All The Necessary Fields For The Database Project.
+Data Definition 
+Data Refinement 
+Establishing Relationship 
+None Of The Above 
+Data Definition 
+1
+this is the ans.....
+A Database Language Concerned With The Definition Of The Whole Database Structure And Schema Is ________
+DCL 
+DML 
+DDL 
+All Of Above
+DDL
+3
+this is the ans.....
+Which Of The Field Has Width 8 Bytes?
+Memo 
+Number 
+Date/time 
+Hyperlink
+Date/time 
+3
+this is the ans.....

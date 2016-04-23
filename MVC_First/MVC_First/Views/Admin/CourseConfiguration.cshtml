@@ -27,6 +27,17 @@
 
     });
     </script>
+@if (ViewBag.message == 0)
+{
+    <script>
+        $(document).ready(function () {
+            alert("Course Add Successfully");
+
+        });
+    </script>
+    ViewBag.message = -1;
+}
+
 
     <div class ="k-content" style="height:60%; width:50%; margin-left:25%">
         <h2 class="k-header">Course Configuration:</h2><br>

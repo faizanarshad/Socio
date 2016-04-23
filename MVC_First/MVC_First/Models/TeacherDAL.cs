@@ -30,7 +30,7 @@ namespace MVC_First.Models
         void SaveAssignment( assignment ass, string id );
         List<assignment> getAssignments( string id , string cid);
         int verifyAssignmentNumber(string cid , int aNo,string tid);
-        List<assignmentResult> getAssignmentsResult( string tid , string cid , int aNo );
+        List<assignmentResult> getAssignmentsResult(string cid , int aNo );
         List<StudentLog> getStudentLogs(string tid, string cid, string studentID);
         int getStudentObtainedMarks(List<StudentLog> data);
         int getStudentTotalMarks(List<StudentLog> data);
@@ -41,8 +41,7 @@ namespace MVC_First.Models
     }
     public class TeacherDAL : Controller,ITeacherDAL
     {
-        private PucitDBEntities db = new PucitDBEntities();
-        //private puEntities db1 = new puEntities();
+        private NudbEntities db = new NudbEntities();
 
         public void SaveQuiz(quiz z, string id)
         {
@@ -290,7 +289,7 @@ namespace MVC_First.Models
                 return -1;
             return 1;
         }
-        public List<assignmentResult> getAssignmentsResult(string tid, string cid , int aNo)
+        public List<assignmentResult> getAssignmentsResult(string cid , int aNo)
         {
             var query = from x in db.assignmentResults
                         where x.cid.Equals(cid) && x.aNumber == aNo

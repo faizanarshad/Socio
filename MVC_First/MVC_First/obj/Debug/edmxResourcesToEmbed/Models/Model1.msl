@@ -1,8 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-  <EntityContainerMapping StorageEntityContainer="pucitdbModelStoreContainer" CdmEntityContainer="PucitDBEntities">
+  <EntityContainerMapping StorageEntityContainer="NudbModelStoreContainer" CdmEntityContainer="NudbEntities">
     <EntitySetMapping Name="Announcements">
-      <EntityTypeMapping TypeName="pucitdbModel.Announcement">
+      <EntityTypeMapping TypeName="NudbModel.Announcement">
         <MappingFragment StoreEntitySet="Announcement">
           <ScalarProperty Name="announcement_id" ColumnName="announcement_id" />
           <ScalarProperty Name="audience" ColumnName="audience" />
@@ -17,7 +17,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="assignments">
-      <EntityTypeMapping TypeName="pucitdbModel.assignment">
+      <EntityTypeMapping TypeName="NudbModel.assignment">
         <MappingFragment StoreEntitySet="assignment">
           <ScalarProperty Name="aid" ColumnName="aid" />
           <ScalarProperty Name="tid" ColumnName="tid" />
@@ -32,7 +32,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="assignmentResults">
-      <EntityTypeMapping TypeName="pucitdbModel.assignmentResult">
+      <EntityTypeMapping TypeName="NudbModel.assignmentResult">
         <MappingFragment StoreEntitySet="assignmentResult">
           <ScalarProperty Name="aid" ColumnName="aid" />
           <ScalarProperty Name="sid" ColumnName="sid" />
@@ -41,12 +41,13 @@
           <ScalarProperty Name="marksObtained" ColumnName="marksObtained" />
           <ScalarProperty Name="outPutFilePath" ColumnName="outPutFilePath" />
           <ScalarProperty Name="codeFilePath" ColumnName="codeFilePath" />
+          <ScalarProperty Name="comment" ColumnName="comment" />
           <ScalarProperty Name="aNumber" ColumnName="aNumber" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="attendances">
-      <EntityTypeMapping TypeName="pucitdbModel.attendance">
+      <EntityTypeMapping TypeName="NudbModel.attendance">
         <MappingFragment StoreEntitySet="attendance">
           <ScalarProperty Name="studentId" ColumnName="studentId" />
           <ScalarProperty Name="courseId" ColumnName="courseId" />
@@ -57,7 +58,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="attendance1">
-      <EntityTypeMapping TypeName="pucitdbModel.attendance1">
+      <EntityTypeMapping TypeName="NudbModel.attendance1">
         <MappingFragment StoreEntitySet="attendance1">
           <ScalarProperty Name="studentId" ColumnName="studentId" />
           <ScalarProperty Name="courseId" ColumnName="courseId" />
@@ -69,7 +70,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="comments">
-      <EntityTypeMapping TypeName="pucitdbModel.comment">
+      <EntityTypeMapping TypeName="NudbModel.comment">
         <MappingFragment StoreEntitySet="comments">
           <ScalarProperty Name="comID" ColumnName="comID" />
           <ScalarProperty Name="pid" ColumnName="pid" />
@@ -81,7 +82,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="courses">
-      <EntityTypeMapping TypeName="pucitdbModel.cours">
+      <EntityTypeMapping TypeName="NudbModel.cours">
         <MappingFragment StoreEntitySet="courses">
           <ScalarProperty Name="cid" ColumnName="cid" />
           <ScalarProperty Name="name" ColumnName="name" />
@@ -89,16 +90,17 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="DateSheets">
-      <EntityTypeMapping TypeName="pucitdbModel.DateSheet">
-        <MappingFragment StoreEntitySet="DateSheet">
+    <EntitySetMapping Name="FileDatas">
+      <EntityTypeMapping TypeName="NudbModel.FileData">
+        <MappingFragment StoreEntitySet="FileData">
           <ScalarProperty Name="className" ColumnName="className" />
           <ScalarProperty Name="filePath" ColumnName="filePath" />
+          <ScalarProperty Name="type" ColumnName="type" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="groups">
-      <EntityTypeMapping TypeName="pucitdbModel.group">
+      <EntityTypeMapping TypeName="NudbModel.group">
         <MappingFragment StoreEntitySet="groups">
           <ScalarProperty Name="gid" ColumnName="gid" />
           <ScalarProperty Name="name" ColumnName="name" />
@@ -109,7 +111,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Logs">
-      <EntityTypeMapping TypeName="pucitdbModel.Log">
+      <EntityTypeMapping TypeName="NudbModel.Log">
         <MappingFragment StoreEntitySet="Log">
           <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="studentId" ColumnName="studentId" />
@@ -124,7 +126,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="LogStudents">
-      <EntityTypeMapping TypeName="pucitdbModel.LogStudent">
+      <EntityTypeMapping TypeName="NudbModel.LogStudent">
         <MappingFragment StoreEntitySet="LogStudent">
           <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="courseId" ColumnName="courseId" />
@@ -137,7 +139,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="LogTeachers">
-      <EntityTypeMapping TypeName="pucitdbModel.LogTeacher">
+      <EntityTypeMapping TypeName="NudbModel.LogTeacher">
         <MappingFragment StoreEntitySet="LogTeacher">
           <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="courseId" ColumnName="courseId" />
@@ -150,7 +152,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="posts">
-      <EntityTypeMapping TypeName="pucitdbModel.post">
+      <EntityTypeMapping TypeName="NudbModel.post">
         <MappingFragment StoreEntitySet="posts">
           <ScalarProperty Name="pid" ColumnName="pid" />
           <ScalarProperty Name="grpID" ColumnName="grpID" />
@@ -162,7 +164,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="questions">
-      <EntityTypeMapping TypeName="pucitdbModel.question">
+      <EntityTypeMapping TypeName="NudbModel.question">
         <MappingFragment StoreEntitySet="question">
           <ScalarProperty Name="quid" ColumnName="quid" />
           <ScalarProperty Name="statement" ColumnName="statement" />
@@ -179,7 +181,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="quizs">
-      <EntityTypeMapping TypeName="pucitdbModel.quiz">
+      <EntityTypeMapping TypeName="NudbModel.quiz">
         <MappingFragment StoreEntitySet="quiz">
           <ScalarProperty Name="qid" ColumnName="qid" />
           <ScalarProperty Name="cid" ColumnName="cid" />
@@ -196,7 +198,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="quizResults">
-      <EntityTypeMapping TypeName="pucitdbModel.quizResult">
+      <EntityTypeMapping TypeName="NudbModel.quizResult">
         <MappingFragment StoreEntitySet="quizResult">
           <ScalarProperty Name="qid" ColumnName="qid" />
           <ScalarProperty Name="sid" ColumnName="sid" />
@@ -210,7 +212,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="semesters">
-      <EntityTypeMapping TypeName="pucitdbModel.semester">
+      <EntityTypeMapping TypeName="NudbModel.semester">
         <MappingFragment StoreEntitySet="semester">
           <ScalarProperty Name="smid" ColumnName="smid" />
           <ScalarProperty Name="credithours" ColumnName="credithours" />
@@ -219,7 +221,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="students">
-      <EntityTypeMapping TypeName="pucitdbModel.student">
+      <EntityTypeMapping TypeName="NudbModel.student">
         <MappingFragment StoreEntitySet="student">
           <ScalarProperty Name="sid" ColumnName="sid" />
           <ScalarProperty Name="name" ColumnName="name" />
@@ -233,11 +235,12 @@
           <ScalarProperty Name="address" ColumnName="address" />
           <ScalarProperty Name="section" ColumnName="section" />
           <ScalarProperty Name="semester" ColumnName="semester" />
+          <ScalarProperty Name="dept" ColumnName="dept" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="teachers">
-      <EntityTypeMapping TypeName="pucitdbModel.teacher">
+      <EntityTypeMapping TypeName="NudbModel.teacher">
         <MappingFragment StoreEntitySet="teacher">
           <ScalarProperty Name="tid" ColumnName="tid" />
           <ScalarProperty Name="name" ColumnName="name" />
@@ -246,11 +249,12 @@
           <ScalarProperty Name="designation" ColumnName="designation" />
           <ScalarProperty Name="status" ColumnName="status" />
           <ScalarProperty Name="qualification" ColumnName="qualification" />
+          <ScalarProperty Name="dept" ColumnName="dept" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="teacherClasses">
-      <EntityTypeMapping TypeName="pucitdbModel.teacherClass">
+      <EntityTypeMapping TypeName="NudbModel.teacherClass">
         <MappingFragment StoreEntitySet="teacherClass">
           <ScalarProperty Name="tid" ColumnName="tid" />
           <ScalarProperty Name="cid" ColumnName="cid" />
@@ -259,17 +263,26 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="users">
-      <EntityTypeMapping TypeName="pucitdbModel.user">
+      <EntityTypeMapping TypeName="NudbModel.user">
         <MappingFragment StoreEntitySet="user">
           <ScalarProperty Name="uid" ColumnName="uid" />
           <ScalarProperty Name="name" ColumnName="name" />
           <ScalarProperty Name="type" ColumnName="type" />
           <ScalarProperty Name="password" ColumnName="password" />
           <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="dept" ColumnName="dept" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <AssociationSetMapping Name="coursesInSemester" TypeName="pucitdbModel.coursesInSemester" StoreEntitySet="coursesInSemester">
+    <AssociationSetMapping Name="commentLike" TypeName="NudbModel.commentLike" StoreEntitySet="commentLike">
+      <EndProperty Name="comments">
+        <ScalarProperty Name="comID" ColumnName="comID" />
+      </EndProperty>
+      <EndProperty Name="user">
+        <ScalarProperty Name="uid" ColumnName="username" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="coursesInSemester" TypeName="NudbModel.coursesInSemester" StoreEntitySet="coursesInSemester">
       <EndProperty Name="semester">
         <ScalarProperty Name="smid" ColumnName="smid" />
       </EndProperty>
@@ -277,7 +290,7 @@
         <ScalarProperty Name="cid" ColumnName="cid" />
       </EndProperty>
     </AssociationSetMapping>
-    <AssociationSetMapping Name="postLike" TypeName="pucitdbModel.postLike" StoreEntitySet="postLike">
+    <AssociationSetMapping Name="postLike" TypeName="NudbModel.postLike" StoreEntitySet="postLike">
       <EndProperty Name="posts">
         <ScalarProperty Name="pid" ColumnName="pid" />
       </EndProperty>
@@ -285,7 +298,7 @@
         <ScalarProperty Name="uid" ColumnName="username" />
       </EndProperty>
     </AssociationSetMapping>
-    <AssociationSetMapping Name="studentToCourses" TypeName="pucitdbModel.studentToCourses" StoreEntitySet="studentToCourses">
+    <AssociationSetMapping Name="studentToCourses" TypeName="NudbModel.studentToCourses" StoreEntitySet="studentToCourses">
       <EndProperty Name="student">
         <ScalarProperty Name="sid" ColumnName="sid" />
       </EndProperty>
@@ -293,7 +306,7 @@
         <ScalarProperty Name="cid" ColumnName="cid" />
       </EndProperty>
     </AssociationSetMapping>
-    <AssociationSetMapping Name="teacherToCourses" TypeName="pucitdbModel.teacherToCourses" StoreEntitySet="teacherToCourses">
+    <AssociationSetMapping Name="teacherToCourses" TypeName="NudbModel.teacherToCourses" StoreEntitySet="teacherToCourses">
       <EndProperty Name="teacher">
         <ScalarProperty Name="tid" ColumnName="tid" />
       </EndProperty>

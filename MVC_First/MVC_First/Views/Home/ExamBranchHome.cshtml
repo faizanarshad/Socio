@@ -21,11 +21,10 @@
 
 <div class="demo-section" style="height:60%; width:50%; margin-left:25%">
     <h2 class="k-header">Exam Branch Home:</h2><br>
-        <button class="k-primary" type="submit" id ="btn1" style="width:25%;height:auto;margin-left:15%" onclick="location.href='@Url.Action("Announcement","Home")'">Make Annoucement</button>
+    <button class="k-primary" type="submit" id="btn1" style="width:25%;height:auto;margin-left:15%" onclick="location.href='@Url.Action("uploadDatesheet","Home")'">Upload DateSheet</button>
         <button class="k-primary" type="submit" id ="btn2" style="width:25%;height:auto;margin-left:15%" onclick="location.href='@Url.Action("uploadSittingPlan","Home")'">Upload Sitting Plan</button>
        <br><br><br>
-    <button class="k-primary" type="submit" id ="btn3" style="width:25%;height:auto;margin-left:35%" onclick="location.href='@Url.Action("uploadDatesheet","Home")'">Upload DateSheet</button>
-    </div>
+   </div> 
 
 @if (ViewBag.passwordChanged != null)
 {

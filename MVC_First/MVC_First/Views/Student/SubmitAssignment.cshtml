@@ -34,21 +34,7 @@
                     });
                 });
 
-                /*$("#am").focusout(function () {
-                    var aNumber = $('#am').val();
-                    var id = $("#ccid option:selected").text();
-
-                    $.getJSON("/Teacher/CheckAssignmentNumber?aNumber="+aNumber+","+id , function (data) {
-                        if (data) {
-                            $('#u').text("Assignment already Submitted.");
-                            $('#am').css("color", "red");
-                            $('#am').css("border-color", "red");
-                            $('#u').css("color", "red");
-                            $('#u').css("font-size", "small");
-                            $('#am').val("");
-                        }
-                    });
-                });*/
+                
         });
         </script>
 
@@ -56,10 +42,10 @@
     <h2 class ="k-header">Submit Assignment:</h2>
 
     <form class="forms" role="form" method ="post" action ="/Student/SaveSubmitAssignment" enctype="multipart/form-data">
-        <br><label for="name">Course ID </label><br>
+        <br><label for="name">Course Name </label><br>
         <div >
         <select  id ="ccid" name ="cid" style ="width:70%">
-          <option>-Course ID-</option>  
+          <option>-Course Name-</option>  
         </select>
             </div>
         <br><label for ="name">Assignment No </label><br>

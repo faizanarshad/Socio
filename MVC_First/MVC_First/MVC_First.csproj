@@ -358,7 +358,7 @@
     <Compile Include="Models\cours.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\DateSheet.cs">
+    <Compile Include="Models\FileData.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\group.cs">
@@ -373,8 +373,6 @@
     <Compile Include="Models\LogTeacher.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\StudentLog.cs" />
-    <Compile Include="Models\MailModel.cs" />
     <Compile Include="Models\Model1.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -389,21 +387,6 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Model1.edmx</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Model3.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Model3.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Model3.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Model3.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Model3.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Model3.edmx</DependentUpon>
     </Compile>
     <Compile Include="Models\post.cs">
       <DependentUpon>Model1.tt</DependentUpon>
@@ -423,6 +406,8 @@
     <Compile Include="Models\student.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\StudentLog.cs" />
+    <Compile Include="Models\MailModel.cs" />
     <Compile Include="Models\StudentDAL.cs" />
     <Compile Include="Models\teacher.cs">
       <DependentUpon>Model1.tt</DependentUpon>
@@ -437,9 +422,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="App_Data\pucitdb.mdf" />
-    <Content Include="App_Data\pucitdb_log.ldf">
-      <DependentUpon>pucitdb.mdf</DependentUpon>
+    <Content Include="App_Data\nudb.mdf" />
+    <Content Include="App_Data\nudb_log.ldf">
+      <DependentUpon>nudb.mdf</DependentUpon>
     </Content>
     <Content Include="Content\2013.2.611\Black\editor.png" />
     <Content Include="Content\2013.2.611\Black\imagebrowser.png" />
@@ -812,32 +797,15 @@
     <Content Include="images\arrow.gif" />
     <Content Include="images\bg1.gif" />
     <Content Include="images\bordbot.gif" />
-    <EntityDeploy Include="Models\Model3.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>Model3.Designer.cs</LastGenOutput>
-    </EntityDeploy>
     <Content Include="images\download.jpg" />
     <Content Include="images\logo.gif" />
     <Content Include="images\logo.jpg" />
     <Content Include="images\logo2.png" />
     <Content Include="images\slide-10.jpg" />
     <Content Include="images\slide-12.jpg" />
-    <Content Include="images\vc 2.jpg" />
     <Content Include="images\slide-5.jpg" />
     <Content Include="images\vc.png" />
-    <Content Include="Models\Model3.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>Model3.edmx</DependentUpon>
-      <LastGenOutput>Model3.Context.cs</LastGenOutput>
-    </Content>
-    <Content Include="Models\Model3.edmx.diagram">
-      <DependentUpon>Model3.edmx</DependentUpon>
-    </Content>
-    <Content Include="Models\Model3.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>Model3.edmx</DependentUpon>
-      <LastGenOutput>Model3.cs</LastGenOutput>
-    </Content>
+    <Content Include="images\vcc.jpg" />
     <EntityDeploy Include="Models\Model1.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>Model1.Designer.cs</LastGenOutput>
@@ -1327,6 +1295,7 @@
     <Content Include="themes\8\loading.gif" />
     <Content Include="themes\8\tooltip.css" />
     <Content Include="themes\8\tooltip.js" />
+    <Content Include="Views\Teacher\HtmlPage1.html" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -1361,7 +1330,6 @@
     <Content Include="Views\Admin\EditCourse.cshtml" />
     <Content Include="Views\Admin\AssignCourseToTeacher.cshtml" />
     <Content Include="Views\Admin\AssignCourseToStudent.cshtml" />
-    <Content Include="Views\Admin\UsersInfo.cshtml" />
     <Content Include="Views\Admin\CourseDetails.cshtml" />
     <Content Include="Views\Teacher\ConductQuiz.cshtml" />
     <Content Include="Views\Teacher\AddQuestions.cshtml" />
@@ -1836,19 +1804,13 @@
     <Content Include="Views\Student\personalMesg4mStd.cshtml" />
     <Content Include="Views\Student\personalMesgS2S.cshtml" />
     <Content Include="Views\Student\personalMesgS2T.cshtml" />
-    <Content Include="Views\Student\viewDatesheet.cshtml" />
     <Content Include="Views\Teacher\SendMail.cshtml" />
     <Content Include="Views\Student\SendMail.cshtml" />
-    <Content Include="Views\Teacher\CreateGroup.cshtml" />
-    <Content Include="Views\Teacher\DiscussionForum.cshtml" />
     <Content Include="Views\Teacher\inbox.cshtml" />
-    <Content Include="Views\Teacher\personalMesg.cshtml" />
-    <Content Include="Views\Teacher\personalMesg2S.cshtml" />
-    <Content Include="Views\Teacher\personalMesg2T.cshtml" />
     <Content Include="Views\Teacher\ShowComments.cshtml" />
     <Content Include="Views\Teacher\ShowGroupData.cshtml" />
     <Content Include="Views\Teacher\ViewGroups.cshtml" />
-    <Content Include="Views\Student\showDatesheet.cshtml" />
+    <Content Include="Views\Student\ShowMidResult.cshtml" />
     <Content Include="Views\Teacher\courseForEditQuiz.cshtml" />
     <Content Include="Views\Teacher\showQuizResult.cshtml" />
     <Content Include="Views\Home\About.cshtml" />
@@ -1857,10 +1819,19 @@
     <Content Include="Views\Teacher\selectClassAndDate1.cshtml" />
     <Content Include="Views\Teacher\showAttendance1.cshtml" />
     <Content Include="Views\Student\MessageToUser.cshtml" />
-    <Content Include="Views\Teacher\MessageToUser.cshtml" />
     <Content Include="Views\Teacher\editAttendance.cshtml" />
     <Content Include="Views\Teacher\ViewStudentLog.cshtml" />
     <Content Include="Views\Teacher\ShowStudentLogs.cshtml" />
+    <Content Include="Views\Admin\UserType.cshtml" />
+    <Content Include="Views\Admin\Studentuser.cshtml" />
+    <Content Include="Views\Admin\Teacheruser.cshtml" />
+    <Content Include="Views\Admin\Userinfo.cshtml" />
+    <Content Include="Views\Teacher\UploadMidResult.cshtml" />
+    <Content Include="Views\Teacher\UploadFinalResult.cshtml" />
+    <Content Include="Views\Student\ShowFinalResult.cshtml" />
+    <Content Include="Views\Teacher\CheckAssignment.cshtml" />
+    <Content Include="Views\Teacher\EvaluateAssignment.cshtml" />
+    <Content Include="Views\Teacher\EvaluateStudentAssignment.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />

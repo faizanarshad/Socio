@@ -1,0 +1,43 @@
+﻿@model IEnumerable<MVC_First.Models.assignmentResult>
+
+@{
+    ViewBag.Title = "CheckAssignments";
+}
+<script src="~/Scripts/jquery-1.9.1.js"></script>
+
+
+<link href="~/Content/kendo/2013.3.1119/kendo.flat.min.css" rel="stylesheet" />
+<link href="~/Content/kendo/2013.3.1119/kendo.common.min.css" rel="stylesheet" />
+<script src="~/Scripts/kendo/2013.3.1119/jquery.min.js"></script>
+<script src="~/Scripts/kendo/2013.3.1119/kendo.web.min.js">
+
+</script>
+
+<script>
+    $('document').ready(function () {
+
+
+        $(".k-primary").kendoButton();
+
+    });
+</script>
+
+<div class="k-content" style="background-color:mintcream; height:auto; width:50%;margin-left:25%">
+    <h2 class="k-header">Check Assignments:</h2>
+
+
+    @foreach (var item in Model)
+    {
+
+        <div style="font-size:medium;border:solid;border-color:darkgray;width:100%;background-color:#e5e0e0">
+            &nbsp <h2 class="k-header" style="margin-top:-3%"> Assignment No : @item.aNumber</h2><br>
+            &nbsp Total Marks : @item.totalMarks<br><br>
+            &nbsp Student ID : @item.sid<br><br>
+
+            &nbsp <button class="k-primary" type="submit" style="width:30%" onclick="location.href='@Url.Action("ShowFile", "Teacher" , new {path = item.outPutFilePath})'">View Solution</button>
+            &nbsp <button class="k-primary" type="submit" style="width:30%" onclick="location.href='@Url.Action("EvaluateStudentAssignment", "Teacher" , new {aid = item.aid, sid = item.sid, cid = item.cid})'">Evaluate Assignment</button><br><br>
+        </div><br>
+
+    }
+
+</div>

@@ -12,7 +12,7 @@ namespace MVC_First.Controllers
 {
     public class AdminController : Controller
     {
-        private PucitDBEntities db = new PucitDBEntities();
+        private NudbEntities db = new NudbEntities();
 
         public ActionResult AdminHome()
         {
@@ -30,6 +30,11 @@ namespace MVC_First.Controllers
         {
             if (Session["id"] != null && db.users.Find(Session["id"]).type.Equals("admin"))
             {
+                if (Session["UserDelete"] != null)
+                {
+                    Session["UserDelete"] = null;
+                    ViewBag.delete = 0;
+                }
                 return View();
             }
             return RedirectToAction("signIn", "Home");
@@ -42,11 +47,34 @@ namespace MVC_First.Controllers
             }
             return RedirectToAction("signIn", "Home");
         }
-        public ActionResult UsersInfo()
+        
+        public ActionResult Userinfo()
         {
             if (Session["id"] != null && db.users.Find(Session["id"]).type.Equals("admin"))
             {
                 var model = from r in db.users
+                            select r;
+                return View(model);
+            }
+            return RedirectToAction("signIn", "Home");
+        }
+        public ActionResult Teacheruser()
+        {
+            if (Session["id"] != null && db.users.Find(Session["id"]).type.Equals("admin"))
+            {
+                var model = from r in db.users
+                            where r.type.Equals("teacher")
+                            select r;
+                return View(model);
+            }
+            return RedirectToAction("signIn", "Home");
+        }
+        public ActionResult Studentuser()
+        {
+            if (Session["id"] != null && db.users.Find(Session["id"]).type.Equals("admin"))
+            {
+                var model = from r in db.users
+                            where r.type.Equals("Student")
                             select r;
                 return View(model);
             }
@@ -191,7 +219,8 @@ namespace MVC_First.Controllers
 
         public ActionResult AssignCourse()
         {
-            string tid = Request ["tid"];
+                        
+                string tid = Request ["tid"];
             string cid = Request ["cid"];
 
             String fall = Request["fall"];
@@ -273,6 +302,7 @@ namespace MVC_First.Controllers
                         t.password = u.password;
                         t.tid = u.uid;
                         t.email = u.email;
+                        t.dept = u.dept;
                         db.teachers.Add(t);
                     }
                     else
@@ -287,12 +317,13 @@ namespace MVC_First.Controllers
                         st.section = "Morning";
                         st.session = u.uid.Substring(0, 6);
                         st.email = u.email;
+                        st.dept = u.dept;
                         db.students.Add(st);
                     }
                     db.users.Add(u);
                     db.SaveChanges();
                     ViewBag.message = 1;
-                    return View("AddUser");
+                    return View("AddSingleUser");
                 }
                 else
                 {
@@ -311,10 +342,15 @@ namespace MVC_First.Controllers
                 user u1 = db.users.Find(u.uid);
                 if (u1 == null)
                 {
+                    
                     return HttpNotFound();
+                    
                 }
+                
                 return View(u1);
+                
             }
+            
             return RedirectToAction("signIn", "Home");
         }
         [HttpPost, ActionName("Delete")]
@@ -335,6 +371,7 @@ namespace MVC_First.Controllers
                 }
                 db.users.Remove(u1);
                 db.SaveChanges();
+                Session["UserDelete"] = "Yes";
                 return RedirectToAction("UserSetup");
             }
             return RedirectToAction("signIn", "Home");
@@ -386,6 +423,7 @@ namespace MVC_First.Controllers
                 {
 
                     while (result != null)
+                       
                     {
                         data = result.Split(delimiterChar);
                         user u = new user();
@@ -465,8 +503,8 @@ namespace MVC_First.Controllers
                 {
                     db.courses.Add(c);
                     db.SaveChanges();
+                    ViewBag.message = 0;
                 }
-
 
                 return View("CourseConfiguration");
             }

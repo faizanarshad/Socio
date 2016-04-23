@@ -33,9 +33,10 @@
         <button class="k-primary" type="submit"  style="width:25%;height:auto;margin-left:15%" id ="btn1" onclick = "location.href='@Url.Action("UserSetup", "Admin" )'">User Setup</button>
         <button class="k-primary" type="submit"  style="width:25%;height:auto;margin-left:15%" id ="btn3" onclick = "location.href='@Url.Action("CourseConfiguration", "Admin" )'">Course Configuration</button>
         <br><br><br>
-        <button class="k-primary" type="submit"  style="width:25%;height:auto;margin-left:15%" id ="btn4" onclick = "location.href='@Url.Action("UsersInfo", "Admin" )'">View All Users Info</button>
+        <button class="k-primary" type="submit"  style="width:25%;height:auto;margin-left:15%" id ="btn4" onclick = "location.href='@Url.Action("Userinfo", "Admin" )'">View All Users Info</button>
         <button class="k-primary" type="submit"  style="width:25%;height:auto;margin-left:15%" id ="btn5" onclick = "location.href='@Url.Action("CourseDetails", "Admin" )'">View All Courses</button>
-     
+    <br><br><br>
+    
 </div>
 
 @if (ViewBag.passwordChanged != null)

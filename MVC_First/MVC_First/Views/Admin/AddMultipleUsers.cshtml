@@ -26,6 +26,16 @@
 
   });
     </script>
+@if (ViewBag.message == 0)
+{
+    <script>
+        $(document).ready(function () {
+            alert("User ID Already exist");
+
+        });
+    </script>
+    ViewBag.message = -1;
+}
 
     <div class ="l-content" style="height:auto; width:40%; margin-left:25%">
         <h2 class="k-header">Add Multiple User:</h2>

@@ -21,6 +21,9 @@
         <th style ="font-size:medium">
             Marks Obtained
         </th>
+        <th style="font-size:medium">
+            Comments
+        </th>
     </tr>
 
 @foreach (var item in Model) {
@@ -37,7 +40,9 @@
         <td style ="font-size:small;text-align:center">
             @Html.DisplayFor(modelItem => item.marksObtained)
         </td>
-        
+        <td style="font-size:small;text-align:center">
+            @Html.DisplayFor(modelItem => item.comment)
+        </td>
     </tr>
 }
 

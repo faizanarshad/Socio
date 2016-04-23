@@ -22,7 +22,7 @@ namespace MVC_First.Models
 
     public class StudentDAL : IStudentDAL
     {
-        PucitDBEntities db = new PucitDBEntities();
+        NudbEntities db = new NudbEntities();
 
         public int verifyCourse(string id , string stid)
         {
